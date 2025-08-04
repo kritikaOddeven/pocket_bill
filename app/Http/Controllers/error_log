@@ -1,0 +1,4 @@
+[26-Mar-2025 14:50:30 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Routing\Controller' not found in /home/yuglogix/pocketbill1.myaccount365.in/app/Http/Controllers/Controller.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/app/Http/Controllers/Controller.php on line 10

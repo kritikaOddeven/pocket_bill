@@ -1,0 +1,188 @@
+[26-Mar-2025 14:48:05 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to undefined function storage_path() in /home/yuglogix/pocketbill1.myaccount365.in/config/dompdf.php:41
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/config/dompdf.php on line 41
+[26-Mar-2025 15:18:09 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/yuglogix/pocketbill1.myaccount365.in/config/filesystems.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/config/filesystems.php on line 16
+[26-Mar-2025 15:20:51 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/yuglogix/pocketbill1.myaccount365.in/config/broadcasting.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/config/broadcasting.php on line 18
+[26-Mar-2025 15:25:15 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/yuglogix/pocketbill1.myaccount365.in/config/mail.php:19
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/config/mail.php on line 19
+[26-Mar-2025 15:40:22 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/yuglogix/pocketbill1.myaccount365.in/config/database.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/config/database.php on line 16
+[09-Apr-2025 13:03:34 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to undefined function storage_path() in /home/yuglogix/pocketbill1.myaccount365.in/config/dompdf.php:41
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/config/dompdf.php on line 41
+[09-Apr-2025 13:03:36 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/yuglogix/pocketbill1.myaccount365.in/config/app.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/config/app.php on line 16
+[09-Apr-2025 13:03:36 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/yuglogix/pocketbill1.myaccount365.in/config/database.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/config/database.php on line 16
+[09-Apr-2025 13:03:36 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/yuglogix/pocketbill1.myaccount365.in/config/broadcasting.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/config/broadcasting.php on line 18
+[09-Apr-2025 13:03:37 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/yuglogix/pocketbill1.myaccount365.in/config/app.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/config/app.php on line 16
+[09-Apr-2025 13:03:37 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/yuglogix/pocketbill1.myaccount365.in/config/database.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/config/database.php on line 16
+[09-Apr-2025 13:03:40 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to undefined function storage_path() in /home/yuglogix/pocketbill1.myaccount365.in/config/dompdf.php:41
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/config/dompdf.php on line 41
+[09-Apr-2025 13:03:40 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to undefined function storage_path() in /home/yuglogix/pocketbill1.myaccount365.in/config/dompdf.php:41
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/config/dompdf.php on line 41
+[09-Apr-2025 13:03:40 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/yuglogix/pocketbill1.myaccount365.in/config/database.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/config/database.php on line 16
+[09-Apr-2025 13:03:41 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/yuglogix/pocketbill1.myaccount365.in/config/app.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/config/app.php on line 16
+[09-Apr-2025 13:03:41 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/yuglogix/pocketbill1.myaccount365.in/config/broadcasting.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/config/broadcasting.php on line 18
+[09-Apr-2025 13:03:48 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/yuglogix/pocketbill1.myaccount365.in/config/filesystems.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/config/filesystems.php on line 16
+[09-Apr-2025 13:03:49 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/yuglogix/pocketbill1.myaccount365.in/config/cache.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/config/cache.php on line 18
+[09-Apr-2025 13:04:08 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/yuglogix/pocketbill1.myaccount365.in/config/database.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/config/database.php on line 16
+[09-Apr-2025 14:22:06 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/yuglogix/pocketbill1.myaccount365.in/config/filesystems.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/config/filesystems.php on line 16
+[09-Apr-2025 14:22:06 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/yuglogix/pocketbill1.myaccount365.in/config/mail.php:19
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/config/mail.php on line 19
+[09-Apr-2025 14:22:06 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/yuglogix/pocketbill1.myaccount365.in/config/queue.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/config/queue.php on line 18
+[09-Apr-2025 14:22:06 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/yuglogix/pocketbill1.myaccount365.in/config/services.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/config/services.php on line 18
+[09-Apr-2025 14:22:06 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/yuglogix/pocketbill1.myaccount365.in/config/cache.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/config/cache.php on line 18
+[09-Apr-2025 14:22:06 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/yuglogix/pocketbill1.myaccount365.in/config/filesystems.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/config/filesystems.php on line 16
+[09-Apr-2025 14:22:06 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/yuglogix/pocketbill1.myaccount365.in/config/queue.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/config/queue.php on line 18
+[09-Apr-2025 14:22:07 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/yuglogix/pocketbill1.myaccount365.in/config/broadcasting.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/config/broadcasting.php on line 18
+[09-Apr-2025 14:22:07 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/yuglogix/pocketbill1.myaccount365.in/config/session.php:19
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/config/session.php on line 19
+[09-Apr-2025 14:22:09 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/yuglogix/pocketbill1.myaccount365.in/config/broadcasting.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/config/broadcasting.php on line 18
+[09-Apr-2025 14:27:00 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/yuglogix/pocketbill1.myaccount365.in/config/mail.php:19
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/config/mail.php on line 19
+[09-Apr-2025 14:27:00 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/yuglogix/pocketbill1.myaccount365.in/config/mail.php:19
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/config/mail.php on line 19
+[09-Apr-2025 14:27:07 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/yuglogix/pocketbill1.myaccount365.in/config/queue.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/config/queue.php on line 18
+[09-Apr-2025 14:27:08 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/yuglogix/pocketbill1.myaccount365.in/config/queue.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/config/queue.php on line 18
+[09-Apr-2025 14:27:08 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/yuglogix/pocketbill1.myaccount365.in/config/session.php:19
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/config/session.php on line 19
+[09-Apr-2025 14:27:08 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/yuglogix/pocketbill1.myaccount365.in/config/cache.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/config/cache.php on line 18
+[09-Apr-2025 14:27:09 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/yuglogix/pocketbill1.myaccount365.in/config/session.php:19
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/config/session.php on line 19
+[09-Apr-2025 14:27:09 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/yuglogix/pocketbill1.myaccount365.in/config/cache.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/config/cache.php on line 18
+[09-Apr-2025 14:27:12 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/yuglogix/pocketbill1.myaccount365.in/config/filesystems.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/config/filesystems.php on line 16
+[09-Apr-2025 14:27:12 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/yuglogix/pocketbill1.myaccount365.in/config/filesystems.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/config/filesystems.php on line 16
+[09-Apr-2025 14:27:13 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/yuglogix/pocketbill1.myaccount365.in/config/services.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/config/services.php on line 18
+[09-Apr-2025 14:27:13 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/yuglogix/pocketbill1.myaccount365.in/config/services.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/config/services.php on line 18
+[09-Apr-2025 14:27:14 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to undefined function storage_path() in /home/yuglogix/pocketbill1.myaccount365.in/config/dompdf.php:41
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/config/dompdf.php on line 41
+[09-Apr-2025 14:27:15 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to undefined function storage_path() in /home/yuglogix/pocketbill1.myaccount365.in/config/dompdf.php:41
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/config/dompdf.php on line 41
+[09-Apr-2025 14:27:20 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/yuglogix/pocketbill1.myaccount365.in/config/database.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/config/database.php on line 16
+[09-Apr-2025 14:28:34 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/yuglogix/pocketbill1.myaccount365.in/config/broadcasting.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/config/broadcasting.php on line 18
+[09-Apr-2025 14:29:18 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/yuglogix/pocketbill1.myaccount365.in/config/app.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/config/app.php on line 16
+[09-Apr-2025 14:29:18 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/yuglogix/pocketbill1.myaccount365.in/config/app.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/config/app.php on line 16

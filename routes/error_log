@@ -1,0 +1,24 @@
+[26-Mar-2025 15:06:00 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Artisan' not found in /home/yuglogix/pocketbill1.myaccount365.in/routes/console.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/routes/console.php on line 16
+[09-Apr-2025 13:03:39 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Route' not found in /home/yuglogix/pocketbill1.myaccount365.in/routes/web.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/routes/web.php on line 14
+[09-Apr-2025 13:03:40 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Broadcast' not found in /home/yuglogix/pocketbill1.myaccount365.in/routes/channels.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/routes/channels.php on line 14
+[09-Apr-2025 13:03:41 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Artisan' not found in /home/yuglogix/pocketbill1.myaccount365.in/routes/console.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/routes/console.php on line 16
+[09-Apr-2025 13:03:49 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Broadcast' not found in /home/yuglogix/pocketbill1.myaccount365.in/routes/channels.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/routes/channels.php on line 14
+[09-Apr-2025 13:03:53 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Route' not found in /home/yuglogix/pocketbill1.myaccount365.in/routes/web.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/routes/web.php on line 14

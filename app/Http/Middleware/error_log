@@ -1,0 +1,12 @@
+[26-Mar-2025 15:07:59 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Fideloper\Proxy\TrustProxies' not found in /home/yuglogix/pocketbill1.myaccount365.in/app/Http/Middleware/TrustProxies.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/app/Http/Middleware/TrustProxies.php on line 8
+[26-Mar-2025 15:48:43 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Http\Middleware\TrimStrings' not found in /home/yuglogix/pocketbill1.myaccount365.in/app/Http/Middleware/TrimStrings.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/app/Http/Middleware/TrimStrings.php on line 7
+[16-Apr-2025 05:59:50 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Http\Middleware\TrimStrings' not found in /home/yuglogix/pocketbill1.myaccount365.in/app/Http/Middleware/TrimStrings.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/app/Http/Middleware/TrimStrings.php on line 7

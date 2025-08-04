@@ -1,0 +1,244 @@
+[26-Mar-2025 14:47:50 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_115134_create_customers_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_115134_create_customers_table.php on line 7
+[02-Apr-2025 21:21:14 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_120718_create_bill_details_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_120718_create_bill_details_table.php on line 7
+[02-Apr-2025 21:45:44 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_115134_create_customers_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_115134_create_customers_table.php on line 7
+[09-Apr-2025 20:14:20 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2014_10_12_000000_create_users_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2014_10_12_000000_create_users_table.php on line 7
+[09-Apr-2025 20:14:21 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_113359_create_categories_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_113359_create_categories_table.php on line 7
+[09-Apr-2025 20:14:21 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_113359_create_categories_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_113359_create_categories_table.php on line 7
+[09-Apr-2025 20:14:51 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_110008_add_new_columns_to_users.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_110008_add_new_columns_to_users.php on line 7
+[09-Apr-2025 20:15:08 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_110008_add_new_columns_to_users.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_110008_add_new_columns_to_users.php on line 7
+[09-Apr-2025 20:26:22 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2014_10_12_100000_create_password_resets_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2014_10_12_100000_create_password_resets_table.php on line 7
+[09-Apr-2025 20:26:22 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2014_10_12_100000_create_password_resets_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2014_10_12_100000_create_password_resets_table.php on line 7
+[16-Apr-2025 04:00:26 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_120718_create_bill_details_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_120718_create_bill_details_table.php on line 7
+[17-Apr-2025 04:30:38 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_120718_create_bill_details_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_120718_create_bill_details_table.php on line 7
+[19-Apr-2025 03:48:28 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_115850_create_bills_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_115850_create_bills_table.php on line 7
+[19-Apr-2025 04:43:34 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_120718_create_bill_details_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_120718_create_bill_details_table.php on line 7
+[20-Apr-2025 05:22:34 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_120718_create_bill_details_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_120718_create_bill_details_table.php on line 7
+[20-Apr-2025 06:31:42 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_115850_create_bills_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_115850_create_bills_table.php on line 7
+[21-Apr-2025 03:27:18 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_120718_create_bill_details_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_120718_create_bill_details_table.php on line 7
+[22-Apr-2025 04:05:02 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_120718_create_bill_details_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_120718_create_bill_details_table.php on line 7
+[22-Apr-2025 04:59:46 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_115850_create_bills_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_115850_create_bills_table.php on line 7
+[24-Apr-2025 03:25:14 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_120718_create_bill_details_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_120718_create_bill_details_table.php on line 7
+[24-Apr-2025 04:17:35 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_115850_create_bills_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_115850_create_bills_table.php on line 7
+[25-Apr-2025 03:45:40 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_120718_create_bill_details_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_120718_create_bill_details_table.php on line 7
+[25-Apr-2025 04:14:55 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_115850_create_bills_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_115850_create_bills_table.php on line 7
+[26-Apr-2025 04:08:55 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_115850_create_bills_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_115850_create_bills_table.php on line 7
+[26-Apr-2025 05:20:14 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_120718_create_bill_details_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_120718_create_bill_details_table.php on line 7
+[27-Apr-2025 03:55:24 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_115850_create_bills_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_115850_create_bills_table.php on line 7
+[28-Apr-2025 04:17:06 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_120718_create_bill_details_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_120718_create_bill_details_table.php on line 7
+[28-Apr-2025 04:38:23 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_115850_create_bills_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_115850_create_bills_table.php on line 7
+[29-Apr-2025 03:04:16 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_115850_create_bills_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_115850_create_bills_table.php on line 7
+[29-Apr-2025 03:16:26 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_120718_create_bill_details_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_120718_create_bill_details_table.php on line 7
+[30-Apr-2025 02:59:40 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_115850_create_bills_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_115850_create_bills_table.php on line 7
+[30-Apr-2025 04:05:59 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_120718_create_bill_details_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_120718_create_bill_details_table.php on line 7
+[01-May-2025 02:51:24 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_115850_create_bills_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_115850_create_bills_table.php on line 7
+[01-May-2025 04:43:59 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_120718_create_bill_details_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_120718_create_bill_details_table.php on line 7
+[02-May-2025 03:44:25 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_120718_create_bill_details_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_120718_create_bill_details_table.php on line 7
+[02-May-2025 05:50:26 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_115850_create_bills_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_115850_create_bills_table.php on line 7
+[03-May-2025 03:15:50 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_115850_create_bills_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_115850_create_bills_table.php on line 7
+[03-May-2025 05:19:38 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_120718_create_bill_details_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_120718_create_bill_details_table.php on line 7
+[04-May-2025 03:24:33 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_115850_create_bills_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_115850_create_bills_table.php on line 7
+[04-May-2025 05:16:40 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_120718_create_bill_details_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_120718_create_bill_details_table.php on line 7
+[05-May-2025 03:11:12 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_115850_create_bills_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_115850_create_bills_table.php on line 7
+[05-May-2025 04:59:46 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_120718_create_bill_details_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_120718_create_bill_details_table.php on line 7
+[06-May-2025 02:45:12 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_120718_create_bill_details_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_120718_create_bill_details_table.php on line 7
+[06-May-2025 03:02:56 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_115850_create_bills_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_115850_create_bills_table.php on line 7
+[07-May-2025 04:04:14 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_120718_create_bill_details_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_120718_create_bill_details_table.php on line 7
+[07-May-2025 05:19:26 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_115850_create_bills_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_115850_create_bills_table.php on line 7
+[08-May-2025 02:19:49 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_115850_create_bills_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_115850_create_bills_table.php on line 7
+[08-May-2025 02:55:25 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_120718_create_bill_details_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_120718_create_bill_details_table.php on line 7
+[09-May-2025 02:49:58 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_120718_create_bill_details_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_120718_create_bill_details_table.php on line 7
+[09-May-2025 03:01:12 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_115850_create_bills_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_115850_create_bills_table.php on line 7
+[10-May-2025 03:03:03 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_115850_create_bills_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_115850_create_bills_table.php on line 7
+[10-May-2025 03:21:09 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_120718_create_bill_details_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_120718_create_bill_details_table.php on line 7
+[11-May-2025 03:46:07 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_120718_create_bill_details_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_120718_create_bill_details_table.php on line 7
+[11-May-2025 04:08:03 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_115850_create_bills_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_115850_create_bills_table.php on line 7
+[12-May-2025 04:07:51 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_115850_create_bills_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_115850_create_bills_table.php on line 7
+[12-May-2025 04:34:34 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_120718_create_bill_details_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_120718_create_bill_details_table.php on line 7
+[13-May-2025 03:49:45 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_115850_create_bills_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_115850_create_bills_table.php on line 7
+[14-May-2025 04:33:50 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_115850_create_bills_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_115850_create_bills_table.php on line 7
+[15-May-2025 03:12:48 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_115850_create_bills_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_115850_create_bills_table.php on line 7
+[16-May-2025 06:14:28 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_115850_create_bills_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_115850_create_bills_table.php on line 7
+[17-May-2025 06:03:21 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Migrations\Migration' not found in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_115850_create_bills_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/database/migrations/2020_03_05_115850_create_bills_table.php on line 7

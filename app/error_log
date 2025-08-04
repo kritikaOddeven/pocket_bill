@@ -1,0 +1,36 @@
+[19-Apr-2025 04:45:38 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Eloquent\Model' not found in /home/yuglogix/pocketbill1.myaccount365.in/app/Bills.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/app/Bills.php on line 7
+[19-Apr-2025 04:59:11 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Eloquent\Model' not found in /home/yuglogix/pocketbill1.myaccount365.in/app/Subcategories.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/app/Subcategories.php on line 7
+[20-Apr-2025 06:18:42 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Eloquent\Model' not found in /home/yuglogix/pocketbill1.myaccount365.in/app/Subcategories.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/app/Subcategories.php on line 7
+[20-Apr-2025 07:17:49 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Eloquent\Model' not found in /home/yuglogix/pocketbill1.myaccount365.in/app/Bills.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/app/Bills.php on line 7
+[21-Apr-2025 05:45:37 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Eloquent\Model' not found in /home/yuglogix/pocketbill1.myaccount365.in/app/Subcategories.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/app/Subcategories.php on line 7
+[22-Apr-2025 05:27:18 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Eloquent\Model' not found in /home/yuglogix/pocketbill1.myaccount365.in/app/Subcategories.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/app/Subcategories.php on line 7
+[24-Apr-2025 04:28:07 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Eloquent\Model' not found in /home/yuglogix/pocketbill1.myaccount365.in/app/Subcategories.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/app/Subcategories.php on line 7
+[25-Apr-2025 04:59:13 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Eloquent\Model' not found in /home/yuglogix/pocketbill1.myaccount365.in/app/Subcategories.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/app/Subcategories.php on line 7
+[26-Apr-2025 04:47:30 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Eloquent\Model' not found in /home/yuglogix/pocketbill1.myaccount365.in/app/Subcategories.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/app/Subcategories.php on line 7

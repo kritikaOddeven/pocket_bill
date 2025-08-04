@@ -1,0 +1,8 @@
+[18-Apr-2025 13:55:59 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Http\Kernel' not found in /home/yuglogix/pocketbill1.myaccount365.in/app/Http/Kernel.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/app/Http/Kernel.php on line 7
+[19-Apr-2025 04:06:16 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Http\Kernel' not found in /home/yuglogix/pocketbill1.myaccount365.in/app/Http/Kernel.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/app/Http/Kernel.php on line 7

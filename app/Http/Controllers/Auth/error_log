@@ -1,0 +1,12 @@
+[26-Mar-2025 15:07:59 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'App\Http\Controllers\Controller' not found in /home/yuglogix/pocketbill1.myaccount365.in/app/Http/Controllers/Auth/ResetPasswordController.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/app/Http/Controllers/Auth/ResetPasswordController.php on line 8
+[26-Mar-2025 15:08:57 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'App\Http\Controllers\Controller' not found in /home/yuglogix/pocketbill1.myaccount365.in/app/Http/Controllers/Auth/ForgotPasswordController.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/app/Http/Controllers/Auth/ForgotPasswordController.php on line 8
+[03-Apr-2025 10:55:27 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'App\Http\Controllers\Controller' not found in /home/yuglogix/pocketbill1.myaccount365.in/app/Http/Controllers/Auth/LoginController.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/app/Http/Controllers/Auth/LoginController.php on line 8

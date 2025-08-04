@@ -1,0 +1,108 @@
+[18-Apr-2025 15:12:13 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Testing\TestCase' not found in /home/yuglogix/pocketbill1.myaccount365.in/tests/TestCase.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/tests/TestCase.php on line 7
+[19-Apr-2025 04:47:37 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Testing\TestCase' not found in /home/yuglogix/pocketbill1.myaccount365.in/tests/TestCase.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/tests/TestCase.php on line 7
+[20-Apr-2025 06:44:03 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Testing\TestCase' not found in /home/yuglogix/pocketbill1.myaccount365.in/tests/TestCase.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/tests/TestCase.php on line 7
+[21-Apr-2025 05:38:31 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Testing\TestCase' not found in /home/yuglogix/pocketbill1.myaccount365.in/tests/TestCase.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/tests/TestCase.php on line 7
+[22-Apr-2025 05:54:16 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Testing\TestCase' not found in /home/yuglogix/pocketbill1.myaccount365.in/tests/TestCase.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/tests/TestCase.php on line 7
+[24-Apr-2025 05:09:57 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Testing\TestCase' not found in /home/yuglogix/pocketbill1.myaccount365.in/tests/TestCase.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/tests/TestCase.php on line 7
+[25-Apr-2025 05:48:07 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Testing\TestCase' not found in /home/yuglogix/pocketbill1.myaccount365.in/tests/TestCase.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/tests/TestCase.php on line 7
+[27-Apr-2025 04:53:05 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Testing\TestCase' not found in /home/yuglogix/pocketbill1.myaccount365.in/tests/TestCase.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/tests/TestCase.php on line 7
+[28-Apr-2025 04:11:05 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Testing\TestCase' not found in /home/yuglogix/pocketbill1.myaccount365.in/tests/TestCase.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/tests/TestCase.php on line 7
+[29-Apr-2025 04:57:16 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Testing\TestCase' not found in /home/yuglogix/pocketbill1.myaccount365.in/tests/TestCase.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/tests/TestCase.php on line 7
+[30-Apr-2025 05:42:17 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Testing\TestCase' not found in /home/yuglogix/pocketbill1.myaccount365.in/tests/TestCase.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/tests/TestCase.php on line 7
+[01-May-2025 05:46:29 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Testing\TestCase' not found in /home/yuglogix/pocketbill1.myaccount365.in/tests/TestCase.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/tests/TestCase.php on line 7
+[02-May-2025 05:14:52 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Testing\TestCase' not found in /home/yuglogix/pocketbill1.myaccount365.in/tests/TestCase.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/tests/TestCase.php on line 7
+[03-May-2025 04:32:13 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Testing\TestCase' not found in /home/yuglogix/pocketbill1.myaccount365.in/tests/TestCase.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/tests/TestCase.php on line 7
+[04-May-2025 05:33:19 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Testing\TestCase' not found in /home/yuglogix/pocketbill1.myaccount365.in/tests/TestCase.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/tests/TestCase.php on line 7
+[05-May-2025 05:03:59 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Testing\TestCase' not found in /home/yuglogix/pocketbill1.myaccount365.in/tests/TestCase.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/tests/TestCase.php on line 7
+[06-May-2025 05:09:47 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Testing\TestCase' not found in /home/yuglogix/pocketbill1.myaccount365.in/tests/TestCase.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/tests/TestCase.php on line 7
+[07-May-2025 05:30:44 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Testing\TestCase' not found in /home/yuglogix/pocketbill1.myaccount365.in/tests/TestCase.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/tests/TestCase.php on line 7
+[08-May-2025 05:24:03 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Testing\TestCase' not found in /home/yuglogix/pocketbill1.myaccount365.in/tests/TestCase.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/tests/TestCase.php on line 7
+[09-May-2025 05:19:08 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Testing\TestCase' not found in /home/yuglogix/pocketbill1.myaccount365.in/tests/TestCase.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/tests/TestCase.php on line 7
+[10-May-2025 05:36:10 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Testing\TestCase' not found in /home/yuglogix/pocketbill1.myaccount365.in/tests/TestCase.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/tests/TestCase.php on line 7
+[11-May-2025 05:08:26 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Testing\TestCase' not found in /home/yuglogix/pocketbill1.myaccount365.in/tests/TestCase.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/tests/TestCase.php on line 7
+[12-May-2025 05:40:51 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Testing\TestCase' not found in /home/yuglogix/pocketbill1.myaccount365.in/tests/TestCase.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/tests/TestCase.php on line 7
+[13-May-2025 04:01:11 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Testing\TestCase' not found in /home/yuglogix/pocketbill1.myaccount365.in/tests/TestCase.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/tests/TestCase.php on line 7
+[14-May-2025 06:18:06 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Testing\TestCase' not found in /home/yuglogix/pocketbill1.myaccount365.in/tests/TestCase.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/tests/TestCase.php on line 7
+[15-May-2025 05:09:57 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Testing\TestCase' not found in /home/yuglogix/pocketbill1.myaccount365.in/tests/TestCase.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/tests/TestCase.php on line 7
+[16-May-2025 07:13:52 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Testing\TestCase' not found in /home/yuglogix/pocketbill1.myaccount365.in/tests/TestCase.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/yuglogix/pocketbill1.myaccount365.in/tests/TestCase.php on line 7
