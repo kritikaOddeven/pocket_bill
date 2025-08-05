@@ -15669,6 +15669,7 @@ html:not(.layout-footer-fixed) .content-wrapper {
   flex-shrink: 0;
   opacity: 1;
   transition: opacity 0.15s ease-in-out;
+  text-transform: capitalize !important;
 }
 
 .app-brand-img-collapsed {
