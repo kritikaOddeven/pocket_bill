@@ -25,7 +25,8 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
-        Passport::routes();
-        //
+        
+        // Passport routes are now handled automatically in newer versions
+        // Passport::routes(); // Removed for Laravel 11 compatibility
     }
 }
