@@ -14,7 +14,7 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response 
      */ 
     public function login(Request $request){
-dd('ds');
+    // dd('ds');
         $validator = Validator::make($request->all(), [
             'email' => 'required|max:255', 
             'password' => 'required|max:255',

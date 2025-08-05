@@ -36,17 +36,16 @@
 
                     <div class="mb-3">
                         <label for="password_confirmation" class="form-label fw-semibold">Confirm Password</label>
-                        <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" required autocomplete="new-password">
+                        <input type="password" class="form-control" id="password_confirmation" name="c_password" required autocomplete="new-password">
                     </div>
 
-                    <div class="mb-3 form-check">
+                    {{-- <div class="mb-3 form-check">
                         <input type="checkbox" class="form-check-input @error('terms') is-invalid @enderror" id="terms" name="terms" required>
                         <label class="form-check-label" for="terms">
                             I agree to the <a href="#" class="text-decoration-none">Terms of Service</a> and
                             <a href="#" class="text-decoration-none">Privacy Policy</a>
                         </label>
-
-                    </div>
+                    </div> --}}
 
                     <div class="d-grid mb-3">
                         <button type="submit" class="btn btn-primary btn-lg">
