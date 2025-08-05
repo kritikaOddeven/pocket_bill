@@ -12,17 +12,33 @@
 */
 
 Route::get('/', function () {
-    return view('landing');
+    return view('app');
 });
 
 Route::get('/login', function () {
-    return view('login');
+    return view('auth.login');
 })->name('login');
 
-Route::get('/register', function () {
-    return view('register');
-})->name('register');
+Route::get('/customers', function () {
+    return view('customers.index');
+})->name('customers');
+
+Route::get('/customers/add', function () {
+    return view('customers.add');
+})->name('customers');
+
+Route::get('/customers/edit', function () {
+    return view('customers.edit');
+})->name('customers');
 
 Route::get('/invoice', function () {
-    return view('invoice');
+    return view('invoice.index');
+})->name('invoice');
+
+Route::get('/invoice/create', function () {
+    return view('invoice.add');
+})->name('invoice');
+
+Route::get('/invoice/view', function () {
+    return view('invoice.view');
 })->name('invoice');
