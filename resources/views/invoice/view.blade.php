@@ -11,7 +11,7 @@
                             <div class="mb-xl-0 mb-6 text-heading">
                                 <div class="d-flex svg-illustration mb-6 gap-2 align-items-center">
                                     <span class="app-brand-logo demo">
-                                        <span class="text-primary">
+                                        {{-- <span class="text-primary">
 
                                             <svg width="25" viewBox="0 0 25 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                                 <defs>
@@ -45,9 +45,9 @@
                                                     </g>
                                                 </g>
                                             </svg>
-                                        </span>
+                                        </span> --}}
                                     </span>
-                                    <span class="app-brand-text demo fw-bold ms-50 lh-1">Sneat</span>
+                                    <span class="app-brand-text demo fw-bold ms-50 lh-1">Pocket Bill</span>
                                 </div>
                                 <p class="mb-2">Office 149, 450 South Brand Brooklyn</p>
                                 <p class="mb-2">San Diego County, CA 91905, USA</p>

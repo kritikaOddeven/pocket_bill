@@ -5,7 +5,7 @@
         <div class="card">
             <div class="card-header d-flex justify-content-between align-items-center">
                 <h5 class="">Invoice Lists</h5>
-                <a href="{{url('invoice/add')}}" class="btn create-new btn-primary" type="button"><span class="d-flex align-items-center gap-2"><i class="icon-base bx bx-plus icon-sm"></i> <span class="d-none d-sm-inline-block">Create Invoice</span></span></a>
+                <a href="{{url('invoice/create')}}" class="btn create-new btn-primary" type="button"><span class="d-flex align-items-center gap-2"><i class="icon-base bx bx-plus icon-sm"></i> <span class="d-none d-sm-inline-block">Create Invoice</span></span></a>
             </div>
             <div class="table-responsive text-nowrap">
                 <table class="table">
