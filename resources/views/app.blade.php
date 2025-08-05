@@ -90,27 +90,27 @@
 
                 <ul class="menu-inner py-1">
                     <!-- Dashboard -->
-                    <li class="menu-item active">
-                        <a href="index.html" class="menu-link">
+                    <li class="menu-item {{ request()->is('dashboard') ? 'active' : '' }}">
+                        <a href="{{ url('dashboard') }}" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-home-circle"></i>
                             <div data-i18n="Analytics">Dashboard</div>
                         </a>
                     </li>
 
 
-                    <li class="menu-item">
-                        <a href="javascript:void(0);" class="menu-link menu-toggle">
+                    <li class="menu-item {{ request()->is('customers*') ? 'active open' : '' }}">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle {{ request()->is('customers*') ? 'active' : '' }}">
                             <i class="menu-icon icon-base bx bx-user"></i>
                             <div data-i18n="Coustomer">Coustomer</div>
                         </a>
                         <ul class="menu-sub">
-                            <li class="menu-item">
-                                <a href="{{ url('customers') }}" class="menu-link">
+                            <li class="menu-item {{ request()->is('customers') ? 'active' : '' }}">
+                                <a href="{{ route('customers.index') }}" class="menu-link">
                                     <div data-i18n="List">List</div>
                                 </a>
                             </li>
-                            <li class="menu-item">
-                                <a href="{{ url('customers/add') }}" class="menu-link">
+                            <li class="menu-item {{ request()->is('customers/add') ? 'active' : '' }}">
+                                <a href="{{ route('customers.create') }}" class="menu-link">
                                     <div data-i18n="Add">Add</div>
                                 </a>
                             </li>

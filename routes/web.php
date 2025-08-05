@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\CustomersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,17 +32,13 @@ Route::middleware(['auth'])->group(function () {
         return view('dashboard');
     })->name('dashboard');
 
-    Route::get('/customers', function () {
-        return view('customers.index');
-    })->name('customers');
-
-    Route::get('/customers/add', function () {
-        return view('customers.add');
-    })->name('customers');
-
-    Route::get('/customers/edit', function () {
-        return view('customers.edit');
-    })->name('customers');
+    // Customer routes
+    Route::get('/customers', [CustomersController::class, 'index'])->name('customers.index');
+    Route::get('/customers/add', [CustomersController::class, 'create'])->name('customers.create');
+    Route::post('/customers', [CustomersController::class, 'store'])->name('customers.store');
+    Route::get('/customers/{id}/edit', [CustomersController::class, 'edit'])->name('customers.edit');
+    Route::put('/customers/{id}', [CustomersController::class, 'update'])->name('customers.update');
+    Route::delete('/customers/{id}', [CustomersController::class, 'destroy'])->name('customers.destroy');
 
     Route::get('/invoice', function () {
         return view('invoice.index');
