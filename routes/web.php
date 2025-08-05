@@ -1,4 +1,5 @@
 <?php
+use App\Http\Controllers\Auth\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,33 +13,45 @@
 */
 
 Route::get('/', function () {
-    return view('app');
+    return redirect()->route('login');
 });
-
 Route::get('/login', function () {
     return view('auth.login');
 })->name('login');
 
-Route::get('/customers', function () {
-    return view('customers.index');
-})->name('customers');
+Route::post('login-submit', [LoginController::class, 'login'])->name('login-submit');
 
-Route::get('/customers/add', function () {
-    return view('customers.add');
-})->name('customers');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/logout', function () {
+        Auth::logout();
+        return redirect()->route('login');
+    })->name('logout');
 
-Route::get('/customers/edit', function () {
-    return view('customers.edit');
-})->name('customers');
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
 
-Route::get('/invoice', function () {
-    return view('invoice.index');
-})->name('invoice');
+    Route::get('/customers', function () {
+        return view('customers.index');
+    })->name('customers');
 
-Route::get('/invoice/create', function () {
-    return view('invoice.add');
-})->name('invoice');
+    Route::get('/customers/add', function () {
+        return view('customers.add');
+    })->name('customers');
 
-Route::get('/invoice/view', function () {
-    return view('invoice.view');
-})->name('invoice');
+    Route::get('/customers/edit', function () {
+        return view('customers.edit');
+    })->name('customers');
+
+    Route::get('/invoice', function () {
+        return view('invoice.index');
+    })->name('invoice');
+
+    Route::get('/invoice/create', function () {
+        return view('invoice.add');
+    })->name('invoice');
+
+    Route::get('/invoice/view', function () {
+        return view('invoice.view');
+    })->name('invoice');
+});
