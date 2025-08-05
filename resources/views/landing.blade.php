@@ -1198,7 +1198,7 @@
             
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a class="nav-link" href="#features">Features</a>
                     </li>
                     <li class="nav-item">
@@ -1209,7 +1209,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#blog">Blog</a>
-                    </li>
+                    </li> --}}
                     @auth
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('/home') }}">Dashboard</a>
@@ -1242,7 +1242,7 @@
                         @endauth
                         <a href="#features" class="btn btn-outline-primary btn-lg">Learn More</a>
                     </div>
-                    <div class="app-store-badges">
+                    {{-- <div class="app-store-badges">
                         <a href="#" class="app-badge">
                             <i class="fab fa-apple"></i>
                             Download on the App Store
@@ -1251,7 +1251,7 @@
                             <i class="fab fa-google-play"></i>
                             Get it on Google Play
                         </a>
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="col-lg-6 hero-visual">
                     <div class="laptop-mockup">
@@ -1270,7 +1270,7 @@
     </section>
 
     <!-- Testimonials Section -->
-    <section class="testimonials-section">
+    {{-- <section class="testimonials-section">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-3">
@@ -1333,7 +1333,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
     <!-- Features Section -->
     <section id="features" class="features-section">
@@ -1372,7 +1372,7 @@
     </section>
 
     <!-- Showcase Sections -->
-    <section class="showcase-section">
+    {{-- <section class="showcase-section">
         <div class="container">
             <div class="showcase-content">
                 <div class="showcase-text">
@@ -1472,20 +1472,20 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
     <!-- CTA Green Section -->
-    <section class="cta-green">
+    {{-- <section class="cta-green">
         <div class="container">
             <div class="cta-green-content">
                 <h2 class="cta-green-title">See Why 500,000+ Small Business Owners Love Pocket Bill's App</h2>
                 <a href="#" class="btn btn-white btn-lg">Download the App</a>
             </div>
         </div>
-    </section>
+    </section> --}}
 
     <!-- Mobile Section -->
-    <section class="mobile-section">
+    {{-- <section class="mobile-section">
         <div class="container">
             <h2 class="mobile-title">Pocket Bill On The Go</h2>
             <div class="app-store-badges justify-content-center">
@@ -1504,10 +1504,10 @@
                 <span style="margin-left: 1rem;">Watch Demo Video</span>
             </div>
         </div>
-    </section>
+    </section> --}}
 
     <!-- Testimonial Blue Section -->
-    <section class="testimonial-blue">
+    {{-- <section class="testimonial-blue">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-2">
@@ -1528,7 +1528,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
     <!-- CTA Orange Section -->
     <section class="cta-orange">
@@ -1549,20 +1549,20 @@
     <footer class="footer">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4">
+                <div class="col-lg-6">
                     <div class="footer-brand">
                         <h4><i class="fas fa-check-square"></i>Pocket Bill</h4>
                         <p class="footer-copyright">&copy; 2024 Pocket Bill. All rights reserved.</p>
-                        <div class="social-links">
+                        {{-- <div class="social-links">
                             <a href="#"><i class="fab fa-facebook-f"></i></a>
                             <a href="#"><i class="fab fa-twitter"></i></a>
                             <a href="#"><i class="fab fa-linkedin-in"></i></a>
                             <a href="#"><i class="fab fa-instagram"></i></a>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
                 
-                <div class="col-lg-2 col-md-6">
+                {{-- <div class="col-lg-2 col-md-6">
                     <h5>Product</h5>
                     <ul class="footer-links">
                         <li><a href="#features">Features</a></li>
@@ -1593,9 +1593,17 @@
                         <li><a href="#">Partners</a></li>
                         <li><a href="#">Contact</a></li>
                     </ul>
+                </div> --}}
+
+                <div class="col-lg-3 col-md-6">
+                    
+                    <div class="footer-contact-btn">
+                        <a href="#" class="btn btn-primary">Contact Us</a>
+                    </div>
                 </div>
+
                 
-                <div class="col-lg-2 col-md-6">
+                <div class="col-lg-3 col-md-6 text-end">
                     <h5>Get Started</h5>
                     <ul class="footer-links">
                         <li><a href="{{ route('register') }}">Sign Up</a></li>
@@ -1604,9 +1612,9 @@
                         <li><a href="#">Demo</a></li>
                         <li><a href="#">Pricing</a></li>
                     </ul>
-                    <div class="footer-contact-btn">
+                    {{-- <div class="footer-contact-btn">
                         <a href="#" class="btn btn-primary">Contact Us</a>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
