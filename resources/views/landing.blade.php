@@ -1236,9 +1236,10 @@
                     <p class="hero-subtitle">Create professional invoices in seconds, track payments, and manage your business finances with ease. Pocket Bill helps you get paid faster with our intuitive invoicing platform.</p>
                     <div class="hero-buttons">
                         @auth
-                            <a href="{{ url('/home') }}" class="btn btn-primary btn-lg">Create an Invoice Now</a>
+                            <a href="{{ url('/invoice') }}" class="btn btn-primary btn-lg">Create an Invoice Now</a>
                         @else
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#registerModal" class="btn btn-primary btn-lg">Create an Invoice Now</a>
+                            {{-- <a href="{{ url('/invoice') }}" data-bs-toggle="modal" data-bs-target="#registerModal" class="btn btn-primary btn-lg">Create an Invoice Now</a> --}}
+                            <a href="{{ url('/invoice') }}" class="btn btn-primary btn-lg">Create an Invoice Now</a>
                         @endauth
                         <a href="#features" class="btn btn-outline-primary btn-lg">Learn More</a>
                     </div>
