@@ -2,7 +2,7 @@
 @section('admin-content')
     <div class="container-xxl flex-grow-1 container-p-y">
 
-        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Invoice/</span> Create</h4>
+        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Invoice/</span> Edit</h4>
 
         <!-- Basic Layout -->
         <div class="row">
@@ -28,8 +28,9 @@
                             </div>
                         @endif
 
-                        <form action="{{ route('invoice.store') }}" method="POST" id="invoiceForm">
+                        <form action="{{ route('invoice.update', $bill->id) }}" method="POST" id="invoiceForm">
                             @csrf
+                            @method('PUT')
                             
                             <!-- Header Section -->
                             <div class="row mb-4">
@@ -38,19 +39,21 @@
                                     <select class="form-select" name="customer" required>
                                         <option value="">Select Customer</option>
                                         @foreach($customers as $customer)
-                                            <option value="{{ $customer->id }}">{{ $customer->name }}</option>
+                                            <option value="{{ $customer->id }}" {{ $bill->cust_id == $customer->id ? 'selected' : '' }}>
+                                                {{ $customer->name }}
+                                            </option>
                                         @endforeach
                                     </select>
                                 </div>
 
                                 <div class="col-md-4 mb-3">
                                     <label class="form-label">Bill No.</label>
-                                    <input type="text" name="bill_no" class="form-control" value="{{ old('bill_no') }}" required>
+                                    <input type="text" name="bill_no" class="form-control" value="{{ old('bill_no', $bill->bill_no) }}" required>
                                 </div>
 
                                 <div class="col-md-4 mb-3">
                                     <label class="form-label">Date</label>
-                                    <input type="date" name="date" class="form-control" value="{{ old('date', date('Y-m-d')) }}" required>
+                                    <input type="date" name="date" class="form-control" value="{{ old('date', $bill->date) }}" required>
                                 </div>
                             </div>
 
@@ -59,11 +62,11 @@
                                 <div class="col-md-12">
                                     <label class="form-label">Invoice Type</label>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="type" id="withoutGst" value="0" checked>
+                                        <input class="form-check-input" type="radio" name="type" id="withoutGst" value="0" {{ $bill->type == 0 ? 'checked' : '' }}>
                                         <label class="form-check-label" for="withoutGst">Without GST</label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="type" id="withGst" value="1">
+                                        <input class="form-check-input" type="radio" name="type" id="withGst" value="1" {{ $bill->type == 1 ? 'checked' : '' }}>
                                         <label class="form-check-label" for="withGst">With GST</label>
                                     </div>
                                 </div>
@@ -93,15 +96,44 @@
                                                 </tr>
                                             </thead>
                                             <tbody id="itemsTableBody">
-                                                <!-- Rows will be added dynamically -->
+                                                @foreach($bill->billDetails as $index => $item)
+                                                    <tr>
+                                                        <td>
+                                                            <input type="text" name="items[{{ $index }}][name]" class="form-control" value="{{ $item->name }}" required>
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" name="items[{{ $index }}][hsn_code]" class="form-control" value="{{ $item->hsncode }}" required>
+                                                        </td>
+                                                        <td>
+                                                            <input type="number" name="items[{{ $index }}][number]" class="form-control" value="{{ $item->number }}" onchange="calculateItemTotal({{ $index }})">
+                                                        </td>
+                                                        <td>
+                                                            <input type="number" name="items[{{ $index }}][feet]" class="form-control" step="0.01" value="{{ $item->feet }}" onchange="calculateItemTotal({{ $index }})">
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" name="items[{{ $index }}][feet_word]" class="form-control" value="{{ $item->feet_word }}">
+                                                        </td>
+                                                        <td>
+                                                            <input type="number" name="items[{{ $index }}][single_price]" class="form-control" step="0.01" value="{{ $item->single_price }}" required onchange="calculateItemTotal({{ $index }})">
+                                                        </td>
+                                                        <td>
+                                                            <input type="number" name="items[{{ $index }}][total_price]" class="form-control" step="0.01" value="{{ $item->total_price }}" readonly>
+                                                        </td>
+                                                        <td>
+                                                            <button type="button" class="btn btn-danger btn-sm" onclick="removeRow(this)">
+                                                                <i class="bx bx-trash"></i>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
                                             </tbody>
                                         </table>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- GST Details Table (Initially Hidden) -->
-                            <div class="card mb-4" id="gstTable" style="display: none;">
+                            <!-- GST Details Table -->
+                            <div class="card mb-4" id="gstTable" style="display: {{ $bill->type == 1 ? 'block' : 'none' }};">
                                 <div class="card-header d-flex justify-content-between align-items-center">
                                     <h5 class="mb-0">GST Details</h5>
                                     <button type="button" class="btn btn-primary btn-sm" onclick="addGstRow()">
@@ -142,20 +174,20 @@
                                             <h6 class="card-title">Summary</h6>
                                             <div class="row">
                                                 <div class="col-6">Subtotal:</div>
-                                                <div class="col-6 text-end" id="subtotal">₹0.00</div>
+                                                <div class="col-6 text-end" id="subtotal">₹{{ number_format($bill->estimated_total, 2) }}</div>
                                             </div>
-                                            <div class="row" id="cgstRow" style="display: none;">
+                                            <div class="row" id="cgstRow" style="display: {{ $bill->type == 1 ? 'block' : 'none' }};">
                                                 <div class="col-6">CGST:</div>
-                                                <div class="col-6 text-end" id="cgstTotal">₹0.00</div>
+                                                <div class="col-6 text-end" id="cgstTotal">₹{{ number_format($bill->cgst, 2) }}</div>
                                             </div>
-                                            <div class="row" id="sgstRow" style="display: none;">
+                                            <div class="row" id="sgstRow" style="display: {{ $bill->type == 1 ? 'block' : 'none' }};">
                                                 <div class="col-6">SGST:</div>
-                                                <div class="col-6 text-end" id="sgstTotal">₹0.00</div>
+                                                <div class="col-6 text-end" id="sgstTotal">₹{{ number_format($bill->sgst, 2) }}</div>
                                             </div>
                                             <hr>
                                             <div class="row">
                                                 <div class="col-6"><strong>Total:</strong></div>
-                                                <div class="col-6 text-end"><strong id="grandTotal">₹0.00</strong></div>
+                                                <div class="col-6 text-end"><strong id="grandTotal">₹{{ number_format($bill->total, 2) }}</strong></div>
                                             </div>
                                         </div>
                                     </div>
@@ -164,7 +196,7 @@
 
                             <div class="text-end">
                                 <a href="{{ route('invoice.index') }}" class="btn btn-secondary me-2">Cancel</a>
-                                <button type="submit" class="btn btn-primary">Create Invoice</button>
+                                <button type="submit" class="btn btn-primary">Update Invoice</button>
                             </div>
                         </form>
                     </div>
@@ -174,7 +206,7 @@
     </div>
 
     <script>
-        let itemRowCount = 0;
+        let itemRowCount = {{ count($bill->billDetails) }};
         let gstRowCount = 0;
 
         // Add item row to primary table
@@ -368,9 +400,13 @@
             });
         });
 
-        // Add initial row
+        // Initialize calculations on page load
         document.addEventListener('DOMContentLoaded', function() {
-            addItemRow();
+            // Calculate totals for existing rows
+            for (let i = 0; i < itemRowCount; i++) {
+                calculateItemTotal(i);
+            }
+            updateSummary();
         });
     </script>
-@endsection
+@endsection 
