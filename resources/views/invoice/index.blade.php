@@ -11,9 +11,10 @@
                 <table class="table">
                     <thead class="table-secondary">
                         <tr>
-                            <th>Name</th>
+                            <th>Customer Name</th>
                             <th>Bill No.</th>
                             <th>Date</th>
+                            <th>Estimated Total</th>
                             <th>Total</th>
                             <th>Actions</th>
                         </tr>
@@ -25,6 +26,7 @@
                                 486458675
                             </td>
                             <td>2025-08-04</td>
+                            <td>457</td>
                             <td>457</td>
                             <td>
                                 <a href="{{url('/invoice/view')}}" class="btn btn-sm btn-success" ><i class="icon-base bx bx-show icon-md"></i></a>

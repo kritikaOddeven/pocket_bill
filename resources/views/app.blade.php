@@ -129,12 +129,12 @@
                                 </a>
                             </li>
                             <li class="menu-item">
-                                <a href="{{ url('invoice/create') }}" class="menu-link" target="_blank">
+                                <a href="{{ url('invoice/create') }}" class="menu-link" >
                                     <div data-i18n="Basic">Create</div>
                                 </a>
                             </li>
                             <li class="menu-item">
-                                <a href="{{ url('invoice/view') }}" class="menu-link" target="_blank">
+                                <a href="{{ url('invoice/view') }}" class="menu-link" >
                                     <div data-i18n="Basic">Preview</div>
                                 </a>
                             </li>
