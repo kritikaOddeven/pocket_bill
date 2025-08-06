@@ -19,4 +19,10 @@ class Bills extends Model
     {
         return $this->hasOne('App\Customers','id','cust_id');
     }
+
+    public function user()
+{
+    return $this->hasOne('App\User','id', 'user_id');
+}
+
 }

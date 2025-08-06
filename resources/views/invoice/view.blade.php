@@ -22,8 +22,8 @@
                                 </div>
                             </div>
                             <div>
-                                <h5 class="mb-6">Type: 
-                                    @if($bill->type == 0)
+                                <h5 class="mb-6">Type:
+                                    @if ($bill->type == 0)
                                         <span class="badge bg-secondary">Without GST</span>
                                     @else
                                         <span class="badge bg-success">With GST</span>
@@ -34,44 +34,30 @@
                     </div>
                     <div class="card-body ">
                         <div class="row">
+
+                            <div class="col-xl-6 col-md-12 col-sm-5 col-12 mb-xl-0 mb-md-6 mb-sm-0 mb-6">
+                                <h6>Invoice From:</h6>
+                                <p class="mb-1">Company Name: {{ $bill->user->comp_name }}</p>
+                                <p class="mb-1">Address: {{ $bill->user->address }}</p>
+                                <p class="mb-1">Mobile No.: {{ $bill->user->mobile }}</p>
+                                @if ($bill->user->gst)
+                                    <p class="mb-0">GST: {{ $bill->user->gst }}</p>
+                                @endif
+
+                            </div>
                             <div class="col-xl-6 col-md-12 col-sm-5 col-12 mb-xl-0 mb-md-6 mb-sm-0 mb-6">
                                 <h6>Invoice To:</h6>
-                                @if($bill->customerDetails)
-                                    <p class="mb-1">{{ $bill->customerDetails->name }}</p>
-                                    <p class="mb-1">{{ $bill->customerDetails->address }}</p>
-                                    <p class="mb-1">{{ $bill->customerDetails->city }}</p>
-                                    <p class="mb-1">{{ $bill->customerDetails->mobile_no }}</p>
-                                    @if($bill->customerDetails->gst_no)
+                                @if ($bill->customerDetails)
+                                    <p class="mb-1">Nmae: {{ $bill->customerDetails->name }}</p>
+                                    <p class="mb-1">Address: {{ $bill->customerDetails->address }}</p>
+                                    <p class="mb-1">City: {{ $bill->customerDetails->city }}</p>
+                                    <p class="mb-1">Mobile No.: {{ $bill->customerDetails->mobile_no }}</p>
+                                    @if ($bill->customerDetails->gst_no)
                                         <p class="mb-0">GST: {{ $bill->customerDetails->gst_no }}</p>
                                     @endif
                                 @else
                                     <p class="mb-0">Customer information not available</p>
                                 @endif
-                            </div>
-                            <div class="col-xl-6 col-md-12 col-sm-7 col-12">
-                                <h6>Bill Summary:</h6>
-                                <table>
-                                    <tbody>
-                                        <tr>
-                                            <td class="pe-4">Subtotal:</td>
-                                            <td class="fw-medium">₹{{ number_format($bill->estimated_total, 2) }}</td>
-                                        </tr>
-                                        @if($bill->type == 1)
-                                            <tr>
-                                                <td class="pe-4">CGST:</td>
-                                                <td>₹{{ number_format($bill->cgst, 2) }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="pe-4">SGST:</td>
-                                                <td>₹{{ number_format($bill->sgst, 2) }}</td>
-                                            </tr>
-                                        @endif
-                                        <tr>
-                                            <td class="pe-4">Total Due:</td>
-                                            <td class="fw-medium">₹{{ number_format($bill->total, 2) }}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
                             </div>
                         </div>
                     </div>
@@ -89,7 +75,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($bill->billDetails as $item)
+                                @foreach ($bill->billDetails as $item)
                                     <tr>
                                         <td class="text-nowrap text-heading">{{ $item->name }}</td>
                                         <td class="text-nowrap">{{ $item->hsncode }}</td>
@@ -103,7 +89,7 @@
                             </tbody>
                         </table>
                     </div>
-                    
+
                     <div class="table-responsive m-3">
                         <table class="table table-borderless">
                             <tbody>
@@ -112,7 +98,7 @@
                                         <p class="mb-1">
                                             <span class="me-2 h6">Invoice Type:</span>
                                             <span>
-                                                @if($bill->type == 0)
+                                                @if ($bill->type == 0)
                                                     Without GST
                                                 @else
                                                     With GST (CGST: {{ number_format($bill->cgst, 2) }}, SGST: {{ number_format($bill->sgst, 2) }})
@@ -123,7 +109,7 @@
                                     </td>
                                     <td class="px-0 py-6 w-px-100">
                                         <p class="mb-2">Subtotal:</p>
-                                        @if($bill->type == 1)
+                                        @if ($bill->type == 1)
                                             <p class="mb-2">CGST:</p>
                                             <p class="mb-2">SGST:</p>
                                         @endif
@@ -131,7 +117,7 @@
                                     </td>
                                     <td class="text-end px-0 py-6 w-px-100 fw-medium text-heading">
                                         <p class="fw-medium mb-2">₹{{ number_format($bill->estimated_total, 2) }}</p>
-                                        @if($bill->type == 1)
+                                        @if ($bill->type == 1)
                                             <p class="fw-medium mb-2">₹{{ number_format($bill->cgst, 2) }}</p>
                                             <p class="fw-medium mb-2">₹{{ number_format($bill->sgst, 2) }}</p>
                                         @endif
@@ -143,6 +129,22 @@
                     </div>
 
                     <hr class="mt-0 mb-6">
+
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-xl-6 col-md-12 col-sm-5 col-12 mb-xl-0 mb-md-6 mb-sm-0 mb-6">
+                                <p class="mb-1">Bank Name: {{ $bill->user->bank_branch }}</p>
+                                <p class="mb-1">A/C No.: {{ $bill->user->bank_ac_no }}</p>
+                                <p class="mb-1">IFSC No.: {{ $bill->user->bank_ifsc }}</p>
+                            </div>
+
+                            <div class="col-xl-6 col-md-12 col-sm-5 col-12 mb-xl-0 mb-md-6 mb-sm-0 mb-6 text-end">
+                                <h6>हस्ताक्षर (Signature)</h6>
+                                <p>................................</p>
+                                
+                            </div>
+                        </div>
+                    </div>
                     <div class="card-body p-2">
                         <div class="row">
                             <div class="col-12">
@@ -159,20 +161,20 @@
             <div class="col-xl-3 col-md-4 col-12 invoice-actions">
                 <div class="card">
                     <div class="card-body">
-                        
+                        <button class="btn btn-success d-grid w-100 mb-4">{{ $bill['download'] }}</button>
                         <div class="d-flex mb-4">
-                            <a class="btn btn-secondary d-grid w-100 me-4" target="_blank" href="{{ route('invoice.show', $bill->id) }}"> Print </a>
+                            <a class="btn btn-secondary d-grid w-100 me-4"  href="{{ route('invoice.show', $bill->id) }}"> Print </a>
                             <a href="{{ route('invoice.edit', $bill->id) }}" class="btn btn-info d-grid w-100"> Edit </a>
                         </div>
                         <a href="{{ route('invoice.index') }}" class="btn btn-primary d-grid w-100 mb-4">Back to List</a>
-                        
+
                     </div>
                 </div>
             </div>
             <!-- /Invoice Actions -->
         </div>
 
-        
+
 
     </div>
 @endsection

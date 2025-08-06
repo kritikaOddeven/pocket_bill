@@ -23,9 +23,9 @@
                                     </div>
                                 @endif
 
-                                <div class="table-responsive">
-                                    <table class="table table-striped">
-                                        <thead>
+                                <div class="table-responsive text-nowrap">
+                                    <table class="table">
+                                        <thead class="table-secondary">
                                             <tr>
                                                 <th>Bill No.</th>
                                                 <th>Customer</th>
@@ -42,7 +42,7 @@
                                                     <td>{{ $bill->customerDetails->name ?? 'N/A' }}</td>
                                                     <td>{{ date('d/m/Y', strtotime($bill->date)) }}</td>
                                                     <td>
-                                                        @if($bill->type == 0)
+                                                        @if ($bill->type == 0)
                                                             <span class="badge bg-secondary">Without GST</span>
                                                         @else
                                                             <span class="badge bg-success">With GST</span>
@@ -50,21 +50,21 @@
                                                     </td>
                                                     <td>₹{{ number_format($bill->total, 2) }}</td>
                                                     <td>
-                                                        <div class="btn-group" role="group">
-                                                            <a href="{{ route('invoice.show', $bill->id) }}" class="btn btn-sm btn-info">
-                                                                <i class="bx bx-show"></i> View
+                                                        {{-- <div class="btn-group" role="group"> --}}
+                                                            <a href="{{ route('invoice.show', $bill->id) }}" class="btn btn-sm btn-success">
+                                                                <i class="bx bx-show"></i> 
                                                             </a>
-                                                            <a href="{{ route('invoice.edit', $bill->id) }}" class="btn btn-sm btn-warning">
-                                                                <i class="bx bx-edit"></i> Edit
+                                                            <a href="{{ route('invoice.edit', $bill->id) }}" class="btn btn-sm btn-info">
+                                                                <i class="bx bx-edit-alt me-1"></i> 
                                                             </a>
                                                             <form action="{{ route('invoice.destroy', $bill->id) }}" method="POST" style="display: inline;">
                                                                 @csrf
                                                                 @method('DELETE')
                                                                 <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this invoice?')">
-                                                                    <i class="bx bx-trash"></i> Delete
+                                                                    <i class="bx bx-trash"></i> 
                                                                 </button>
                                                             </form>
-                                                        </div>
+                                                        {{-- </div> --}}
                                                     </td>
                                                 </tr>
                                             @empty

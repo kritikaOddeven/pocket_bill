@@ -14,7 +14,7 @@ class InvoiceController extends Controller
 {
     public function index()
     {
-        $bills = Bills::where('user_id', Auth::user()->id)->with('billDetails', 'customerDetails')->get();
+        $bills = Bills::where('user_id', Auth::user()->id)->with('billDetails', 'customerDetails', 'user')->get();
         return view('invoice.index', compact('bills'));
     }
 
