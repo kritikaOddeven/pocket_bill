@@ -73,7 +73,7 @@
                             </div>
 
                             <!-- Primary Items Table -->
-                            <div class="card mb-4">
+                            <div class="card mb-4" style="display: {{ $bill->type == 0 ? 'block' : 'none' }};">
                                 <div class="card-header d-flex justify-content-between align-items-center">
                                     <h5 class="mb-0">Item Details</h5>
                                     <button type="button" class="btn btn-primary btn-sm" onclick="addItemRow()">
