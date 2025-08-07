@@ -387,14 +387,5 @@
             });
         });
 
-        // Add initial row
-        document.addEventListener('DOMContentLoaded', function() {
-            const type = document.querySelector('input[name="type"]:checked').value;
-            if (type === '1') {
-                addGstRow();
-            } else {
-                addItemRow();
-            }
-        });
     </script>
 @endsection
