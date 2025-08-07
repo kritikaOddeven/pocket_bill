@@ -189,14 +189,14 @@
                                                             <input type="text" name="items[{{ $index }}][hsn_code]" class="form-control" value="{{ $item->hsncode }}" required>
                                                         </td>
                                                         <td>
-                                                            <input type="number" name="items[{{ $index }}][number]" class="form-control" value="{{ $item->number }}" onchange="calculateItemTotal({{ $index }})">
+                                                            <input type="number" name="items[{{ $index }}][number]" class="form-control" value="{{ $item->number }}" onchange="calculateGstItemTotal({{ $index }})">
                                                         </td>
                                                         <td>
-                                                            <input type="number" name="items[{{ $index }}][feet]" class="form-control" step="0.01" value="{{ $item->feet }}" onchange="calculateItemTotal({{ $index }})">
+                                                            <input type="number" name="items[{{ $index }}][feet]" class="form-control" step="0.01" value="{{ $item->feet }}" onchange="calculateGstItemTotal({{ $index }})">
                                                         </td>
                                                        
                                                         <td>
-                                                            <input type="number" name="items[{{ $index }}][single_price]" class="form-control" step="0.01" value="{{ $item->single_price }}" required onchange="calculateItemTotal({{ $index }})">
+                                                            <input type="number" name="items[{{ $index }}][single_price]" class="form-control" step="0.01" value="{{ $item->single_price }}" required onchange="calculateGstItemTotal({{ $index }})">
                                                         </td>
                                                         <td>
                                                             <input type="number" name="items[{{ $index }}][total_price]" class="form-control" step="0.01" value="{{ $item->total_price }}" readonly>
@@ -300,9 +300,6 @@
                     <input type="number" name="items[${itemRowCount}][feet]" class="form-control" step="0.01" onchange="calculateItemTotal(${itemRowCount})">
                 </td>
                 <td>
-                    <input type="text" name="items[${itemRowCount}][feet_word]" class="form-control">
-                </td>
-                <td>
                     <input type="number" name="items[${itemRowCount}][single_price]" class="form-control" step="0.01" required onchange="calculateItemTotal(${itemRowCount})">
                 </td>
                 <td>
@@ -324,7 +321,7 @@
             const row = document.createElement('tr');
             row.innerHTML = `
                 <td>
-                    <select class="form-select" name="gst_items[${gstRowCount}][subcategory_id]" required>
+                    <select class="form-select" name="items[${gstRowCount}][subcategory_id]" required>
                         <option value="">Select Subcategory</option>
                         @foreach ($subcategories as $subcategory)
                             <option value="{{ $subcategory->id }}">{{ $subcategory->name }}</option>
@@ -332,34 +329,31 @@
                     </select>
                 </td>
                 <td>
-                    <input type="text" name="gst_items[${gstRowCount}][hsn_code]" class="form-control" required>
+                    <input type="text" name="items[${gstRowCount}][hsn_code]" class="form-control" required>
                 </td>
                 <td>
-                    <input type="number" name="gst_items[${gstRowCount}][number]" class="form-control" onchange="calculateGstTotal(${gstRowCount})">
+                    <input type="number" name="items[${gstRowCount}][number]" class="form-control" onchange="calculateGstItemTotal(${gstRowCount})">
                 </td>
                 <td>
-                    <input type="number" name="gst_items[${gstRowCount}][feet]" class="form-control" step="0.01" onchange="calculateGstTotal(${gstRowCount})">
+                    <input type="number" name="items[${gstRowCount}][feet]" class="form-control" step="0.01" onchange="calculateGstItemTotal(${gstRowCount})">
                 </td>
                 <td>
-                    <input type="text" name="gst_items[${gstRowCount}][feet_word]" class="form-control">
+                    <input type="number" name="items[${gstRowCount}][single_price]" class="form-control" step="0.01" required onchange="calculateGstItemTotal(${gstRowCount})">
                 </td>
                 <td>
-                    <input type="number" name="gst_items[${gstRowCount}][single_price]" class="form-control" step="0.01" required onchange="calculateGstTotal(${gstRowCount})">
+                    <input type="number" name="items[${gstRowCount}][total_price]" class="form-control" step="0.01" readonly>
                 </td>
                 <td>
-                    <input type="number" name="gst_items[${gstRowCount}][total_price]" class="form-control" step="0.01" readonly>
+                    <input type="number" name="items[${gstRowCount}][cgst]" class="form-control" step="0.01" min="0" max="100" onchange="handleGstChange(${gstRowCount})">
                 </td>
                 <td>
-                    <input type="number" name="gst_items[${gstRowCount}][cgst]" class="form-control" step="0.01" min="0" max="100" onchange="handleGstChange(${gstRowCount})">
+                    <input type="number" name="items[${gstRowCount}][sgst]" class="form-control" step="0.01" min="0" max="100" onchange="handleGstChange(${gstRowCount})">
                 </td>
                 <td>
-                    <input type="number" name="gst_items[${gstRowCount}][sgst]" class="form-control" step="0.01" min="0" max="100" onchange="handleGstChange(${gstRowCount})">
+                    <input type="number" name="items[${gstRowCount}][igst]" class="form-control" step="0.01" min="0" max="100" onchange="handleGstChange(${gstRowCount})">
                 </td>
                 <td>
-                    <input type="number" name="gst_items[${gstRowCount}][igst]" class="form-control" step="0.01" min="0" max="100" onchange="handleGstChange(${gstRowCount})">
-                </td>
-                <td>
-                    <input type="number" name="gst_items[${gstRowCount}][total]" class="form-control" step="0.01" readonly>
+                    <input type="number" name="items[${gstRowCount}][total]" class="form-control" step="0.01" readonly>
                 </td>
                 <td>
                     <button type="button" class="btn btn-danger btn-sm" onclick="removeRow(this)">
@@ -392,11 +386,29 @@
                 igstInput.value = 0;
             }
             
-            calculateItemTotal(rowIndex);
+            calculateGstItemTotal(rowIndex);
         }
 
-        // Calculate total for item row
+        // Calculate total for regular item row (without GST)
         function calculateItemTotal(rowIndex) {
+            const row = document.querySelector(`input[name="items[${rowIndex}][number]"]`).closest('tr');
+            const number = parseFloat(row.querySelector(`input[name="items[${rowIndex}][number]"]`).value) || 0;
+            const feet = parseFloat(row.querySelector(`input[name="items[${rowIndex}][feet]"]`).value) || 0;
+            const singlePrice = parseFloat(row.querySelector(`input[name="items[${rowIndex}][single_price]"]`).value) || 0;
+            
+            let totalPrice = 0;
+            if (number > 0) {
+                totalPrice = number * singlePrice;
+            } else if (feet > 0) {
+                totalPrice = feet * singlePrice;
+            }
+            
+            row.querySelector(`input[name="items[${rowIndex}][total_price]"]`).value = totalPrice.toFixed(2);
+            updateSummary();
+        }
+
+        // Calculate total for GST item row
+        function calculateGstItemTotal(rowIndex) {
             const row = document.querySelector(`input[name="items[${rowIndex}][number]"]`).closest('tr');
             const number = parseFloat(row.querySelector(`input[name="items[${rowIndex}][number]"]`).value) || 0;
             const feet = parseFloat(row.querySelector(`input[name="items[${rowIndex}][feet]"]`).value) || 0;
@@ -430,40 +442,7 @@
             updateSummary();
         }
 
-        // Calculate total for GST row
-        function calculateGstTotal(rowIndex) {
-            const row = document.querySelector(`input[name="gst_items[${rowIndex}][number]"]`).closest('tr');
-            const number = parseFloat(row.querySelector(`input[name="gst_items[${rowIndex}][number]"]`).value) || 0;
-            const feet = parseFloat(row.querySelector(`input[name="gst_items[${rowIndex}][feet]"]`).value) || 0;
-            const singlePrice = parseFloat(row.querySelector(`input[name="gst_items[${rowIndex}][single_price]"]`).value) || 0;
-            let cgst = parseFloat(row.querySelector(`input[name="gst_items[${rowIndex}][cgst]"]`).value) || 0;
-            let sgst = parseFloat(row.querySelector(`input[name="gst_items[${rowIndex}][sgst]"]`).value) || 0;
-            const igst = parseFloat(row.querySelector(`input[name="gst_items[${rowIndex}][igst]"]`).value) || 0;
-            
-            // If IGST is entered, set CGST and SGST to 0
-            if(igst > 0){
-                cgst = 0;
-                sgst = 0;
-                row.querySelector(`input[name="gst_items[${rowIndex}][cgst]"]`).value = 0;
-                row.querySelector(`input[name="gst_items[${rowIndex}][sgst]"]`).value = 0;
-            }
-            
-            let totalPrice = 0;
-            if (number > 0) {
-                totalPrice = number * singlePrice;
-            } else if (feet > 0) {
-                totalPrice = feet * singlePrice;
-            }
-            
-            const cgstAmount = (totalPrice * cgst) / 100;
-            const sgstAmount = (totalPrice * sgst) / 100;
-            const igstAmount = (totalPrice * igst) / 100;
-            const total = totalPrice + cgstAmount + sgstAmount + igstAmount;
-            
-            row.querySelector(`input[name="gst_items[${rowIndex}][total_price]"]`).value = totalPrice.toFixed(2);
-            row.querySelector(`input[name="gst_items[${rowIndex}][total]"]`).value = total.toFixed(2);
-            updateSummary();
-        }
+
 
         // Remove row
         function removeRow(button) {
@@ -479,35 +458,32 @@
             let sgstTotal = 0;
             let igstTotal = 0;
 
-            // Calculate from items table
-            document.querySelectorAll('input[name$="[total_price]"]').forEach(input => {
-                if (input.closest('#itemsTable')) {
-                    without_subtotal += parseFloat(input.value) || 0;
-                }
+            // Calculate from items table (without GST)
+            document.querySelectorAll('#itemsTable input[name$="[total_price]"]').forEach(input => {
+                without_subtotal += parseFloat(input.value) || 0;
             });
 
             // Calculate from GST table
-            document.querySelectorAll('input[name$="[total_price]"]').forEach(input => {
-                if (input.closest('#gstItemsTable')) {
-                    subtotal += parseFloat(input.value) || 0;
-                }
+            document.querySelectorAll('#gstItemsTable input[name$="[total_price]"]').forEach(input => {
+                subtotal += parseFloat(input.value) || 0;
             });
 
-            document.querySelectorAll('input[name$="[cgst]"]').forEach(input => {
+            // Calculate GST amounts from GST table only
+            document.querySelectorAll('#gstItemsTable input[name$="[cgst]"]').forEach(input => {
                 const row = input.closest('tr');
                 const totalPrice = parseFloat(row.querySelector('input[name$="[total_price]"]').value) || 0;
                 const cgstPercent = parseFloat(input.value) || 0;
                 cgstTotal += (totalPrice * cgstPercent) / 100;
             });
 
-            document.querySelectorAll('input[name$="[sgst]"]').forEach(input => {
+            document.querySelectorAll('#gstItemsTable input[name$="[sgst]"]').forEach(input => {
                 const row = input.closest('tr');
                 const totalPrice = parseFloat(row.querySelector('input[name$="[total_price]"]').value) || 0;
                 const sgstPercent = parseFloat(input.value) || 0;
                 sgstTotal += (totalPrice * sgstPercent) / 100;
             });
 
-            document.querySelectorAll('input[name$="[igst]"]').forEach(input => {
+            document.querySelectorAll('#gstItemsTable input[name$="[igst]"]').forEach(input => {
                 const row = input.closest('tr');
                 const totalPrice = parseFloat(row.querySelector('input[name$="[total_price]"]').value) || 0;
                 const igstPercent = parseFloat(input.value) || 0;
@@ -518,7 +494,7 @@
                 var grandTotal = subtotal + cgstTotal + sgstTotal + igstTotal;
                 document.getElementById('subtotal').textContent = '₹' + subtotal.toFixed(2);
             }else{
-                var grandTotal =  without_subtotal;
+                var grandTotal = without_subtotal;
                 document.getElementById('subtotal').textContent = '₹' + without_subtotal.toFixed(2);
             }
 
@@ -555,6 +531,10 @@
             // Calculate totals for existing rows
             for (let i = 0; i < itemRowCount; i++) {
                 calculateItemTotal(i);
+            }
+            // Calculate totals for existing GST rows
+            for (let i = 0; i < gstRowCount; i++) {
+                calculateGstItemTotal(i);
             }
             updateSummary();
         });

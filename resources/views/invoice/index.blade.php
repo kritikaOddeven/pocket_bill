@@ -24,7 +24,7 @@
                                 @endif
 
                                 <div class="table-responsive text-nowrap">
-                                    <table class="table">
+                                    <table class="table table-bordered">
                                         <thead class="table-secondary">
                                             <tr>
                                                 <th>Bill No.</th>
@@ -32,6 +32,7 @@
                                                 <th>Date</th>
                                                 <th>Type</th>
                                                 <th>Total</th>
+                                                <th>Payment Status</th>
                                                 <th>Actions</th>
                                             </tr>
                                         </thead>
@@ -49,6 +50,13 @@
                                                         @endif
                                                     </td>
                                                     <td>₹{{ number_format($bill->total, 2) }}</td>
+                                                    <td>
+                                                        @if ($bill->payment_status == 0)
+                                                            <span class="badge bg-secondary">Pending</span>
+                                                        @else
+                                                            <span class="badge bg-success">Paid</span>
+                                                        @endif
+                                                    </td>
                                                     <td>
                                                         {{-- <div class="btn-group" role="group"> --}}
                                                             <a href="{{ route('invoice.show', $bill->id) }}" class="btn btn-sm btn-success">

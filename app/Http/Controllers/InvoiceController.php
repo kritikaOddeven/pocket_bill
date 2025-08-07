@@ -88,7 +88,7 @@ class InvoiceController extends Controller
             'payment_status'         => $request->payment,
         ]);
 
-        if ($request->type == 0) {
+        if ($request->type == 0) { // without GST
             // Create regular items
             foreach ($request->items as $item) {
                 $subcategory = Subcategories::where('id', $item['subcategory_id'])->first();
@@ -105,9 +105,6 @@ class InvoiceController extends Controller
                     'feet'         => $item['feet'] ?? '',
                     'single_price' => $item['single_price'],
                     'total_price'  => $item['total_price'],
-                    'cgst'         => $item['cgst'],
-                    'sgst'         => $item['sgst'],
-                    'igst'         => $item['igst'],
                 ]);
             }
         }
@@ -245,9 +242,6 @@ class InvoiceController extends Controller
                     'feet'         => $item['feet'] ?? '',
                     'single_price' => $item['single_price'],
                     'total_price'  => $item['total_price'],
-                    'cgst'         => $item['cgst'],
-                    'sgst'         => $item['sgst'],
-                    'igst'         => $item['igst'],
                 ]);
             }
         }
