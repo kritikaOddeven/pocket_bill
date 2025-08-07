@@ -58,7 +58,7 @@
                                         <span class="badge bg-success">With GST</span>
                                     @endif
                                 </h5> --}}
-                                <p class="mb-1">Date: {{ date('d/m/Y', strtotime($bill->date)) }}</p>
+                                <p class="mb-1"><strong>Date:</strong> {{ date('d/m/Y', strtotime($bill->date)) }}</p>
                             </div>
                         </div>
                     </div>
@@ -91,6 +91,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="table-responsive border border-bottom-0 border-top-0 rounded">
                         <table class="table m-0">
                             <thead>
@@ -123,7 +124,7 @@
                             <tbody>
                                 <tr>
                                     <td class="align-top pe-6 ps-0 py-6 text-body">
-                                        <p class="mb-1">
+                                        {{-- <p class="mb-1">
                                             <span class="me-2 h6">Invoice Type:</span>
                                             <span>
                                                 @if ($bill->type == 0)
@@ -133,7 +134,7 @@
                                                 @endif
                                             </span>
                                         </p>
-                                        <span>Thank you for your business!</span>
+                                        <span>Thank you for your business!</span> --}}
                                     </td>
                                     <td class="px-2 py-6 w-px-100">
                                         <p class="mb-2"><strong>Subtotal:</strong></p>
@@ -156,7 +157,7 @@
                             </tbody>
                         </table>
 
-                        <p>In word </p>
+                        <p><strong>In word</strong> </p>
                     </div>
 
                     <hr class="mt-0 mb-1">
