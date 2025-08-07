@@ -55,7 +55,7 @@
 
                             <!-- Invoice Type -->
                             <div class="row mb-4">
-                                <div class="col-md-12">
+                                <div class="col-md-6">
                                     <label class="form-label">Invoice Type</label>
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="radio" name="type" id="withoutGst" value="0" checked>
@@ -66,6 +66,15 @@
                                         <label class="form-check-label" for="withGst">With GST</label>
                                     </div>
                                 </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Payment</label>
+                                    <select class="form-select" name="payment" required>
+                                        <option value="paid">Paid</option>
+                                        <option value="unpaid">Unpaid</option>
+                                        
+                                    </select>
+                                </div>
+
                             </div>
 
                             <!-- Primary Items Table -->
@@ -82,7 +91,6 @@
                                                     <th>HSN Code</th>
                                                     <th>Number/Pieces</th>
                                                     <th>Feet</th>
-                                                    <th>Feet Word</th>
                                                     <th>Single Price</th>
                                                     <th>Total Price</th>
                                                     <th>Action</th>
@@ -115,11 +123,11 @@
                                                     <th>HSN Code</th>
                                                     <th>Number</th>
                                                     <th>Feet</th>
-                                                    <th>Feet Word</th>
                                                     <th>Single Price</th>
                                                     <th>Total Price</th>
                                                     <th>CGST %</th>
                                                     <th>SGST %</th>
+                                                    <th>IGST %</th>
                                                     <th>Total</th>
                                                     <th>Action</th>
                                                 </tr>
@@ -200,9 +208,7 @@
                 <td>
                     <input type="number" name="items[${itemRowCount}][feet]" class="form-control" step="0.01" onchange="calculateItemTotal(${itemRowCount})">
                 </td>
-                <td>
-                    <input type="text" name="items[${itemRowCount}][feet_word]" class="form-control">
-                </td>
+               
                 <td>
                     <input type="number" name="items[${itemRowCount}][single_price]" class="form-control" step="0.01" required onchange="calculateItemTotal(${itemRowCount})">
                 </td>
@@ -241,9 +247,7 @@
                 <td>
                     <input type="number" name="gst_items[${gstRowCount}][feet]" class="form-control" step="0.01" onchange="calculateGstTotal(${gstRowCount})">
                 </td>
-                <td>
-                    <input type="text" name="gst_items[${gstRowCount}][feet_word]" class="form-control">
-                </td>
+               
                 <td>
                     <input type="number" name="gst_items[${gstRowCount}][single_price]" class="form-control" step="0.01" required onchange="calculateGstTotal(${gstRowCount})">
                 </td>
@@ -251,10 +255,13 @@
                     <input type="number" name="gst_items[${gstRowCount}][total_price]" class="form-control" step="0.01" readonly>
                 </td>
                 <td>
-                    <input type="number" name="gst_items[${gstRowCount}][cgst]" class="form-control" step="0.01" value="9" readonly>
+                    <input type="number" name="gst_items[${gstRowCount}][cgst]" class="form-control" step="0.01" >
                 </td>
                 <td>
-                    <input type="number" name="gst_items[${gstRowCount}][sgst]" class="form-control" step="0.01" value="9" readonly>
+                    <input type="number" name="gst_items[${gstRowCount}][sgst]" class="form-control" step="0.01" >
+                </td>
+                <td>
+                    <input type="number" name="gst_items[${gstRowCount}][igst]" class="form-control" step="0.01" >
                 </td>
                 <td>
                     <input type="number" name="gst_items[${gstRowCount}][total]" class="form-control" step="0.01" readonly>

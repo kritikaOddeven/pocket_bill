@@ -40,7 +40,6 @@ class InvoiceController extends Controller
                 'items.*.hsn_code'       => 'required|string',
                 'items.*.number'         => 'nullable|numeric',
                 'items.*.feet'           => 'nullable|numeric',
-                'items.*.feet_word'      => 'nullable|string',
                 'items.*.single_price'   => 'required|numeric|min:0',
                 'items.*.total_price'    => 'required|numeric|min:0',
             ]);
@@ -59,7 +58,6 @@ class InvoiceController extends Controller
                 'gst_items.*.hsn_code'       => 'required|string',
                 'gst_items.*.number'         => 'nullable|numeric',
                 'gst_items.*.feet'           => 'nullable|numeric',
-                'gst_items.*.feet_word'      => 'nullable|string',
                 'gst_items.*.single_price'   => 'required|numeric|min:0',
                 'gst_items.*.total_price'    => 'required|numeric|min:0',
                 'gst_items.*.cgst'           => 'required|numeric|min:0',
@@ -83,6 +81,7 @@ class InvoiceController extends Controller
             'cgst'            => 9,
             'sgst'            => 9,
             'total'           => $subtotal + $cgstTotal + $sgstTotal, // Total amount including GST
+            'payment'           =>$request->payment,
         ]);
 
         if ($request->type == 0) {
@@ -100,7 +99,6 @@ class InvoiceController extends Controller
                     'hsncode'      => $item['hsn_code'],
                     'number'       => $item['number'] ?? '',
                     'feet'         => $item['feet'] ?? '',
-                    'feet_word'    => $item['feet_word'] ?? '',
                     'single_price' => $item['single_price'],
                     'total_price'  => $item['total_price'],
                 ]);
@@ -121,7 +119,6 @@ class InvoiceController extends Controller
                     'hsncode'      => $gstItem['hsn_code'],
                     'number'       => $gstItem['number'] ?? '',
                     'feet'         => $gstItem['feet'] ?? '',
-                    'feet_word'    => $gstItem['feet_word'] ?? '',
                     'single_price' => $gstItem['single_price'],
                     'total_price'  => $gstItem['total_price'],
                 ]);
@@ -172,7 +169,6 @@ class InvoiceController extends Controller
                 'items.*.hsn_code'       => 'required|string',
                 'items.*.number'         => 'nullable|numeric',
                 'items.*.feet'           => 'nullable|numeric',
-                'items.*.feet_word'      => 'nullable|string',
                 'items.*.single_price'   => 'required|numeric|min:0',
                 'items.*.total_price'    => 'required|numeric|min:0',
             ]);
@@ -190,7 +186,6 @@ class InvoiceController extends Controller
                 'gst_items.*.hsn_code'       => 'required|string',
                 'gst_items.*.number'         => 'nullable|numeric',
                 'gst_items.*.feet'           => 'nullable|numeric',
-                'gst_items.*.feet_word'      => 'nullable|string',
                 'gst_items.*.single_price'   => 'required|numeric|min:0',
                 'gst_items.*.total_price'    => 'required|numeric|min:0',
                 'gst_items.*.cgst'           => 'required|numeric|min:0',
@@ -213,6 +208,7 @@ class InvoiceController extends Controller
             'cgst'            => 9,
             'sgst'            => 9,
             'total'           => $subtotal + $cgstTotal + $sgstTotal,
+            'payment'           =>$request->payment,
         ]);
 
         // Delete existing bill details
@@ -233,7 +229,6 @@ class InvoiceController extends Controller
                     'hsncode'      => $item['hsn_code'],
                     'number'       => $item['number'] ?? '',
                     'feet'         => $item['feet'] ?? '',
-                    'feet_word'    => $item['feet_word'] ?? '',
                     'single_price' => $item['single_price'],
                     'total_price'  => $item['total_price'],
                 ]);
@@ -255,7 +250,6 @@ class InvoiceController extends Controller
                     'hsncode'      => $gstItem['hsn_code'],
                     'number'       => $gstItem['number'] ?? '',
                     'feet'         => $gstItem['feet'] ?? '',
-                    'feet_word'    => $gstItem['feet_word'] ?? '',
                     'single_price' => $gstItem['single_price'],
                     'total_price'  => $gstItem['total_price'],
                 ]);

@@ -59,7 +59,7 @@
 
                             <!-- Invoice Type -->
                             <div class="row mb-4">
-                                <div class="col-md-12">
+                                <div class="col-md-6">
                                     <label class="form-label">Invoice Type</label>
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="radio" name="type" id="withoutGst" value="0" {{ $bill->type == 0 ? 'checked' : '' }}>
@@ -69,6 +69,15 @@
                                         <input class="form-check-input" type="radio" name="type" id="withGst" value="1" {{ $bill->type == 1 ? 'checked' : '' }}>
                                         <label class="form-check-label" for="withGst">With GST</label>
                                     </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label">Payment</label>
+                                    <select class="form-select" name="payment" required>
+                                        <option value="paid">Paid</option>
+                                        <option value="unpaid">Unpaid</option>
+                                        
+                                    </select>
                                 </div>
                             </div>
 
@@ -87,7 +96,6 @@
                                                     <th>HSN Code</th>
                                                     <th>Number/Pieces</th>
                                                     <th>Feet</th>
-                                                    <th>Feet Word</th>
                                                     <th>Single Price</th>
                                                     <th>Total Price</th>
                                                     <th>Action</th>
@@ -115,9 +123,7 @@
                                                         <td>
                                                             <input type="number" name="items[{{ $index }}][feet]" class="form-control" step="0.01" value="{{ $item->feet }}" onchange="calculateItemTotal({{ $index }})">
                                                         </td>
-                                                        <td>
-                                                            <input type="text" name="items[{{ $index }}][feet_word]" class="form-control" value="{{ $item->feet_word }}">
-                                                        </td>
+                                                        
                                                         <td>
                                                             <input type="number" name="items[{{ $index }}][single_price]" class="form-control" step="0.01" value="{{ $item->single_price }}" required onchange="calculateItemTotal({{ $index }})">
                                                         </td>
@@ -156,11 +162,11 @@
                                                     <th>HSN Code</th>
                                                     <th>Number</th>
                                                     <th>Feet</th>
-                                                    <th>Feet Word</th>
                                                     <th>Single Price</th>
                                                     <th>Total Price</th>
                                                     <th>CGST %</th>
                                                     <th>SGST %</th>
+                                                    <th>IGST %</th>
                                                     <th>Total</th>
                                                     <th>Action</th>
                                                 </tr>
@@ -188,9 +194,7 @@
                                                         <td>
                                                             <input type="number" name="items[{{ $index }}][feet]" class="form-control" step="0.01" value="{{ $item->feet }}" onchange="calculateItemTotal({{ $index }})">
                                                         </td>
-                                                        <td>
-                                                            <input type="text" name="items[{{ $index }}][feet_word]" class="form-control" value="{{ $item->feet_word }}">
-                                                        </td>
+                                                       
                                                         <td>
                                                             <input type="number" name="items[{{ $index }}][single_price]" class="form-control" step="0.01" value="{{ $item->single_price }}" required onchange="calculateItemTotal({{ $index }})">
                                                         </td>
@@ -202,6 +206,9 @@
                                                         </td>
                                                         <td>
                                                             <input type="number" name="items[{{ $index }}][sgst]" class="form-control" step="0.01" value="{{ $item->bill->sgst }}" onchange="calculateItemTotal({{ $index }})">
+                                                        </td>
+                                                        <td>
+                                                            <input type="number" name="items[{{ $index }}][igst]" class="form-control" step="0.01" value="{{ $item->bill->igst }}" onchange="calculateItemTotal({{ $index }})">
                                                         </td>
                                                         <td>
                                                             <input type="number" name="items[{{ $index }}][total]" class="form-control" step="0.01" value="{{ $item->bill->total }}" readonly>
