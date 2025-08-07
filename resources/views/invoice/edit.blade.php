@@ -367,10 +367,10 @@
 
         // Handle GST field changes
         function handleGstChange(rowIndex) {
-            const row = document.querySelector(`input[name="items[${rowIndex}][number]"]`).closest('tr');
-            const cgstInput = row.querySelector(`input[name="items[${rowIndex}][cgst]"]`);
-            const sgstInput = row.querySelector(`input[name="items[${rowIndex}][sgst]"]`);
-            const igstInput = row.querySelector(`input[name="items[${rowIndex}][igst]"]`);
+            const row = document.querySelector(`input[name="gst_items[${rowIndex}][number]"]`).closest('tr');
+            const cgstInput = row.querySelector(`input[name="gst_items[${rowIndex}][cgst]"]`);
+            const sgstInput = row.querySelector(`input[name="gst_items[${rowIndex}][sgst]"]`);
+            const igstInput = row.querySelector(`input[name="gst_items[${rowIndex}][igst]"]`);
             
             const igst = parseFloat(igstInput.value) || 0;
             const cgst = parseFloat(cgstInput.value) || 0;
@@ -409,20 +409,20 @@
 
         // Calculate total for GST item row
         function calculateGstItemTotal(rowIndex) {
-            const row = document.querySelector(`input[name="items[${rowIndex}][number]"]`).closest('tr');
-            const number = parseFloat(row.querySelector(`input[name="items[${rowIndex}][number]"]`).value) || 0;
-            const feet = parseFloat(row.querySelector(`input[name="items[${rowIndex}][feet]"]`).value) || 0;
-            const singlePrice = parseFloat(row.querySelector(`input[name="items[${rowIndex}][single_price]"]`).value) || 0;
-            let cgst = parseFloat(row.querySelector(`input[name="items[${rowIndex}][cgst]"]`).value) || 0;
-            let sgst = parseFloat(row.querySelector(`input[name="items[${rowIndex}][sgst]"]`).value) || 0;
-            const igst = parseFloat(row.querySelector(`input[name="items[${rowIndex}][igst]"]`).value) || 0;
+            const row = document.querySelector(`input[name="gst_items[${rowIndex}][number]"]`).closest('tr');
+            const number = parseFloat(row.querySelector(`input[name="gst_items[${rowIndex}][number]"]`).value) || 0;
+            const feet = parseFloat(row.querySelector(`input[name="gst_items[${rowIndex}][feet]"]`).value) || 0;
+            const singlePrice = parseFloat(row.querySelector(`input[name="gst_items[${rowIndex}][single_price]"]`).value) || 0;
+            let cgst = parseFloat(row.querySelector(`input[name="gst_items[${rowIndex}][cgst]"]`).value) || 0;
+            let sgst = parseFloat(row.querySelector(`input[name="gst_items[${rowIndex}][sgst]"]`).value) || 0;
+            const igst = parseFloat(row.querySelector(`input[name="gst_items[${rowIndex}][igst]"]`).value) || 0;
             
             // If IGST is entered, set CGST and SGST to 0
             if(igst > 0){
                 cgst = 0;
                 sgst = 0;
-                row.querySelector(`input[name="items[${rowIndex}][cgst]"]`).value = 0;
-                row.querySelector(`input[name="items[${rowIndex}][sgst]"]`).value = 0;
+                row.querySelector(`input[name="gst_items[${rowIndex}][cgst]"]`).value = 0;
+                row.querySelector(`input[name="gst_items[${rowIndex}][sgst]"]`).value = 0;
             }
             
             let totalPrice = 0;
@@ -437,8 +437,8 @@
             const igstAmount = (totalPrice * igst) / 100;
             const total = totalPrice + cgstAmount + sgstAmount + igstAmount;
             
-            row.querySelector(`input[name="items[${rowIndex}][total_price]"]`).value = totalPrice.toFixed(2);
-            row.querySelector(`input[name="items[${rowIndex}][total]"]`).value = total.toFixed(2);
+            row.querySelector(`input[name="gst_items[${rowIndex}][total_price]"]`).value = totalPrice.toFixed(2);
+            row.querySelector(`input[name="gst_items[${rowIndex}][total]"]`).value = total.toFixed(2);
             updateSummary();
         }
 
