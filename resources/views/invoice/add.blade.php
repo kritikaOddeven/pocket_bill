@@ -42,7 +42,12 @@
 
                                 <div class="col-md-4 mb-3">
                                     <label class="form-label">Date</label>
-                                    <input type="date" name="date" class="form-control" value="{{ old('date', date('Y-m-d')) }}" required>
+                                    <div class="position-relative">
+                                        <input type="text" name="date" class="form-control flatpickr-input" value="{{ old('date', date('Y-m-d')) }}" required>
+                                        <i class="bx bx-calendar calendar-icon"></i>
+
+                                    </div>
+                                    
                                 </div>
                             </div>
 

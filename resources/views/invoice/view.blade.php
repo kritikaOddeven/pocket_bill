@@ -80,7 +80,7 @@
                                 @endif
                             </div>
 
-                            <div class="col-xl-6 col-md-12 col-sm-5 col-12 mb-xl-0 mb-md-6 mb-sm-0 mb-6 text-end">
+                            <div class="col-xl-6 col-md-12 col-sm-5 col-12 mb-xl-0 mb-md-6 mb-sm-0 mb-6 ">
                                 <h6>Invoice From:</h6>
                                 <p class="mb-1"><strong>Company Name :</strong> {{ $bill->user->comp_name }}</p>
                                 <p class="mb-1"><strong>Address :</strong> {{ $bill->user->address }}</p>
@@ -92,7 +92,7 @@
                         </div>
                     </div>
 
-                    <div class="table-responsive border border-bottom-0 border-top-0 rounded">
+                    <div class="table-responsive border border-bottom-0 border-top-0 rounded p-4">
                         <table class="table m-0">
                             <thead>
                                 <tr>
@@ -157,7 +157,11 @@
                             </tbody>
                         </table>
 
-                        <p><strong>In word</strong> </p>
+                        @php
+                            $f = new \NumberFormatter( locale_get_default(), \NumberFormatter::SPELLOUT );
+                            $word = $f->format($bill->total);
+                        @endphp
+                        <p><strong>In word:</strong> {{ ucfirst($word) }} only</p>
                     </div>
 
                     <hr class="mt-0 mb-1">

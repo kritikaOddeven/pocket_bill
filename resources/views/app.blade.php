@@ -33,6 +33,25 @@
     <!-- Helpers -->
     <script src="{{ asset('assets/vendor/js/helpers.js') }}"></script>
     <script src="{{ asset('assets/js/config.js') }}"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+    <style>
+        .calendar-icon {
+            position: absolute;
+            top: 50%;
+            right: 15px;
+            transform: translateY(-50%);
+            color: #666;
+            pointer-events: none;
+            /* icon won't interfere with input clicks */
+        }
+        .table > tbody > tr > td{
+            padding: 5px 2px !important;
+        }
+        .table > thead > tr > th{
+            padding: 5px 2px !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -43,9 +62,9 @@
 
             <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
                 <div class="app-brand demo">
-                    <a href="{{url('dashboard')}}" class="app-brand-link">
+                    <a href="{{ url('dashboard') }}" class="app-brand-link">
                         <span class="app-brand-logo demo">
-                            
+
                         </span>
                         <span class="app-brand-text demo menu-text fw-bolder ms-2">Pocket Bill</span>
                     </a>
@@ -136,7 +155,7 @@
                                 </a>
                             </li>
                             <li class="menu-item {{ request()->is('invoice/create') ? 'active' : '' }}">
-                                <a href="{{ url('invoice/create') }}" class="menu-link" >
+                                <a href="{{ url('invoice/create') }}" class="menu-link">
                                     <div data-i18n="Basic">Create</div>
                                 </a>
                             </li>
@@ -204,6 +223,14 @@
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script>
+        flatpickr(".flatpickr-input", {
+            altInput: true,
+            altFormat: "d-m-Y",
+            dateFormat: "Y-m-d"
+        });
+    </script>
 </body>
 
 </html>

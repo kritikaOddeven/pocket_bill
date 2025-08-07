@@ -53,7 +53,12 @@
 
                                 <div class="col-md-4 mb-3">
                                     <label class="form-label">Date</label>
-                                    <input type="date" name="date" class="form-control" value="{{ old('date', $bill->date) }}" required>
+                                    <div class="position-relative">
+                                        <input type="text" name="date" class="form-control flatpickr-input" value="{{ old('date', $bill->date) }}" required>
+                                        <i class="bx bx-calendar calendar-icon"></i>
+
+                                    </div>
+                                    
                                 </div>
                             </div>
 
@@ -81,7 +86,7 @@
                             </div>
 
                             <!-- Primary Items Table -->
-                            <div class="card mb-4" style="display: {{ $bill->type == 0 ? 'block' : 'none' }};">
+                            <div class="card mb-4 " id="itemsTableWithoutGst" style="display: {{ $bill->type == 0 ? 'block' : 'none' }};">
                                 <div class="card-header d-flex justify-content-between align-items-center">
                                     <h5 class="mb-0">Item Details</h5>
                                     
@@ -510,14 +515,17 @@
                 const cgstRow = document.getElementById('cgstRow');
                 const sgstRow = document.getElementById('sgstRow');
                 const igstRow = document.getElementById('igstRow');
+                const itemsTable = document.getElementById('itemsTableWithoutGst');
                 
                 if (this.value === '1') {
                     gstTable.style.display = 'block';
+                    itemsTableWithoutGst.style.display = 'none';
                     cgstRow.style.display = 'flex';
                     sgstRow.style.display = 'flex';
                     igstRow.style.display = 'flex';
                 } else {
                     gstTable.style.display = 'none';
+                    itemsTableWithoutGst.style.display = 'block';
                     cgstRow.style.display = 'none';
                     sgstRow.style.display = 'none';
                     igstRow.style.display = 'none';
