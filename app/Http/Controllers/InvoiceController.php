@@ -191,6 +191,7 @@ class InvoiceController extends Controller
 
         // If GST type, calculate GST from GST items
         if ($request->type == 1 && $request->has('gst_items')) {
+            $subtotal  = collect($request->gst_items)->sum('total_price');
             $request->validate([
                 'gst_items'                  => 'array',
                 'gst_items.*.subcategory_id' => 'required|string',
