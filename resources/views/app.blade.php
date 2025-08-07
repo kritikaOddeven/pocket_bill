@@ -117,18 +117,18 @@
                         </ul>
                     </li>
 
-                    <li class="menu-item">
+                    <li class="menu-item {{ request()->is('invoice*') ? 'active open' : '' }}">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
                             <i class="menu-icon icon-base bx bx-food-menu"></i>
                             <div data-i18n="Invoice">Invoice</div>
                         </a>
                         <ul class="menu-sub">
-                            <li class="menu-item">
+                            <li class="menu-item {{ request()->is('invoice') ? 'active' : '' }}">
                                 <a href="{{ url('invoice') }}" class="menu-link">
                                     <div data-i18n="Basic">List</div>
                                 </a>
                             </li>
-                            <li class="menu-item">
+                            <li class="menu-item {{ request()->is('invoice/create') ? 'active' : '' }}">
                                 <a href="{{ url('invoice/create') }}" class="menu-link" >
                                     <div data-i18n="Basic">Create</div>
                                 </a>
