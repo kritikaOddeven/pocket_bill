@@ -125,7 +125,11 @@
                                                     <th>Total Price</th>
                                                     <th>CGST %</th>
                                                     <th>SGST %</th>
-                                                    <th>IGST %</th>
+                                                    <th class="d-flex align-items-center">IGST% 
+                                                        <button type="button" class="btn btn-sm btn-default" data-bs-toggle="tooltip" data-bs-placement="top" title="if igst is selected then cgst and sgst will be 0">
+                                                            <i class="bx bx-info-circle"></i>
+                                                        </button>
+                                                    </th>
                                                     <th>Total</th>
                                                     <th>Action</th>
                                                 </tr>
