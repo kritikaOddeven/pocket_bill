@@ -47,12 +47,15 @@ class InvoiceController extends Controller
 
         // Calculate totals
         $subtotal  = collect($request->items)->sum('total_price');
+
         $cgstTotal = 0;
         $sgstTotal = 0;
         $igstTotal = 0;
 
         // If GST type, calculate GST from GST items
         if ($request->type == 1 && $request->has('gst_items')) {
+            $subtotal  = collect($request->gst_items)->sum('total_price');
+
             $request->validate([
                 'gst_items'                  => 'array',
                 'gst_items.*.subcategory_id' => 'required|string',
