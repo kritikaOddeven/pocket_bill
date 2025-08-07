@@ -49,6 +49,7 @@ class InvoiceController extends Controller
         $subtotal  = collect($request->items)->sum('total_price');
         $cgstTotal = 0;
         $sgstTotal = 0;
+        $igstTotal = 0;
 
         // If GST type, calculate GST from GST items
         if ($request->type == 1 && $request->has('gst_items')) {
@@ -62,12 +63,14 @@ class InvoiceController extends Controller
                 'gst_items.*.total_price'    => 'required|numeric|min:0',
                 'gst_items.*.cgst'           => 'required|numeric|min:0',
                 'gst_items.*.sgst'           => 'required|numeric|min:0',
+                'gst_items.*.igst'           => 'required|numeric|min:0',
             ]);
 
             foreach ($request->gst_items as $gstItem) {
                 $totalPrice = $gstItem['total_price'];
                 $cgstTotal += ($totalPrice * $gstItem['cgst']) / 100;
                 $sgstTotal += ($totalPrice * $gstItem['sgst']) / 100;
+                $igstTotal += ($totalPrice * $gstItem['igst']) / 100;
             }
         }
 
@@ -78,10 +81,11 @@ class InvoiceController extends Controller
             'date'            => $request->date,
             'type'            => $request->type,
             'estimated_total' => $subtotal,
-            'cgst'            => 9,
-            'sgst'            => 9,
-            'total'           => $subtotal + $cgstTotal + $sgstTotal, // Total amount including GST
-            'payment'           =>$request->payment,
+            'cgst'            => $cgstTotal,
+            'sgst'            => $sgstTotal,
+            'igst'            => $igstTotal,
+            'total'           => $subtotal + $cgstTotal + $sgstTotal + $igstTotal, // Total amount including GST
+            'payment_status'         => $request->payment,
         ]);
 
         if ($request->type == 0) {
@@ -101,6 +105,9 @@ class InvoiceController extends Controller
                     'feet'         => $item['feet'] ?? '',
                     'single_price' => $item['single_price'],
                     'total_price'  => $item['total_price'],
+                    'cgst'         => $item['cgst'],
+                    'sgst'         => $item['sgst'],
+                    'igst'         => $item['igst'],
                 ]);
             }
         }
@@ -121,6 +128,9 @@ class InvoiceController extends Controller
                     'feet'         => $gstItem['feet'] ?? '',
                     'single_price' => $gstItem['single_price'],
                     'total_price'  => $gstItem['total_price'],
+                    'cgst'         => $gstItem['cgst'],
+                    'sgst'         => $gstItem['sgst'],
+                    'igst'         => $gstItem['igst'],
                 ]);
             }
         }
@@ -177,6 +187,7 @@ class InvoiceController extends Controller
         $subtotal  = collect($request->items)->sum('total_price');
         $cgstTotal = 0;
         $sgstTotal = 0;
+        $igstTotal = 0;
 
         // If GST type, calculate GST from GST items
         if ($request->type == 1 && $request->has('gst_items')) {
@@ -190,12 +201,14 @@ class InvoiceController extends Controller
                 'gst_items.*.total_price'    => 'required|numeric|min:0',
                 'gst_items.*.cgst'           => 'required|numeric|min:0',
                 'gst_items.*.sgst'           => 'required|numeric|min:0',
+                'gst_items.*.igst'           => 'required|numeric|min:0',
             ]);
 
             foreach ($request->gst_items as $gstItem) {
                 $totalPrice = $gstItem['total_price'];
                 $cgstTotal += ($totalPrice * $gstItem['cgst']) / 100;
                 $sgstTotal += ($totalPrice * $gstItem['sgst']) / 100;
+                $igstTotal += ($totalPrice * $gstItem['igst']) / 100;
             }
         }
 
@@ -205,10 +218,11 @@ class InvoiceController extends Controller
             'date'            => $request->date,
             'type'            => $request->type,
             'estimated_total' => $subtotal,
-            'cgst'            => 9,
-            'sgst'            => 9,
-            'total'           => $subtotal + $cgstTotal + $sgstTotal,
-            'payment'           =>$request->payment,
+            'cgst'            => $cgstTotal,
+            'sgst'            => $sgstTotal,
+            'igst'            => $igstTotal,
+            'total'           => $subtotal + $cgstTotal + $sgstTotal + $igstTotal,
+            'payment_status'         => $request->payment,
         ]);
 
         // Delete existing bill details
@@ -231,6 +245,9 @@ class InvoiceController extends Controller
                     'feet'         => $item['feet'] ?? '',
                     'single_price' => $item['single_price'],
                     'total_price'  => $item['total_price'],
+                    'cgst'         => $item['cgst'],
+                    'sgst'         => $item['sgst'],
+                    'igst'         => $item['igst'],
                 ]);
             }
         }
@@ -252,6 +269,9 @@ class InvoiceController extends Controller
                     'feet'         => $gstItem['feet'] ?? '',
                     'single_price' => $gstItem['single_price'],
                     'total_price'  => $gstItem['total_price'],
+                    'cgst'         => $gstItem['cgst'],
+                    'sgst'         => $gstItem['sgst'],
+                    'igst'         => $gstItem['igst'],
                 ]);
             }
         }

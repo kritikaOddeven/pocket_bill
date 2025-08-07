@@ -20,10 +20,12 @@ class CreateBillsTable extends Migration
             $table->string('bill_no');
             $table->date('date');
             $table->double('estimated_total', 10, 2);
-            $table->double('cgst', 10, 2);
-            $table->double('sgst', 10, 2);
+            $table->double('cgst', 10, 2)->default(0);
+            $table->double('sgst', 10, 2)->default(0);
+            $table->double('igst', 10, 2)->default(0);
             $table->double('total', 10, 2);
-            $table->boolean('type');
+            $table->boolean('type')->default(0);
+            $table->enum('payment_status', ['paid', 'unpaid'])->default('paid');
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('cust_id')->references('id')->on('customers')->onDelete('cascade');

@@ -1,14 +1,15 @@
 @extends('app')
 @section('admin-content')
     <div class="container-xxl flex-grow-1 container-p-y">
-
-        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Invoice/</span> Create</h4>
-
         <!-- Basic Layout -->
         <div class="row">
             <div class="col-md-12">
                 <div class="card mb-4">
-
+                    <div class="card-header d-flex flex-wrap justify-content-between gap-4">
+                        <div class="card-title mb-0 me-1">
+                            <h5 class="mb-0">Create Invoice</h5>
+                        </div>
+                    </div>
                     <div class="card-body">
                         @if (session('success'))
                             <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -18,14 +19,6 @@
                         @endif
 
                         @include('partials._alert')
-                        <div class="row">
-                            @foreach ($errors->all() as $error)
-                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                    {{ $error }}
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                </div>
-                            @endforeach
-                        </div>
 
                         <form action="{{ route('invoice.store') }}" method="POST" id="invoiceForm">
                             @csrf
@@ -71,7 +64,6 @@
                                     <select class="form-select" name="payment" required>
                                         <option value="paid">Paid</option>
                                         <option value="unpaid">Unpaid</option>
-                                        
                                     </select>
                                 </div>
 
@@ -112,7 +104,7 @@
                             <div class="card mb-4" id="gstTable" style="display: none;">
                                 <div class="card-header d-flex justify-content-between align-items-center">
                                     <h5 class="mb-0">GST Details</h5>
-                                    
+
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
@@ -160,6 +152,10 @@
                                             <div class="row mb-2" id="sgstRow" style="display: none;">
                                                 <div class="col-6">SGST:</div>
                                                 <div class="col-6 text-end" id="sgstTotal">₹0.00</div>
+                                            </div>
+                                            <div class="row mb-2" id="igstRow" style="display: none;">
+                                                <div class="col-6">IGST:</div>
+                                                <div class="col-6 text-end" id="igstTotal">₹0.00</div>
                                             </div>
                                             <hr>
                                             <div class="row">
@@ -255,13 +251,13 @@
                     <input type="number" name="gst_items[${gstRowCount}][total_price]" class="form-control" step="0.01" readonly>
                 </td>
                 <td>
-                    <input type="number" name="gst_items[${gstRowCount}][cgst]" class="form-control" step="0.01" >
+                    <input type="number" name="gst_items[${gstRowCount}][cgst]" class="form-control" step="0.01" min="0" max="100" onchange="handleGstChange(${gstRowCount})">
                 </td>
                 <td>
-                    <input type="number" name="gst_items[${gstRowCount}][sgst]" class="form-control" step="0.01" >
+                    <input type="number" name="gst_items[${gstRowCount}][sgst]" class="form-control" step="0.01" min="0" max="100" onchange="handleGstChange(${gstRowCount})">
                 </td>
                 <td>
-                    <input type="number" name="gst_items[${gstRowCount}][igst]" class="form-control" step="0.01" >
+                    <input type="number" name="gst_items[${gstRowCount}][igst]" class="form-control" step="0.01" min="0" max="100" onchange="handleGstChange(${gstRowCount})">
                 </td>
                 <td>
                     <input type="number" name="gst_items[${gstRowCount}][total]" class="form-control" step="0.01" readonly>
@@ -294,14 +290,47 @@
             updateSummary();
         }
 
+        // Handle GST field changes
+        function handleGstChange(rowIndex) {
+            const row = document.querySelector(`input[name="gst_items[${rowIndex}][number]"]`).closest('tr');
+            const cgstInput = row.querySelector(`input[name="gst_items[${rowIndex}][cgst]"]`);
+            const sgstInput = row.querySelector(`input[name="gst_items[${rowIndex}][sgst]"]`);
+            const igstInput = row.querySelector(`input[name="gst_items[${rowIndex}][igst]"]`);
+
+            const igst = parseFloat(igstInput.value) || 0;
+            const cgst = parseFloat(cgstInput.value) || 0;
+            const sgst = parseFloat(sgstInput.value) || 0;
+
+            // If IGST is entered, clear CGST and SGST
+            if (igst > 0) {
+                cgstInput.value = 0;
+                sgstInput.value = 0;
+            }
+            // If CGST or SGST is entered, clear IGST
+            else if (cgst > 0 || sgst > 0) {
+                igstInput.value = 0;
+            }
+
+            calculateGstTotal(rowIndex);
+        }
+
         // Calculate total for GST row
         function calculateGstTotal(rowIndex) {
             const row = document.querySelector(`input[name="gst_items[${rowIndex}][number]"]`).closest('tr');
             const number = parseFloat(row.querySelector(`input[name="gst_items[${rowIndex}][number]"]`).value) || 0;
             const feet = parseFloat(row.querySelector(`input[name="gst_items[${rowIndex}][feet]"]`).value) || 0;
             const singlePrice = parseFloat(row.querySelector(`input[name="gst_items[${rowIndex}][single_price]"]`).value) || 0;
-            const cgst = parseFloat(row.querySelector(`input[name="gst_items[${rowIndex}][cgst]"]`).value) || 0;
-            const sgst = parseFloat(row.querySelector(`input[name="gst_items[${rowIndex}][sgst]"]`).value) || 0;
+            let cgst = parseFloat(row.querySelector(`input[name="gst_items[${rowIndex}][cgst]"]`).value) || 0;
+            let sgst = parseFloat(row.querySelector(`input[name="gst_items[${rowIndex}][sgst]"]`).value) || 0;
+            const igst = parseFloat(row.querySelector(`input[name="gst_items[${rowIndex}][igst]"]`).value) || 0;
+
+            // If IGST is entered, set CGST and SGST to 0
+            if (igst > 0) {
+                cgst = 0;
+                sgst = 0;
+                row.querySelector(`input[name="gst_items[${rowIndex}][cgst]"]`).value = 0;
+                row.querySelector(`input[name="gst_items[${rowIndex}][sgst]"]`).value = 0;
+            }
 
             let totalPrice = 0;
             if (number > 0) {
@@ -312,7 +341,8 @@
 
             const cgstAmount = (totalPrice * cgst) / 100;
             const sgstAmount = (totalPrice * sgst) / 100;
-            const total = totalPrice + cgstAmount + sgstAmount;
+            const igstAmount = (totalPrice * igst) / 100;
+            const total = totalPrice + cgstAmount + sgstAmount + igstAmount;
 
             row.querySelector(`input[name="gst_items[${rowIndex}][total_price]"]`).value = totalPrice.toFixed(2);
             row.querySelector(`input[name="gst_items[${rowIndex}][total]"]`).value = total.toFixed(2);
@@ -330,6 +360,7 @@
             let subtotal = 0;
             let cgstTotal = 0;
             let sgstTotal = 0;
+            let igstTotal = 0;
 
             // Calculate from items table
             document.querySelectorAll('input[name$="[total_price]"]').forEach(input => {
@@ -359,11 +390,19 @@
                 sgstTotal += (totalPrice * sgstPercent) / 100;
             });
 
-            const grandTotal = subtotal + cgstTotal + sgstTotal;
+            document.querySelectorAll('input[name$="[igst]"]').forEach(input => {
+                const row = input.closest('tr');
+                const totalPrice = parseFloat(row.querySelector('input[name$="[total_price]"]').value) || 0;
+                const igstPercent = parseFloat(input.value) || 0;
+                igstTotal += (totalPrice * igstPercent) / 100;
+            });
+
+            const grandTotal = subtotal + cgstTotal + sgstTotal + igstTotal;
 
             document.getElementById('subtotal').textContent = '₹' + subtotal.toFixed(2);
             document.getElementById('cgstTotal').textContent = '₹' + cgstTotal.toFixed(2);
             document.getElementById('sgstTotal').textContent = '₹' + sgstTotal.toFixed(2);
+            document.getElementById('igstTotal').textContent = '₹' + igstTotal.toFixed(2);
             document.getElementById('grandTotal').textContent = '₹' + grandTotal.toFixed(2);
         }
 
@@ -373,11 +412,13 @@
                 const gstTable = document.getElementById('gstTable');
                 const cgstRow = document.getElementById('cgstRow');
                 const sgstRow = document.getElementById('sgstRow');
+                const igstRow = document.getElementById('igstRow');
 
                 if (this.value === '1') {
                     gstTable.style.display = 'block';
                     cgstRow.style.display = 'flex';
                     sgstRow.style.display = 'flex';
+                    igstRow.style.display = 'flex';
                     itemsTableWithoutGst.style.display = 'none';
                     if (gstRowCount === 0) {
                         addGstRow();
@@ -393,6 +434,5 @@
                 }
             });
         });
-
     </script>
 @endsection

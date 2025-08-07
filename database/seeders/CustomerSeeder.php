@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Customers;
 use App\User;
+use Illuminate\Support\Facades\Hash;
 
 class CustomerSeeder extends Seeder
 {
@@ -20,9 +21,17 @@ class CustomerSeeder extends Seeder
         
         if (!$user) {
             $user = User::create([
-                'name' => 'Admin User',
-                'email' => 'admin@example.com',
-                'password' => bcrypt('password'),
+                'name' => 'Admin',
+                'email' => 'admin@gmail.com',
+                'password' => Hash::make('12345678'),
+                'is_admin' => true,
+                'gst' => 'GST123456789',
+                'mobile' => '9876543210',
+                'comp_name' => 'Admin Company',
+                'address' => 'Admin Address',
+                'bank_branch' => 'Admin Bank Branch',
+                'bank_ac_no' => '1234567890',
+                'bank_ifsc' => 'ADMIN0001234',
             ]);
         }
 
@@ -44,7 +53,7 @@ class CustomerSeeder extends Seeder
             [
                 'name' => 'Bob Johnson',
                 'mobile_no' => '7654321098',
-                'gst_no' => null,
+                'gst_no' => 'GST765432109',
                 'city' => 'Bangalore',
                 'address' => '789 Tech Park, Bangalore, Karnataka',
             ],
@@ -58,7 +67,7 @@ class CustomerSeeder extends Seeder
             [
                 'name' => 'Charlie Wilson',
                 'mobile_no' => '5432109876',
-                'gst_no' => null,
+                'gst_no' => 'GST543210987',
                 'city' => 'Kolkata',
                 'address' => '654 Howrah Bridge Road, Kolkata, West Bengal',
             ],

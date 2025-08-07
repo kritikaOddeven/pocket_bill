@@ -20,6 +20,7 @@ class CreateCustomersTable extends Migration
             $table->text('address');
             $table->string('city');
             $table->string('gst_no');
+            $table->string('mobile_no')->nullable();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
