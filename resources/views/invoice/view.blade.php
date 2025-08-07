@@ -26,6 +26,10 @@
         }
     </style>
 
+    <!-- Add html2canvas and jsPDF libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
     <div class="container-xxl flex-grow-1 container-p-y">
 
         <div class="row invoice-preview">
@@ -187,7 +191,8 @@
             <div class="col-xl-3 col-md-4 col-12 invoice-actions">
                 <div class="card">
                     <div class="card-body">
-                        <button class="btn btn-success d-grid w-100 mb-4" onclick="window.print()">Download</button>
+                        <button class="btn btn-success d-grid w-100 mb-4" onclick="downloadAsPDF()">Download as PDF</button>
+                        <button class="btn btn-warning d-grid w-100 mb-4" onclick="downloadAsPNG()">Download as PNG</button>
                         <div class="d-flex mb-4">
                             <a class="btn btn-secondary d-grid w-100 me-4" onclick="window.print()"> Print </a>
                             <a href="{{ route('invoice.edit', $bill->id) }}" class="btn btn-info d-grid w-100"> Edit </a>
@@ -200,4 +205,98 @@
             <!-- /Invoice Actions -->
         </div>
     </div>
+
+    <script>
+        // Function to download invoice as PNG
+        function downloadAsPNG() {
+            const element = document.querySelector('.invoice-preview-card');
+            
+            // Show loading indicator
+            const loadingBtn = event.target;
+            const originalText = loadingBtn.innerHTML;
+            loadingBtn.innerHTML = 'Converting...';
+            loadingBtn.disabled = true;
+
+            html2canvas(element, {
+                scale: 2, // Higher quality
+                useCORS: true,
+                allowTaint: true,
+                backgroundColor: '#ffffff',
+                width: element.offsetWidth,
+                height: element.offsetHeight
+            }).then(function(canvas) {
+                // Create download link
+                const link = document.createElement('a');
+                link.download = 'invoice-{{ $bill->bill_no }}.png';
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+                
+                // Reset button
+                loadingBtn.innerHTML = originalText;
+                loadingBtn.disabled = false;
+            }).catch(function(error) {
+                console.error('Error generating PNG:', error);
+                alert('Error generating PNG. Please try again.');
+                loadingBtn.innerHTML = originalText;
+                loadingBtn.disabled = false;
+            });
+        }
+
+        // Function to download invoice as PDF
+        function downloadAsPDF() {
+            const element = document.querySelector('.invoice-preview-card');
+            
+            // Show loading indicator
+            const loadingBtn = event.target;
+            const originalText = loadingBtn.innerHTML;
+            loadingBtn.innerHTML = 'Converting...';
+            loadingBtn.disabled = true;
+
+            html2canvas(element, {
+                scale: 2, // Higher quality
+                useCORS: true,
+                allowTaint: true,
+                backgroundColor: '#ffffff',
+                width: element.offsetWidth,
+                height: element.offsetHeight
+            }).then(function(canvas) {
+                // Convert canvas to PDF
+                const { jsPDF } = window.jspdf;
+                const pdf = new jsPDF('p', 'mm', 'a4');
+                
+                const imgData = canvas.toDataURL('image/png');
+                const pdfWidth = pdf.internal.pageSize.getWidth();
+                const pdfHeight = pdf.internal.pageSize.getHeight();
+                const imgWidth = pdfWidth;
+                const imgHeight = (canvas.height * imgWidth) / canvas.width;
+                
+                let heightLeft = imgHeight;
+                let position = 0;
+
+                // Add first page
+                pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+                heightLeft -= pdfHeight;
+
+                // Add additional pages if needed
+                while (heightLeft >= 0) {
+                    position = heightLeft - imgHeight;
+                    pdf.addPage();
+                    pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+                    heightLeft -= pdfHeight;
+                }
+
+                // Download PDF
+                pdf.save('invoice-{{ $bill->bill_no }}.pdf');
+                
+                // Reset button
+                loadingBtn.innerHTML = originalText;
+                loadingBtn.disabled = false;
+            }).catch(function(error) {
+                console.error('Error generating PDF:', error);
+                alert('Error generating PDF. Please try again.');
+                loadingBtn.innerHTML = originalText;
+                loadingBtn.disabled = false;
+            });
+        }
+    </script>
 @endsection
