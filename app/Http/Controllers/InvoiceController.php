@@ -15,6 +15,7 @@ class InvoiceController extends Controller
     public function index()
     {
         $bills = Bills::where('user_id', Auth::user()->id)->with('billDetails', 'customerDetails', 'user')->get();
+        
         return view('invoice.index', compact('bills'));
     }
 
@@ -35,7 +36,7 @@ class InvoiceController extends Controller
             'date' => 'required|date',
             'type' => 'required|in:0,1', // 0 = without GST, 1 = with GST
             'items' => 'required|array|min:1',
-            'items.*.name' => 'required|string',
+            'items.*.category_id' => 'required|string',
             'items.*.hsn_code' => 'required|string',
             'items.*.number' => 'nullable|numeric',
             'items.*.feet' => 'nullable|numeric',
@@ -53,7 +54,7 @@ class InvoiceController extends Controller
         if ($request->type == 1 && $request->has('gst_items')) {
             $request->validate([
                 'gst_items' => 'array',
-                'gst_items.*.name' => 'required|string',
+                'gst_items.*.category_id' => 'required|string',
                 'gst_items.*.hsn_code' => 'required|string',
                 'gst_items.*.number' => 'nullable|numeric',
                 'gst_items.*.feet' => 'nullable|numeric',
@@ -89,7 +90,7 @@ class InvoiceController extends Controller
                 'user_id' => Auth::user()->id,
                 'cust_id' => $request->customer,
                 'bill_id' => $bill->id,
-                'cat_id' => 1, // Default category
+                'cat_id' => $item['category_id'], // Default category       
                 'subcat_id' => 1, // Default subcategory
                 'name' => $item['name'],
                 'hsncode' => $item['hsn_code'],
@@ -108,7 +109,7 @@ class InvoiceController extends Controller
                     'user_id' => Auth::user()->id,
                     'cust_id' => $request->customer,
                     'bill_id' => $bill->id,
-                    'cat_id' => 1, // Default category
+                    'cat_id' => $gstItem['category_id'], // Default category
                     'subcat_id' => 1, // Default subcategory
                     'name' => $gstItem['name'],
                     'hsncode' => $gstItem['hsn_code'],

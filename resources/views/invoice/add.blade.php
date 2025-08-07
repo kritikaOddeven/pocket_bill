@@ -17,16 +17,7 @@
                             </div>
                         @endif
 
-                        @if ($errors->any())
-                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                <ul class="mb-0">
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                            </div>
-                        @endif
+                       @include('partials._alert')
 
                         <form action="{{ route('invoice.store') }}" method="POST" id="invoiceForm">
                             @csrf
@@ -70,7 +61,7 @@
                             </div>
 
                             <!-- Primary Items Table -->
-                            <div class="card mb-4">
+                            <div class="card mb-4" id="itemsTableWithoutGst">
                                 <div class="card-header d-flex justify-content-between align-items-center">
                                     <h5 class="mb-0">Item Details</h5>
                                     <button type="button" class="btn btn-primary btn-sm" onclick="addItemRow()">
@@ -140,15 +131,15 @@
                                     <div class="card">
                                         <div class="card-body">
                                             <h6 class="card-title">Summary</h6>
-                                            <div class="row">
+                                            <div class="row mb-2">
                                                 <div class="col-6">Subtotal:</div>
                                                 <div class="col-6 text-end" id="subtotal">₹0.00</div>
                                             </div>
-                                            <div class="row" id="cgstRow" style="display: none;">
+                                            <div class="row mb-2" id="cgstRow" style="display: none;">
                                                 <div class="col-6">CGST:</div>
                                                 <div class="col-6 text-end" id="cgstTotal">₹0.00</div>
                                             </div>
-                                            <div class="row" id="sgstRow" style="display: none;">
+                                            <div class="row mb-2" id="sgstRow" style="display: none;">
                                                 <div class="col-6">SGST:</div>
                                                 <div class="col-6 text-end" id="sgstTotal">₹0.00</div>
                                             </div>
@@ -183,7 +174,12 @@
             const row = document.createElement('tr');
             row.innerHTML = `
                 <td>
-                    <input type="text" name="items[${itemRowCount}][name]" class="form-control" required>
+                    <select class="form-select" name="items[${itemRowCount}][category_id]" required>
+                        <option value="">Select Category</option>
+                        @foreach($subcategories as $subcategory)
+                            <option value="{{ $subcategory->id }}">{{ $subcategory->name }}</option>
+                        @endforeach
+                    </select>
                 </td>
                 <td>
                     <input type="text" name="items[${itemRowCount}][hsn_code]" class="form-control" required>
@@ -219,7 +215,12 @@
             const row = document.createElement('tr');
             row.innerHTML = `
                 <td>
-                    <input type="text" name="gst_items[${gstRowCount}][name]" class="form-control" required>
+                    <select class="form-select" name="gst_items[${gstRowCount}][category_id]" required>
+                        <option value="">Select Category</option>
+                        @foreach($subcategories as $subcategory)
+                            <option value="{{ $subcategory->id }}">{{ $subcategory->name }}</option>
+                        @endforeach
+                    </select>
                 </td>
                 <td>
                     <input type="text" name="gst_items[${gstRowCount}][hsn_code]" class="form-control" required>
@@ -358,12 +359,14 @@
                 
                 if (this.value === '1') {
                     gstTable.style.display = 'block';
-                    cgstRow.style.display = 'block';
-                    sgstRow.style.display = 'block';
+                    cgstRow.style.display = 'flex';
+                    sgstRow.style.display = 'flex';
+                    itemsTableWithoutGst.style.display = 'none';
                 } else {
                     gstTable.style.display = 'none';
                     cgstRow.style.display = 'none';
                     sgstRow.style.display = 'none';
+                    itemsTableWithoutGst.style.display = 'block';
                 }
             });
         });
@@ -371,6 +374,7 @@
         // Add initial row
         document.addEventListener('DOMContentLoaded', function() {
             addItemRow();
+            addGstRow();
         });
     </script>
 @endsection
