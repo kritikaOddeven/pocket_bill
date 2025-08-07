@@ -227,7 +227,7 @@ class InvoiceController extends Controller
         ]);
 
         // Delete existing bill details
-        BillDetails::where('bill_id', $bill->id)->delete();
+        // BillDetails::where('bill_id', $bill->id)->delete();
 
         if ($request->type == 0) {
             // Create new regular items
