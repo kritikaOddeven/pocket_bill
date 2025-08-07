@@ -176,7 +176,7 @@
                                                 @foreach($bill->billDetails as $index => $item)
                                                     <tr>
                                                         <td>
-                                                            <select class="form-select" name="items[{{ $index }}][subcategory_id]" required>
+                                                            <select class="form-select" name="gst_items[{{ $index }}][subcategory_id]" required>
                                                                 <option value="">Select Subcategory</option>
                                                                 @foreach ($subcategories as $subcategory)
                                                                     <option value="{{ $subcategory->id }}" {{ $subcategory->id == $item->subcat_id ? 'selected' : '' }}>
@@ -186,32 +186,32 @@
                                                             </select>
                                                         </td>
                                                         <td>
-                                                            <input type="text" name="items[{{ $index }}][hsn_code]" class="form-control" value="{{ $item->hsncode }}" required>
+                                                            <input type="text" name="gst_items[{{ $index }}][hsn_code]" class="form-control" value="{{ $item->hsncode }}" required>
                                                         </td>
                                                         <td>
-                                                            <input type="number" name="items[{{ $index }}][number]" class="form-control" value="{{ $item->number }}" onchange="calculateGstItemTotal({{ $index }})">
+                                                            <input type="number" name="gst_items[{{ $index }}][number]" class="form-control" value="{{ $item->number }}" onchange="calculateGstItemTotal({{ $index }})">
                                                         </td>
                                                         <td>
-                                                            <input type="number" name="items[{{ $index }}][feet]" class="form-control" step="0.01" value="{{ $item->feet }}" onchange="calculateGstItemTotal({{ $index }})">
+                                                            <input type="number" name="gst_items[{{ $index }}][feet]" class="form-control" step="0.01" value="{{ $item->feet }}" onchange="calculateGstItemTotal({{ $index }})">
                                                         </td>
                                                        
                                                         <td>
-                                                            <input type="number" name="items[{{ $index }}][single_price]" class="form-control" step="0.01" value="{{ $item->single_price }}" required onchange="calculateGstItemTotal({{ $index }})">
+                                                            <input type="number" name="gst_items[{{ $index }}][single_price]" class="form-control" step="0.01" value="{{ $item->single_price }}" required onchange="calculateGstItemTotal({{ $index }})">
                                                         </td>
                                                         <td>
-                                                            <input type="number" name="items[{{ $index }}][total_price]" class="form-control" step="0.01" value="{{ $item->total_price }}" readonly>
+                                                            <input type="number" name="gst_items[{{ $index }}][total_price]" class="form-control" step="0.01" value="{{ $item->total_price }}" readonly>
                                                         </td>
                                                         <td>
-                                                            <input type="number" name="items[{{ $index }}][cgst]" class="form-control" step="0.01" value="{{ $item->cgst }}" onchange="handleGstChange({{ $index }})">
+                                                            <input type="number" name="gst_items[{{ $index }}][cgst]" class="form-control" step="0.01" value="{{ $item->cgst }}" onchange="handleGstChange({{ $index }})">
                                                         </td>
                                                         <td>
-                                                            <input type="number" name="items[{{ $index }}][sgst]" class="form-control" step="0.01" value="{{ $item->sgst }}" onchange="handleGstChange({{ $index }})">
+                                                            <input type="number" name="gst_items[{{ $index }}][sgst]" class="form-control" step="0.01" value="{{ $item->sgst }}" onchange="handleGstChange({{ $index }})">
                                                         </td>
                                                         <td>
-                                                            <input type="number" name="items[{{ $index }}][igst]" class="form-control" step="0.01" value="{{ $item->igst }}" onchange="handleGstChange({{ $index }})">
+                                                            <input type="number" name="gst_items[{{ $index }}][igst]" class="form-control" step="0.01" value="{{ $item->igst }}" onchange="handleGstChange({{ $index }})">
                                                         </td>
                                                         <td>
-                                                            <input type="number" name="items[{{ $index }}][total]" class="form-control" step="0.01" value="{{ $item->bill->total }}" readonly>
+                                                            <input type="number" name="gst_items[{{ $index }}][total]" class="form-control" step="0.01" value="{{ $item->bill->total }}" readonly>
                                                         </td>
                                                         <td>
                                                             <button type="button" class="btn btn-danger btn-sm" onclick="removeRow(this)">
@@ -321,7 +321,7 @@
             const row = document.createElement('tr');
             row.innerHTML = `
                 <td>
-                    <select class="form-select" name="items[${gstRowCount}][subcategory_id]" required>
+                    <select class="form-select" name="gst_items[${gstRowCount}][subcategory_id]" required>
                         <option value="">Select Subcategory</option>
                         @foreach ($subcategories as $subcategory)
                             <option value="{{ $subcategory->id }}">{{ $subcategory->name }}</option>
@@ -329,31 +329,31 @@
                     </select>
                 </td>
                 <td>
-                    <input type="text" name="items[${gstRowCount}][hsn_code]" class="form-control" required>
+                    <input type="text" name="gst_items[${gstRowCount}][hsn_code]" class="form-control" required>
                 </td>
                 <td>
-                    <input type="number" name="items[${gstRowCount}][number]" class="form-control" onchange="calculateGstItemTotal(${gstRowCount})">
+                    <input type="number" name="gst_items[${gstRowCount}][number]" class="form-control" onchange="calculateGstItemTotal(${gstRowCount})">
                 </td>
                 <td>
-                    <input type="number" name="items[${gstRowCount}][feet]" class="form-control" step="0.01" onchange="calculateGstItemTotal(${gstRowCount})">
+                    <input type="number" name="gst_items[${gstRowCount}][feet]" class="form-control" step="0.01" onchange="calculateGstItemTotal(${gstRowCount})">
                 </td>
                 <td>
-                    <input type="number" name="items[${gstRowCount}][single_price]" class="form-control" step="0.01" required onchange="calculateGstItemTotal(${gstRowCount})">
+                    <input type="number" name="gst_items[${gstRowCount}][single_price]" class="form-control" step="0.01" required onchange="calculateGstItemTotal(${gstRowCount})">
                 </td>
                 <td>
-                    <input type="number" name="items[${gstRowCount}][total_price]" class="form-control" step="0.01" readonly>
+                    <input type="number" name="gst_items[${gstRowCount}][total_price]" class="form-control" step="0.01" readonly>
                 </td>
                 <td>
-                    <input type="number" name="items[${gstRowCount}][cgst]" class="form-control" step="0.01" min="0" max="100" onchange="handleGstChange(${gstRowCount})">
+                    <input type="number" name="gst_items[${gstRowCount}][cgst]" class="form-control" step="0.01" min="0" max="100" onchange="handleGstChange(${gstRowCount})">
                 </td>
                 <td>
-                    <input type="number" name="items[${gstRowCount}][sgst]" class="form-control" step="0.01" min="0" max="100" onchange="handleGstChange(${gstRowCount})">
+                    <input type="number" name="gst_items[${gstRowCount}][sgst]" class="form-control" step="0.01" min="0" max="100" onchange="handleGstChange(${gstRowCount})">
                 </td>
                 <td>
-                    <input type="number" name="items[${gstRowCount}][igst]" class="form-control" step="0.01" min="0" max="100" onchange="handleGstChange(${gstRowCount})">
+                    <input type="number" name="gst_items[${gstRowCount}][igst]" class="form-control" step="0.01" min="0" max="100" onchange="handleGstChange(${gstRowCount})">
                 </td>
                 <td>
-                    <input type="number" name="items[${gstRowCount}][total]" class="form-control" step="0.01" readonly>
+                    <input type="number" name="gst_items[${gstRowCount}][total]" class="form-control" step="0.01" readonly>
                 </td>
                 <td>
                     <button type="button" class="btn btn-danger btn-sm" onclick="removeRow(this)">

@@ -49,7 +49,7 @@
                                                             <span class="badge bg-success">With GST</span>
                                                         @endif
                                                     </td>
-                                                    <td>₹{{ number_format($bill->total, 2) }}</td>
+                                                    <td>₹{{ number_format(($bill->total), 2) }}</td>
                                                     <td>
                                                         @if ($bill->payment_status == 0)
                                                             <span class="badge bg-secondary">Pending</span>

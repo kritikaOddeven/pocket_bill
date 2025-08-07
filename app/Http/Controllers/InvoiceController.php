@@ -29,7 +29,39 @@ class InvoiceController extends Controller
 
     public function store(Request $request)
     {
-        if ($request->type == 0) {
+        $cgstTotal = 0;
+        $sgstTotal = 0;
+        $igstTotal = 0;
+        $subtotal = 0;
+        if($request->type == 0){
+            $subtotal = collect($request->items)->sum('total_price');
+        }else{
+            $subtotal = collect($request->gst_items)->sum('total_price');
+            // Calculate GST totals
+            foreach ($request->gst_items as $gstItem) {
+                $totalPrice = $gstItem['total_price'];
+                $cgstTotal += ($totalPrice * $gstItem['cgst']) / 100;
+                $sgstTotal += ($totalPrice * $gstItem['sgst']) / 100;
+                $igstTotal += ($totalPrice * $gstItem['igst']) / 100;
+            }
+        }
+        $bill = Bills::create([
+            'user_id'         => Auth::user()->id,
+            'cust_id'         => $request->customer,
+            'bill_no'         => $request->bill_no,
+            'date'            => $request->date,
+            'type'            => $request->type,
+            'estimated_total' => $subtotal,
+            'cgst'            => $cgstTotal,
+            'sgst'            => $sgstTotal,
+            'igst'            => $igstTotal,
+            'total'           => $subtotal + $cgstTotal + $sgstTotal + $igstTotal, // Total amount including GST
+            'payment_status'  => $request->payment,
+        ]);
+
+        // without GST
+        if ($request->type == 0 && $request->has('items')) {
+            // Calculate totals
             $request->validate([
                 'customer'               => 'required|exists:customers,id',
                 'bill_no'                => 'required|string|max:255',
@@ -43,56 +75,7 @@ class InvoiceController extends Controller
                 'items.*.single_price'   => 'required|numeric|min:0',
                 'items.*.total_price'    => 'required|numeric|min:0',
             ]);
-        }
 
-        // Calculate totals
-        $subtotal  = collect($request->items)->sum('total_price');
-
-        $cgstTotal = 0;
-        $sgstTotal = 0;
-        $igstTotal = 0;
-
-        // If GST type, calculate GST from GST items
-        if ($request->type == 1 && $request->has('gst_items')) {
-            $subtotal  = collect($request->gst_items)->sum('total_price');
-
-            $request->validate([
-                'gst_items'                  => 'array',
-                'gst_items.*.subcategory_id' => 'required|string',
-                'gst_items.*.hsn_code'       => 'required|string',
-                'gst_items.*.number'         => 'nullable|numeric',
-                'gst_items.*.feet'           => 'nullable|numeric',
-                'gst_items.*.single_price'   => 'required|numeric|min:0',
-                'gst_items.*.total_price'    => 'required|numeric|min:0',
-                'gst_items.*.cgst'           => 'required|numeric|min:0',
-                'gst_items.*.sgst'           => 'required|numeric|min:0',
-                'gst_items.*.igst'           => 'required|numeric|min:0',
-            ]);
-
-            foreach ($request->gst_items as $gstItem) {
-                $totalPrice = $gstItem['total_price'];
-                $cgstTotal += ($totalPrice * $gstItem['cgst']) / 100;
-                $sgstTotal += ($totalPrice * $gstItem['sgst']) / 100;
-                $igstTotal += ($totalPrice * $gstItem['igst']) / 100;
-            }
-        }
-
-        $bill = Bills::create([
-            'user_id'         => Auth::user()->id,
-            'cust_id'         => $request->customer,
-            'bill_no'         => $request->bill_no,
-            'date'            => $request->date,
-            'type'            => $request->type,
-            'estimated_total' => $subtotal,
-            'cgst'            => $cgstTotal,
-            'sgst'            => $sgstTotal,
-            'igst'            => $igstTotal,
-            'total'           => $subtotal + $cgstTotal + $sgstTotal + $igstTotal, // Total amount including GST
-            'payment_status'         => $request->payment,
-        ]);
-
-        if ($request->type == 0) { // without GST
-            // Create regular items
             foreach ($request->items as $item) {
                 $subcategory = Subcategories::where('id', $item['subcategory_id'])->first();
                 $category    = Categories::where('id', $subcategory->cat_id)->first();
@@ -110,9 +93,27 @@ class InvoiceController extends Controller
                     'total_price'  => $item['total_price'],
                 ]);
             }
+
         }
-        // Create GST items if present
+
+
+        // If GST type, calculate GST from GST items
         if ($request->type == 1 && $request->has('gst_items')) {
+
+            // Validate request
+            $request->validate([
+                'gst_items'                  => 'array',
+                'gst_items.*.subcategory_id' => 'required|string',
+                'gst_items.*.hsn_code'       => 'required|string',
+                'gst_items.*.number'         => 'nullable|numeric',
+                'gst_items.*.feet'           => 'nullable|numeric',
+                'gst_items.*.single_price'   => 'required|numeric|min:0',
+                'gst_items.*.total_price'    => 'required|numeric|min:0',
+                'gst_items.*.cgst'           => 'required|numeric|min:0',
+                'gst_items.*.sgst'           => 'required|numeric|min:0',
+                'gst_items.*.igst'           => 'required|numeric|min:0',
+            ]);
+
             foreach ($request->gst_items as $gstItem) {
                 $subcategory = Subcategories::where('id', $gstItem['subcategory_id'])->first();
                 $category    = Categories::where('id', $subcategory->cat_id)->first();
@@ -168,7 +169,45 @@ class InvoiceController extends Controller
             ->where('user_id', Auth::user()->id)
             ->firstOrFail();
 
-        if ($request->type == 0) {
+        // Calculate totals
+        $cgstTotal = 0;
+        $sgstTotal = 0;
+        $igstTotal = 0;
+        $subtotal = 0;
+
+        if($request->type == 0){
+            $subtotal = collect($request->items)->sum('total_price');
+        }else{
+            $subtotal = collect($request->gst_items)->sum('total_price');
+            // Calculate GST totals
+            foreach ($request->gst_items as $gstItem) {
+                $totalPrice = $gstItem['total_price'];
+                $cgstTotal += ($totalPrice * $gstItem['cgst']) / 100;
+                $sgstTotal += ($totalPrice * $gstItem['sgst']) / 100;
+                $igstTotal += ($totalPrice * $gstItem['igst']) / 100;
+            }
+        }
+
+        // Update bill
+        $bill->update([
+            'cust_id'         => $request->customer,
+            'bill_no'         => $request->bill_no,
+            'date'            => $request->date,
+            'type'            => $request->type,
+            'estimated_total' => $subtotal,
+            'cgst'            => $cgstTotal,
+            'sgst'            => $sgstTotal,
+            'igst'            => $igstTotal,
+            'total'           => $subtotal + $cgstTotal + $sgstTotal + $igstTotal,
+            'payment_status'  => $request->payment,
+        ]);
+
+        BillDetails::where('bill_id', $bill->id)->delete();
+        
+        // without GST
+        if ($request->type == 0 && $request->has('items')) {
+            $subtotal = collect($request->items)->sum('total_price');
+
             $request->validate([
                 'customer'               => 'required|exists:customers,id',
                 'bill_no'                => 'required|string|max:255',
@@ -182,54 +221,7 @@ class InvoiceController extends Controller
                 'items.*.single_price'   => 'required|numeric|min:0',
                 'items.*.total_price'    => 'required|numeric|min:0',
             ]);
-        }
-        // Calculate totals
-        $subtotal  = collect($request->items)->sum('total_price');
-        $cgstTotal = 0;
-        $sgstTotal = 0;
-        $igstTotal = 0;
 
-        // If GST type, calculate GST from GST items
-        if ($request->type == 1 && $request->has('gst_items')) {
-            $subtotal  = collect($request->gst_items)->sum('total_price');
-            $request->validate([
-                'gst_items'                  => 'array',
-                'gst_items.*.subcategory_id' => 'required|string',
-                'gst_items.*.hsn_code'       => 'required|string',
-                'gst_items.*.number'         => 'nullable|numeric',
-                'gst_items.*.feet'           => 'nullable|numeric',
-                'gst_items.*.single_price'   => 'required|numeric|min:0',
-                'gst_items.*.total_price'    => 'required|numeric|min:0',
-                'gst_items.*.cgst'           => 'required|numeric|min:0',
-                'gst_items.*.sgst'           => 'required|numeric|min:0',
-                'gst_items.*.igst'           => 'required|numeric|min:0',
-            ]);
-
-            foreach ($request->gst_items as $gstItem) {
-                $totalPrice = $gstItem['total_price'];
-                $cgstTotal += ($totalPrice * $gstItem['cgst']) / 100;
-                $sgstTotal += ($totalPrice * $gstItem['sgst']) / 100;
-                $igstTotal += ($totalPrice * $gstItem['igst']) / 100;
-            }
-        }
-
-        $bill->update([
-            'cust_id'         => $request->customer,
-            'bill_no'         => $request->bill_no,
-            'date'            => $request->date,
-            'type'            => $request->type,
-            'estimated_total' => $subtotal,
-            'cgst'            => $cgstTotal,
-            'sgst'            => $sgstTotal,
-            'igst'            => $igstTotal,
-            'total'           => $subtotal + $cgstTotal + $sgstTotal + $igstTotal,
-            'payment_status'         => $request->payment,
-        ]);
-
-        // Delete existing bill details
-        // BillDetails::where('bill_id', $bill->id)->delete();
-
-        if ($request->type == 0) {
             // Create new regular items
             foreach ($request->items as $item) {
                 $subcategory = Subcategories::where('id', $item['subcategory_id'])->first();
@@ -249,9 +241,23 @@ class InvoiceController extends Controller
                 ]);
             }
         }
-
-        // Create new GST items if present
+        // with GST
         if ($request->type == 1 && $request->has('gst_items')) {
+            $subtotal = collect($request->gst_items)->sum('total_price');
+            $request->validate([
+                'gst_items'                  => 'array',
+                'gst_items.*.subcategory_id' => 'required|string',
+                'gst_items.*.hsn_code'       => 'required|string',
+                'gst_items.*.number'         => 'nullable|numeric',
+                'gst_items.*.feet'           => 'nullable|numeric',
+                'gst_items.*.single_price'   => 'required|numeric|min:0',
+                'gst_items.*.total_price'    => 'required|numeric|min:0',
+                'gst_items.*.cgst'           => 'required|numeric|min:0',
+                'gst_items.*.sgst'           => 'required|numeric|min:0',
+                'gst_items.*.igst'           => 'required|numeric|min:0',
+            ]);
+
+
             foreach ($request->gst_items as $gstItem) {
                 $subcategory = Subcategories::where('id', $gstItem['subcategory_id'])->first();
                 $category    = Categories::where('id', $subcategory->cat_id)->first();
