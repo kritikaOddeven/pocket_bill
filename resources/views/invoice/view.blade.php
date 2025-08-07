@@ -164,7 +164,7 @@
                     <div class="card-body">
                         <div class="row">
                             <strong>Bank Details</strong>
-                            <div class="col-xl-6 col-md-12 col-sm-5 col-12 mb-xl-0 mb-md-6 mb-sm-0">
+                            <div class="col-xl-8 col-md-12 col-sm-5 col-12 mb-xl-0 mb-md-6 mb-sm-0">
                                 <p class="mb-1"><strong>Bank Name :</strong> {{ $bill->user->bank_branch }}</p>
                                 <p class="mb-1"><strong>A/C No :</strong> {{ $bill->user->bank_ac_no }}</p>
                                 <p class="mb-1"><strong>IFSC No :</strong> {{ $bill->user->bank_ifsc }}</p>

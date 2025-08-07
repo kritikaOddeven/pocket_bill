@@ -6,7 +6,7 @@
                  document.write(new Date().getFullYear());
              </script>
              , made with ❤️ by
-             <a href="" target="_blank" class="footer-link fw-bolder">OddEven Pvt. Ltd.</a>
+             <a href="" target="_blank" class="footer-link fw-bolder">OddEven Infotech Pvt. Ltd.</a>
          </div>
          
      </div>
