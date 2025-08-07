@@ -117,6 +117,44 @@
                         </ul>
                     </li>
 
+                    <li class="menu-item {{ request()->is('categories*') ? 'active open' : '' }}">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle">
+                            <i class="menu-icon icon-base bx bx-category"></i>
+                            <div data-i18n="Categories">Categories</div>
+                        </a>
+                        <ul class="menu-sub">
+                            <li class="menu-item {{ request()->is('categories') ? 'active' : '' }}">
+                                <a href="{{ route('categories.index') }}" class="menu-link">
+                                    <div data-i18n="List">List</div>
+                                </a>
+                            </li>
+                            <li class="menu-item {{ request()->is('categories/create') ? 'active' : '' }}">
+                                <a href="{{ route('categories.create') }}" class="menu-link">
+                                    <div data-i18n="Add">Add</div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="menu-item {{ request()->is('subcategories*') ? 'active open' : '' }}">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle">
+                            <i class="menu-icon icon-base bx bx-subdirectory-right"></i>
+                            <div data-i18n="Subcategories">Subcategories</div>
+                        </a>
+                        <ul class="menu-sub">
+                            <li class="menu-item {{ request()->is('subcategories') ? 'active' : '' }}">
+                                <a href="{{ route('subcategories.index') }}" class="menu-link">
+                                    <div data-i18n="List">List</div>
+                                </a>
+                            </li>
+                            <li class="menu-item {{ request()->is('subcategories/create') ? 'active' : '' }}">
+                                <a href="{{ route('subcategories.create') }}" class="menu-link">
+                                    <div data-i18n="Add">Add</div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
                     <li class="menu-item {{ request()->is('invoice*') ? 'active open' : '' }}">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
                             <i class="menu-icon icon-base bx bx-food-menu"></i>

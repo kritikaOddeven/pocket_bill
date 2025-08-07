@@ -2,6 +2,8 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CustomersController;
 use App\Http\Controllers\InvoiceController;
+use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\SubcategoriesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +42,12 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/customers/{id}/edit', [CustomersController::class, 'edit'])->name('customers.edit');
     Route::put('/customers/{id}', [CustomersController::class, 'update'])->name('customers.update');
     Route::delete('/customers/{id}', [CustomersController::class, 'destroy'])->name('customers.destroy');
+
+    // Categories routes
+    Route::resource('categories', CategoriesController::class);
+
+    // Subcategories routes
+    Route::resource('subcategories', SubcategoriesController::class);
 
     // Invoice routes
     Route::resource('invoice', 'InvoiceController');
