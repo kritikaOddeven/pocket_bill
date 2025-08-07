@@ -202,13 +202,13 @@
                                                             <input type="number" name="items[{{ $index }}][total_price]" class="form-control" step="0.01" value="{{ $item->total_price }}" readonly>
                                                         </td>
                                                         <td>
-                                                            <input type="number" name="items[{{ $index }}][cgst]" class="form-control" step="0.01" value="{{ $item->bill->cgst }}" onchange="handleGstChange({{ $index }})">
+                                                            <input type="number" name="items[{{ $index }}][cgst]" class="form-control" step="0.01" value="{{ $item->cgst }}" onchange="handleGstChange({{ $index }})">
                                                         </td>
                                                         <td>
-                                                            <input type="number" name="items[{{ $index }}][sgst]" class="form-control" step="0.01" value="{{ $item->bill->sgst }}" onchange="handleGstChange({{ $index }})">
+                                                            <input type="number" name="items[{{ $index }}][sgst]" class="form-control" step="0.01" value="{{ $item->sgst }}" onchange="handleGstChange({{ $index }})">
                                                         </td>
                                                         <td>
-                                                            <input type="number" name="items[{{ $index }}][igst]" class="form-control" step="0.01" value="{{ $item->bill->igst }}" onchange="handleGstChange({{ $index }})">
+                                                            <input type="number" name="items[{{ $index }}][igst]" class="form-control" step="0.01" value="{{ $item->igst }}" onchange="handleGstChange({{ $index }})">
                                                         </td>
                                                         <td>
                                                             <input type="number" name="items[{{ $index }}][total]" class="form-control" step="0.01" value="{{ $item->bill->total }}" readonly>
