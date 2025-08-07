@@ -99,7 +99,6 @@
                                     <th>HSN Code</th>
                                     <th>Number/Pieces</th>
                                     <th>Feet</th>
-                                    <th>Feet Word</th>
                                     <th>Unit Price</th>
                                     <th>Total</th>
                                 </tr>
@@ -111,7 +110,6 @@
                                         <td class="text-nowrap">{{ $item->hsncode }}</td>
                                         <td>{{ $item->number ?: '-' }}</td>
                                         <td>{{ $item->feet ?: '-' }}</td>
-                                        <td>{{ $item->feet_word ?: '-' }}</td>
                                         <td>₹{{ number_format($item->single_price, 2) }}</td>
                                         <td>₹{{ number_format($item->total_price, 2) }}</td>
                                     </tr>
