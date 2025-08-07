@@ -72,9 +72,6 @@
                             <div class="card mb-4" id="itemsTableWithoutGst">
                                 <div class="card-header d-flex justify-content-between align-items-center">
                                     <h5 class="mb-0">Item Details</h5>
-                                    <button type="button" class="btn btn-primary btn-sm" onclick="addItemRow()">
-                                        <i class="bx bx-plus"></i> Add Item
-                                    </button>
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
@@ -96,6 +93,10 @@
                                             </tbody>
                                         </table>
                                     </div>
+
+                                    <button type="button" class="btn btn-primary btn-sm mt-3" onclick="addItemRow()">
+                                        <i class="bx bx-plus"></i> Add Item
+                                    </button>
                                 </div>
                             </div>
 
@@ -103,9 +104,7 @@
                             <div class="card mb-4" id="gstTable" style="display: none;">
                                 <div class="card-header d-flex justify-content-between align-items-center">
                                     <h5 class="mb-0">GST Details</h5>
-                                    <button type="button" class="btn btn-primary btn-sm" onclick="addGstRow()">
-                                        <i class="bx bx-plus"></i> Add GST Item
-                                    </button>
+                                    
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
@@ -130,6 +129,9 @@
                                             </tbody>
                                         </table>
                                     </div>
+                                    <button type="button" class="btn btn-primary btn-sm mt-3" onclick="addGstRow()">
+                                        <i class="bx bx-plus"></i> Add GST Item
+                                    </button>
                                 </div>
                             </div>
 

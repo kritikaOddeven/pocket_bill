@@ -1,5 +1,31 @@
 @extends('app')
 @section('admin-content')
+    <style>
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+
+            .invoice-preview-card,
+            .invoice-preview-card * {
+                visibility: visible;
+            }
+
+            .invoice-preview-card {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                padding: 0;
+                margin: 0;
+            }
+
+            .invoice-actions {
+                display: none !important;
+            }
+        }
+    </style>
+
     <div class="container-xxl flex-grow-1 container-p-y">
 
         <div class="row invoice-preview">
@@ -141,7 +167,7 @@
                             <div class="col-xl-6 col-md-12 col-sm-5 col-12 mb-xl-0 mb-md-6 mb-sm-0 mb-6 text-end">
                                 <h6>हस्ताक्षर (Signature)</h6>
                                 <p>................................</p>
-                                
+
                             </div>
                         </div>
                     </div>
@@ -161,9 +187,9 @@
             <div class="col-xl-3 col-md-4 col-12 invoice-actions">
                 <div class="card">
                     <div class="card-body">
-                        <button class="btn btn-success d-grid w-100 mb-4">Download</button>
+                        <button class="btn btn-success d-grid w-100 mb-4" onclick="window.print()">Download</button>
                         <div class="d-flex mb-4">
-                            <a class="btn btn-secondary d-grid w-100 me-4"  href="{{ route('invoice.show', $bill->id) }}"> Print </a>
+                            <a class="btn btn-secondary d-grid w-100 me-4" onclick="window.print()"> Print </a>
                             <a href="{{ route('invoice.edit', $bill->id) }}" class="btn btn-info d-grid w-100"> Edit </a>
                         </div>
                         <a href="{{ route('invoice.index') }}" class="btn btn-primary d-grid w-100 mb-4">Back to List</a>
@@ -173,8 +199,5 @@
             </div>
             <!-- /Invoice Actions -->
         </div>
-
-
-
     </div>
 @endsection
