@@ -137,7 +137,7 @@ class InvoiceController extends Controller
             ->where('user_id', Auth::user()->id)
             ->with('billDetails', 'customerDetails')
             ->firstOrFail();
-
+        
         return view('invoice.view', compact('bill'));
     }
 

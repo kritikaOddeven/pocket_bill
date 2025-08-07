@@ -218,7 +218,7 @@
                                     </div>
                                 </div>
                             </div>
-
+                            {{-- {{dd($bill)}} --}}
                             <!-- Summary Section -->
                             <div class="row mb-4">
                                 <div class="col-md-6 offset-md-6">
@@ -261,6 +261,7 @@
     <script>
         let itemRowCount = {{ count($bill->billDetails) }};
         let gstRowCount = 0;
+        let billtype = {{ $bill->type }}
 
         // Add item row to primary table
         function addItemRow() {
@@ -405,13 +406,14 @@
         // Update summary
         function updateSummary() {
             let subtotal = 0;
+            let without_subtotal = 0;
             let cgstTotal = 0;
             let sgstTotal = 0;
 
             // Calculate from items table
             document.querySelectorAll('input[name$="[total_price]"]').forEach(input => {
                 if (input.closest('#itemsTable')) {
-                    subtotal += parseFloat(input.value) || 0;
+                    without_subtotal += parseFloat(input.value) || 0;
                 }
             });
 
@@ -436,7 +438,11 @@
                 sgstTotal += (totalPrice * sgstPercent) / 100;
             });
 
-            const grandTotal = subtotal + cgstTotal + sgstTotal;
+            if(billtype == 1){
+                const grandTotal = subtotal + cgstTotal + sgstTotal;
+            }else{
+                const grandTotal =  without_subtotal;
+            }
 
             document.getElementById('subtotal').textContent = '₹' + subtotal.toFixed(2);
             document.getElementById('cgstTotal').textContent = '₹' + cgstTotal.toFixed(2);

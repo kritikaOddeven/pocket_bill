@@ -387,5 +387,9 @@
             });
         });
 
+        document.addEventListener('DOMContentLoaded', function() {
+            addItemRow();
+        });
+
     </script>
 @endsection
