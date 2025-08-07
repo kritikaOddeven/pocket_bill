@@ -89,7 +89,7 @@
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
-                                            <tbody id="itemsTableBody">
+                                            <tbody id="itemsTableBody" class="p-0">
                                                 <!-- Rows will be added dynamically -->
                                             </tbody>
                                         </table>
@@ -125,7 +125,7 @@
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
-                                            <tbody id="gstItemsTableBody">
+                                            <tbody id="gstItemsTableBody" class="p-0">
                                                 <!-- GST rows will be added dynamically -->
                                             </tbody>
                                         </table>

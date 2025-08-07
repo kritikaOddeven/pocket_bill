@@ -44,8 +44,8 @@
                             <div class="mb-xl-0 mb-6 text-heading">
                                 <div class="d-flex svg-illustration mb-6 gap-2 align-items-center">
                                     <span class="app-brand-logo demo">
-                                        <span class="text-primary">
-                                            <span class="app-brand-text demo fw-bold ms-50 lh-1">Pocket Bill</span>
+                                        <span class="text-dark">
+                                            <span class="app-brand-text demo fw-bold ms-50 lh-1">INVOICE</span>
                                         </span>
                                     </span>
                                 </div>
@@ -64,29 +64,29 @@
                     </div>
                     <div class="card-body ">
                         <div class="row">
-
-                            <div class="col-xl-6 col-md-12 col-sm-5 col-12 mb-xl-0 mb-md-6 mb-sm-0 mb-6">
-                                <h6>Invoice From:</h6>
-                                <p class="mb-1">Company Name: {{ $bill->user->comp_name }}</p>
-                                <p class="mb-1">Address: {{ $bill->user->address }}</p>
-                                <p class="mb-1">Mobile No.: {{ $bill->user->mobile }}</p>
-                                @if ($bill->user->gst)
-                                    <p class="mb-0">GST: {{ $bill->user->gst }}</p>
-                                @endif
-
-                            </div>
+                            
                             <div class="col-xl-6 col-md-12 col-sm-5 col-12 mb-xl-0 mb-md-6 mb-sm-0 mb-6">
                                 <h6>Invoice To:</h6>
                                 @if ($bill->customerDetails)
-                                    <p class="mb-1">Nmae: {{ $bill->customerDetails->name }}</p>
-                                    <p class="mb-1">Address: {{ $bill->customerDetails->address }}</p>
-                                    <p class="mb-1">City: {{ $bill->customerDetails->city }}</p>
-                                    <p class="mb-1">Mobile No.: {{ $bill->customerDetails->mobile_no }}</p>
+                                    <p class="mb-1"><strong>Name :</strong> {{ $bill->customerDetails->name }}</p>
+                                    <p class="mb-1"><strong>Address :</strong> {{ $bill->customerDetails->address }}</p>
+                                    <p class="mb-1"><strong>City :</strong> {{ $bill->customerDetails->city }}</p>
+                                    <p class="mb-1"><strong>Mobile No :</strong> {{ $bill->customerDetails->mobile_no }}</p>
                                     @if ($bill->customerDetails->gst_no)
-                                        <p class="mb-0">GST: {{ $bill->customerDetails->gst_no }}</p>
+                                        <p class="mb-0"><strong>GST :</strong> {{ $bill->customerDetails->gst_no }}</p>
                                     @endif
                                 @else
                                     <p class="mb-0">Customer information not available</p>
+                                @endif
+                            </div>
+
+                            <div class="col-xl-6 col-md-12 col-sm-5 col-12 mb-xl-0 mb-md-6 mb-sm-0 mb-6 text-end">
+                                <h6>Invoice From:</h6>
+                                <p class="mb-1"><strong>Company Name :</strong> {{ $bill->user->comp_name }}</p>
+                                <p class="mb-1"><strong>Address :</strong> {{ $bill->user->address }}</p>
+                                <p class="mb-1"><strong>Mobile No :</strong> {{ $bill->user->mobile }}</p>
+                                @if ($bill->user->gst)
+                                    <p class="mb-0"><strong>GST :</strong> {{ $bill->user->gst }}</p>
                                 @endif
                             </div>
                         </div>
@@ -97,7 +97,7 @@
                                 <tr>
                                     <th>Item</th>
                                     <th>HSN Code</th>
-                                    <th>Number/Pieces</th>
+                                    <th>QTY</th>
                                     <th>Feet</th>
                                     <th>Unit Price</th>
                                     <th>Total</th>
@@ -135,63 +135,77 @@
                                         </p>
                                         <span>Thank you for your business!</span>
                                     </td>
-                                    <td class="px-0 py-6 w-px-100">
-                                        <p class="mb-2">Subtotal:</p>
+                                    <td class="px-2 py-6 w-px-100">
+                                        <p class="mb-2"><strong>Subtotal:</strong></p>
                                         @if ($bill->type == 1)
-                                            <p class="mb-2">CGST:</p>
-                                            <p class="mb-2">SGST:</p>
+                                            <p class="mb-2"><strong>CGST 9%:</strong></p>
+                                            <p class="mb-2"><strong>SGST 9%:</strong></p>
                                         @endif
-                                        <p class="mb-0 border-bottom pb-2">Total:</p>
+                                        <p class="mb-0 border-bottom pb-2"><strong>Total:</strong></p>
                                     </td>
-                                    <td class="text-end px-0 py-6 w-px-100 fw-medium text-heading">
+                                    <td class="text-end  py-6 w-px-100 fw-medium text-heading">
                                         <p class="fw-medium mb-2">₹{{ number_format($bill->estimated_total, 2) }}</p>
                                         @if ($bill->type == 1)
                                             <p class="fw-medium mb-2">₹{{ number_format($bill->cgst, 2) }}</p>
                                             <p class="fw-medium mb-2">₹{{ number_format($bill->sgst, 2) }}</p>
                                         @endif
-                                        <p class="fw-medium mb-0 border-bottom pb-2">₹{{ number_format($bill->total, 2) }}</p>
+                                        
+                                        <p class="fw-medium mb-0 border-bottom pb-2">₹<strong>{{ number_format($bill->total, 2) }}</strong></p>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
+
+                        <p>In word </p>
                     </div>
 
-                    <hr class="mt-0 mb-4">
+                    <hr class="mt-0 mb-1">
 
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-xl-6 col-md-12 col-sm-5 col-12 mb-xl-0 mb-md-6 mb-sm-0 mb-6">
-                                <p class="mb-1">Bank Name: {{ $bill->user->bank_branch }}</p>
-                                <p class="mb-1">A/C No.: {{ $bill->user->bank_ac_no }}</p>
-                                <p class="mb-1">IFSC No.: {{ $bill->user->bank_ifsc }}</p>
+                            <strong>Bank Details</strong>
+                            <div class="col-xl-6 col-md-12 col-sm-5 col-12 mb-xl-0 mb-md-6 mb-sm-0">
+                                <p class="mb-1"><strong>Bank Name :</strong> {{ $bill->user->bank_branch }}</p>
+                                <p class="mb-1"><strong>A/C No :</strong> {{ $bill->user->bank_ac_no }}</p>
+                                <p class="mb-1"><strong>IFSC No :</strong> {{ $bill->user->bank_ifsc }}</p>
                             </div>
 
                         </div>
                     </div>
-                    <hr class="mt-0 mb-4">
+                    <hr class="mt-0 mb-1">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-xl-6 col-md-12 col-sm-5 col-12 mb-xl-0 mb-md-6 mb-sm-0 ">
-                                <p class="mb-1">Payment: {{ ucfirst($bill->payment_status) }}</p>
-                                
+                                <p class="mb-1"><strong>Payment:</strong> {{ ucfirst($bill->payment_status) }}</p>
+                                <hr class="mt-0 mb-2">
+                                <ul>
+                                    <li>ટ્રાન્સપોર્ટ અને પાર્કિંગ ચાર્જ અલગથી લેવામાં આવસે.</li>
+                                    <li>ન્યાયક્ષેત્ર બોટાદ રહેશે.</li>
+                                    <li>ભૂલ - ચૂક લેવી દેવી.</li>
+                                </ul>
                             </div>
 
                             <div class="col-xl-6 col-md-12 col-sm-5 col-12 mb-xl-0 mb-md-6 mb-sm-0  text-end">
-                                <h6>हस्ताक्षर (Signature)</h6>
-                                <p>................................</p>
+                                <p></p>
+                                <br>
+                                <br>
+                                <p ><strong>ફોર:</strong> જય બજરંગ સિમેન્ટ પ્રોડક્ટ્સ</p>
 
                             </div>
                         </div>
                     </div>
 
-                    <div class="card-body p-2">
+                    {{-- <div class="card-body p-2">
                         <div class="row">
                             <div class="col-12">
-                                <span class="fw-medium text-heading">Note:</span>
-                                <span>This is a computer generated invoice. No signature required.</span>
+                                <span>
+                                    ટ્રાન્સપોર્ટ અને પાર્કિંગ ચાર્જ અલગથી લેવામાં આવસે. <br>
+                                    ન્યાયક્ષેત્ર બોટાદ રહેશે. <br>
+                                    ભૂલ - ચૂક લેવી દેવી.
+                                </span>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
             <!-- /Invoice -->
@@ -203,7 +217,8 @@
                         <button class="btn btn-success d-grid w-100 mb-4" onclick="downloadAsPDF()">Download as PDF</button>
                         <button class="btn btn-warning d-grid w-100 mb-4" onclick="downloadAsPNG()">Download as PNG</button>
                         <div class="d-flex mb-4">
-                            <a class="btn btn-secondary d-grid w-100 me-4" onclick="window.print()"> Print </a>
+                            {{-- <a class="btn btn-secondary d-grid w-100 me-4 text-light" onclick="window.print()"> Print </a> --}}
+                           <a class="btn btn-secondary d-grid w-100 me-4" style="color: white;" onclick="window.print()"> Print </a>
                             <a href="{{ route('invoice.edit', $bill->id) }}" class="btn btn-info d-grid w-100"> Edit </a>
                         </div>
                         <a href="{{ route('invoice.index') }}" class="btn btn-primary d-grid w-100 mb-4">Back to List</a>
