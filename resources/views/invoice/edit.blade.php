@@ -99,7 +99,13 @@
                                                 @foreach($bill->billDetails as $index => $item)
                                                     <tr>
                                                         <td>
-                                                            <input type="text" name="items[{{ $index }}][name]" class="form-control" value="{{ $item->name }}" required>
+                                                            <select class="form-select" name="items[{{ $index }}][subcategory_id]" required>
+                                                                <option value="">Select Subcategory</option>
+                                                                @foreach ($subcategories as $subcategory)
+                                                                    <option value="{{ $subcategory->id }}" {{ $subcategory->id == $item->subcat_id ? 'selected' : '' }}>
+                                                                        {{ $subcategory->name }}
+                                                                @endif
+                                                            @endforeach
                                                         </td>
                                                         <td>
                                                             <input type="text" name="items[{{ $index }}][hsn_code]" class="form-control" value="{{ $item->hsncode }}" required>
@@ -160,6 +166,43 @@
                                             </thead>
                                             <tbody id="gstItemsTableBody">
                                                 <!-- GST rows will be added dynamically -->
+                                                @foreach($bill->billDetails as $index => $item)
+                                                    <tr>
+                                                        <td>
+                                                            <select class="form-select" name="items[{{ $index }}][subcategory_id]" required>
+                                                                <option value="">Select Subcategory</option>
+                                                                @foreach ($subcategories as $subcategory)
+                                                                    <option value="{{ $subcategory->id }}" {{ $subcategory->id == $item->subcat_id ? 'selected' : '' }}>
+                                                                        {{ $subcategory->name }}
+                                                                    </option>
+                                                                @endforeach
+                                                            </select>
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" name="items[{{ $index }}][hsn_code]" class="form-control" value="{{ $item->hsncode }}" required>
+                                                        </td>
+                                                        <td>
+                                                            <input type="number" name="items[{{ $index }}][number]" class="form-control" value="{{ $item->number }}" onchange="calculateItemTotal({{ $index }})">
+                                                        </td>
+                                                        <td>
+                                                            <input type="number" name="items[{{ $index }}][feet]" class="form-control" step="0.01" value="{{ $item->feet }}" onchange="calculateItemTotal({{ $index }})">
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" name="items[{{ $index }}][feet_word]" class="form-control" value="{{ $item->feet_word }}">
+                                                        </td>
+                                                        <td>
+                                                            <input type="number" name="items[{{ $index }}][single_price]" class="form-control" step="0.01" value="{{ $item->single_price }}" required onchange="calculateItemTotal({{ $index }})">
+                                                        </td>
+                                                        <td>
+                                                            <input type="number" name="items[{{ $index }}][total_price]" class="form-control" step="0.01" value="{{ $item->total_price }}" readonly>
+                                                        </td>
+                                                        <td>
+                                                            <button type="button" class="btn btn-danger btn-sm" onclick="removeRow(this)">
+                                                                <i class="bx bx-trash"></i>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
                                             </tbody>
                                         </table>
                                     </div>
@@ -215,7 +258,12 @@
             const row = document.createElement('tr');
             row.innerHTML = `
                 <td>
-                    <input type="text" name="items[${itemRowCount}][name]" class="form-control" required>
+                    <select class="form-select" name="items[${itemRowCount}][subcategory_id]" required>
+                        <option value="">Select Subcategory</option>
+                        @foreach ($subcategories as $subcategory)
+                            <option value="{{ $subcategory->id }}">{{ $subcategory->name }}</option>
+                        @endforeach
+                    </select>
                 </td>
                 <td>
                     <input type="text" name="items[${itemRowCount}][hsn_code]" class="form-control" required>
@@ -251,7 +299,12 @@
             const row = document.createElement('tr');
             row.innerHTML = `
                 <td>
-                    <input type="text" name="gst_items[${gstRowCount}][name]" class="form-control" required>
+                    <select class="form-select" name="gst_items[${gstRowCount}][subcategory_id]" required>
+                        <option value="">Select Subcategory</option>
+                        @foreach ($subcategories as $subcategory)
+                            <option value="{{ $subcategory->id }}">{{ $subcategory->name }}</option>
+                        @endforeach
+                    </select>
                 </td>
                 <td>
                     <input type="text" name="gst_items[${gstRowCount}][hsn_code]" class="form-control" required>
