@@ -439,12 +439,13 @@
             });
 
             if(billtype == 1){
-                const grandTotal = subtotal + cgstTotal + sgstTotal;
+                var grandTotal = subtotal + cgstTotal + sgstTotal;
+                document.getElementById('subtotal').textContent = '₹' + subtotal.toFixed(2);
             }else{
-                const grandTotal =  without_subtotal;
+                var grandTotal =  without_subtotal;
+                document.getElementById('subtotal').textContent = '₹' + without_subtotal.toFixed(2);
             }
 
-            document.getElementById('subtotal').textContent = '₹' + subtotal.toFixed(2);
             document.getElementById('cgstTotal').textContent = '₹' + cgstTotal.toFixed(2);
             document.getElementById('sgstTotal').textContent = '₹' + sgstTotal.toFixed(2);
             document.getElementById('grandTotal').textContent = '₹' + grandTotal.toFixed(2);
