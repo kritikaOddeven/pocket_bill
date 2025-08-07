@@ -36,7 +36,7 @@ class InvoiceController extends Controller
             'date' => 'required|date',
             'type' => 'required|in:0,1', // 0 = without GST, 1 = with GST
             'items' => 'required|array|min:1',
-            'items.*.category_id' => 'required|string',
+            'items.*.subcategory_id' => 'required|string',
             'items.*.hsn_code' => 'required|string',
             'items.*.number' => 'nullable|numeric',
             'items.*.feet' => 'nullable|numeric',
@@ -54,7 +54,7 @@ class InvoiceController extends Controller
         if ($request->type == 1 && $request->has('gst_items')) {
             $request->validate([
                 'gst_items' => 'array',
-                'gst_items.*.category_id' => 'required|string',
+                'gst_items.*.subcategory_id' => 'required|string',
                 'gst_items.*.hsn_code' => 'required|string',
                 'gst_items.*.number' => 'nullable|numeric',
                 'gst_items.*.feet' => 'nullable|numeric',
@@ -86,13 +86,15 @@ class InvoiceController extends Controller
 
         // Create regular items
         foreach ($request->items as $item) {
+            $subcategory = Subcategories::where('id', $item['subcategory_id'])->first();
+            $category = Categories::where('id', $subcategory->cat_id)->first();
             BillDetails::create([
                 'user_id' => Auth::user()->id,
                 'cust_id' => $request->customer,
                 'bill_id' => $bill->id,
-                'cat_id' => $item['category_id'], // Default category       
-                'subcat_id' => 1, // Default subcategory
-                'name' => $item['name'],
+                'cat_id' => $category->id, // Default category       
+                'subcat_id' => $subcategory->id, // Default subcategory
+                'name' => $category->name . ' ' . $subcategory->name,
                 'hsncode' => $item['hsn_code'],
                 'number' => $item['number'] ?? '',
                 'feet' => $item['feet'] ?? '',
@@ -105,13 +107,15 @@ class InvoiceController extends Controller
         // Create GST items if present
         if ($request->type == 1 && $request->has('gst_items')) {
             foreach ($request->gst_items as $gstItem) {
+                $subcategory = Subcategories::where('id', $gstItem['subcategory_id'])->first();
+                $category = Categories::where('id', $subcategory->cat_id)->first();
                 BillDetails::create([
                     'user_id' => Auth::user()->id,
                     'cust_id' => $request->customer,
                     'bill_id' => $bill->id,
-                    'cat_id' => $gstItem['category_id'], // Default category
-                    'subcat_id' => 1, // Default subcategory
-                    'name' => $gstItem['name'],
+                    'cat_id' => $category->id, // Default category
+                    'subcat_id' => $subcategory->id, // Default subcategory
+                    'name' => $category->name . ' ' . $subcategory->name,
                     'hsncode' => $gstItem['hsn_code'],
                     'number' => $gstItem['number'] ?? '',
                     'feet' => $gstItem['feet'] ?? '',

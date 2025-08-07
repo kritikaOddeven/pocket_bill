@@ -17,18 +17,26 @@
                             </div>
                         @endif
 
-                       @include('partials._alert')
+                        @include('partials._alert')
+                        <div class="row">
+                            @foreach ($errors->all() as $error)
+                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    {{ $error }}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                            @endforeach
+                        </div>
 
                         <form action="{{ route('invoice.store') }}" method="POST" id="invoiceForm">
                             @csrf
-                            
+
                             <!-- Header Section -->
                             <div class="row mb-4">
                                 <div class="col-md-4 mb-3">
                                     <label class="form-label">Select Customer</label>
                                     <select class="form-select" name="customer" required>
                                         <option value="">Select Customer</option>
-                                        @foreach($customers as $customer)
+                                        @foreach ($customers as $customer)
                                             <option value="{{ $customer->id }}">{{ $customer->name }}</option>
                                         @endforeach
                                     </select>
@@ -174,9 +182,9 @@
             const row = document.createElement('tr');
             row.innerHTML = `
                 <td>
-                    <select class="form-select" name="items[${itemRowCount}][category_id]" required>
+                    <select class="form-select" name="items[${itemRowCount}][subcategory_id]" required>
                         <option value="">Select Category</option>
-                        @foreach($subcategories as $subcategory)
+                        @foreach ($subcategories as $subcategory)
                             <option value="{{ $subcategory->id }}">{{ $subcategory->name }}</option>
                         @endforeach
                     </select>
@@ -215,9 +223,9 @@
             const row = document.createElement('tr');
             row.innerHTML = `
                 <td>
-                    <select class="form-select" name="gst_items[${gstRowCount}][category_id]" required>
+                    <select class="form-select" name="gst_items[${gstRowCount}][subcategory_id]" required>
                         <option value="">Select Category</option>
-                        @foreach($subcategories as $subcategory)
+                        @foreach ($subcategories as $subcategory)
                             <option value="{{ $subcategory->id }}">{{ $subcategory->name }}</option>
                         @endforeach
                     </select>
@@ -265,14 +273,14 @@
             const number = parseFloat(row.querySelector(`input[name="items[${rowIndex}][number]"]`).value) || 0;
             const feet = parseFloat(row.querySelector(`input[name="items[${rowIndex}][feet]"]`).value) || 0;
             const singlePrice = parseFloat(row.querySelector(`input[name="items[${rowIndex}][single_price]"]`).value) || 0;
-            
+
             let total = 0;
             if (number > 0) {
                 total = number * singlePrice;
             } else if (feet > 0) {
                 total = feet * singlePrice;
             }
-            
+
             row.querySelector(`input[name="items[${rowIndex}][total_price]"]`).value = total.toFixed(2);
             updateSummary();
         }
@@ -285,18 +293,18 @@
             const singlePrice = parseFloat(row.querySelector(`input[name="gst_items[${rowIndex}][single_price]"]`).value) || 0;
             const cgst = parseFloat(row.querySelector(`input[name="gst_items[${rowIndex}][cgst]"]`).value) || 0;
             const sgst = parseFloat(row.querySelector(`input[name="gst_items[${rowIndex}][sgst]"]`).value) || 0;
-            
+
             let totalPrice = 0;
             if (number > 0) {
                 totalPrice = number * singlePrice;
             } else if (feet > 0) {
                 totalPrice = feet * singlePrice;
             }
-            
+
             const cgstAmount = (totalPrice * cgst) / 100;
             const sgstAmount = (totalPrice * sgst) / 100;
             const total = totalPrice + cgstAmount + sgstAmount;
-            
+
             row.querySelector(`input[name="gst_items[${rowIndex}][total_price]"]`).value = totalPrice.toFixed(2);
             row.querySelector(`input[name="gst_items[${rowIndex}][total]"]`).value = total.toFixed(2);
             updateSummary();
@@ -356,25 +364,35 @@
                 const gstTable = document.getElementById('gstTable');
                 const cgstRow = document.getElementById('cgstRow');
                 const sgstRow = document.getElementById('sgstRow');
-                
+
                 if (this.value === '1') {
                     gstTable.style.display = 'block';
                     cgstRow.style.display = 'flex';
                     sgstRow.style.display = 'flex';
                     itemsTableWithoutGst.style.display = 'none';
+                    if (gstRowCount === 0) {
+                        addGstRow();
+                    }
                 } else {
                     gstTable.style.display = 'none';
                     cgstRow.style.display = 'none';
                     sgstRow.style.display = 'none';
                     itemsTableWithoutGst.style.display = 'block';
+                    if (itemRowCount === 0) {
+                        addItemRow();
+                    }
                 }
             });
         });
 
         // Add initial row
         document.addEventListener('DOMContentLoaded', function() {
-            addItemRow();
-            addGstRow();
+            const type = document.querySelector('input[name="type"]:checked').value;
+            if (type === '1') {
+                addGstRow();
+            } else {
+                addItemRow();
+            }
         });
     </script>
 @endsection
