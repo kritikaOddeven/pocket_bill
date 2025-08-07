@@ -40,7 +40,6 @@
                         <div class="d-flex justify-content-between flex-xl-row flex-md-column flex-sm-row flex-column align-items-xl-center align-items-md-start align-items-sm-center align-items-start">
                             <div>
                                 <h5 class="mb-6">Invoice #{{ $bill->bill_no }}</h5>
-                                <p class="mb-1">Date: {{ date('d/m/Y', strtotime($bill->date)) }}</p>
                             </div>
                             <div class="mb-xl-0 mb-6 text-heading">
                                 <div class="d-flex svg-illustration mb-6 gap-2 align-items-center">
@@ -52,13 +51,14 @@
                                 </div>
                             </div>
                             <div>
-                                <h5 class="mb-6">Type:
+                                {{-- <h5 class="mb-6">Type:
                                     @if ($bill->type == 0)
                                         <span class="badge bg-secondary">Without GST</span>
                                     @else
                                         <span class="badge bg-success">With GST</span>
                                     @endif
-                                </h5>
+                                </h5> --}}
+                                <p class="mb-1">Date: {{ date('d/m/Y', strtotime($bill->date)) }}</p>
                             </div>
                         </div>
                     </div>

@@ -51,8 +51,8 @@
                                                     </td>
                                                     <td>₹{{ number_format(($bill->total), 2) }}</td>
                                                     <td>
-                                                        @if ($bill->payment_status == 0)
-                                                            <span class="badge bg-secondary">Pending</span>
+                                                        @if ($bill->payment_status == 'unpaid')
+                                                            <span class="badge bg-secondary">Unpaid</span>
                                                         @else
                                                             <span class="badge bg-success">Paid</span>
                                                         @endif

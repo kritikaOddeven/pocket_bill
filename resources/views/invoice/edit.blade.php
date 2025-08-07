@@ -73,10 +73,9 @@
 
                                 <div class="col-md-6">
                                     <label class="form-label">Payment</label>
-                                    <select class="form-select" name="payment" required>
-                                        <option value="paid">Paid</option>
-                                        <option value="unpaid">Unpaid</option>
-                                        
+                                    <select class="form-select" name="payment_status" required>
+                                        <option @if ($bill->payment_status == 'paid') selected @endif value="paid">Paid</option>
+                                        <option @if ($bill->payment_status == 'unpaid') selected @endif value="unpaid">Unpaid</option>  
                                     </select>
                                 </div>
                             </div>

@@ -56,7 +56,7 @@ class InvoiceController extends Controller
             'sgst'            => $sgstTotal,
             'igst'            => $igstTotal,
             'total'           => $subtotal + $cgstTotal + $sgstTotal + $igstTotal, // Total amount including GST
-            'payment_status'  => $request->payment,
+            'payment_status'  => $request->payment_status,
         ]);
 
         // without GST
@@ -199,7 +199,7 @@ class InvoiceController extends Controller
             'sgst'            => $sgstTotal,
             'igst'            => $igstTotal,
             'total'           => $subtotal + $cgstTotal + $sgstTotal + $igstTotal,
-            'payment_status'  => $request->payment,
+            'payment_status'  => $request->payment_status,
         ]);
 
         BillDetails::where('bill_id', $bill->id)->delete();

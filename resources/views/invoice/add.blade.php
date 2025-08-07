@@ -62,7 +62,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label class="form-label">Payment</label>
-                                    <select class="form-select" name="payment" required>
+                                    <select class="form-select" name="payment_status" required>
                                         <option value="paid">Paid</option>
                                         <option value="unpaid">Unpaid</option>
                                     </select>
@@ -82,7 +82,7 @@
                                                 <tr>
                                                     <th>Name</th>
                                                     <th>HSN Code</th>
-                                                    <th>Number/Pieces</th>
+                                                    <th>Qty</th>
                                                     <th>Feet</th>
                                                     <th>Single Price</th>
                                                     <th>Total Price</th>
@@ -114,7 +114,7 @@
                                                 <tr>
                                                     <th>Name</th>
                                                     <th>HSN Code</th>
-                                                    <th>Number</th>
+                                                    <th>Qty</th>
                                                     <th>Feet</th>
                                                     <th>Single Price</th>
                                                     <th>Total Price</th>
