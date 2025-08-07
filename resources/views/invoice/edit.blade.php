@@ -76,9 +76,7 @@
                             <div class="card mb-4" style="display: {{ $bill->type == 0 ? 'block' : 'none' }};">
                                 <div class="card-header d-flex justify-content-between align-items-center">
                                     <h5 class="mb-0">Item Details</h5>
-                                    <button type="button" class="btn btn-primary btn-sm" onclick="addItemRow()">
-                                        <i class="bx bx-plus"></i> Add Item
-                                    </button>
+                                    
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
@@ -136,6 +134,10 @@
                                             </tbody>
                                         </table>
                                     </div>
+
+                                    <button type="button" class="btn btn-primary btn-sm mt-3" onclick="addItemRow()">
+                                        <i class="bx bx-plus"></i> Add Item
+                                    </button>
                                 </div>
                             </div>
 
@@ -143,9 +145,7 @@
                             <div class="card mb-4" id="gstTable" style="display: {{ $bill->type == 1 ? 'block' : 'none' }};">
                                 <div class="card-header d-flex justify-content-between align-items-center">
                                     <h5 class="mb-0">GST Details</h5>
-                                    <button type="button" class="btn btn-primary btn-sm" onclick="addGstRow()">
-                                        <i class="bx bx-plus"></i> Add GST Item
-                                    </button>
+                                    
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
@@ -198,10 +198,10 @@
                                                             <input type="number" name="items[{{ $index }}][total_price]" class="form-control" step="0.01" value="{{ $item->total_price }}" readonly>
                                                         </td>
                                                         <td>
-                                                            <input type="number" name="items[{{ $index }}][cgst]" class="form-control" step="0.01" value="{{ $item->cgst }}" onchange="calculateItemTotal({{ $index }})">
+                                                            <input type="number" name="items[{{ $index }}][cgst]" class="form-control" step="0.01" value="{{ $item->bill->cgst }}" onchange="calculateItemTotal({{ $index }})">
                                                         </td>
                                                         <td>
-                                                            <input type="number" name="items[{{ $index }}][sgst]" class="form-control" step="0.01" value="{{ $item->sgst }}" onchange="calculateItemTotal({{ $index }})">
+                                                            <input type="number" name="items[{{ $index }}][sgst]" class="form-control" step="0.01" value="{{ $item->bill->sgst }}" onchange="calculateItemTotal({{ $index }})">
                                                         </td>
                                                         <td>
                                                             <input type="number" name="items[{{ $index }}][total]" class="form-control" step="0.01" value="{{ $item->bill->total }}" readonly>
@@ -216,24 +216,27 @@
                                             </tbody>
                                         </table>
                                     </div>
+                                    <button type="button" class="btn btn-primary btn-sm mt-3" onclick="addGstRow()">
+                                        <i class="bx bx-plus"></i> Add GST Item
+                                    </button>
                                 </div>
                             </div>
-                            {{-- {{dd($bill)}} --}}
+                            
                             <!-- Summary Section -->
                             <div class="row mb-4">
                                 <div class="col-md-6 offset-md-6">
                                     <div class="card">
                                         <div class="card-body">
                                             <h6 class="card-title">Summary</h6>
-                                            <div class="row">
+                                            <div class="row mb-2">
                                                 <div class="col-6">Subtotal:</div>
                                                 <div class="col-6 text-end" id="subtotal">₹{{ number_format($bill->estimated_total, 2) }}</div>
                                             </div>
-                                            <div class="row" id="cgstRow" style="display: {{ $bill->type == 1 ? 'block' : 'none' }};">
+                                            <div class="row mb-2" id="cgstRow" style="display: {{ $bill->type == 1 ? 'flex' : 'none' }};">
                                                 <div class="col-6">CGST:</div>
                                                 <div class="col-6 text-end" id="cgstTotal">₹{{ number_format($bill->cgst, 2) }}</div>
                                             </div>
-                                            <div class="row" id="sgstRow" style="display: {{ $bill->type == 1 ? 'block' : 'none' }};">
+                                            <div class="row mb-2" id="sgstRow" style="display: {{ $bill->type == 1 ? 'flex' : 'none' }};">
                                                 <div class="col-6">SGST:</div>
                                                 <div class="col-6 text-end" id="sgstTotal">₹{{ number_format($bill->sgst, 2) }}</div>
                                             </div>
@@ -260,7 +263,7 @@
 
     <script>
         let itemRowCount = {{ count($bill->billDetails) }};
-        let gstRowCount = 0;
+        let gstRowCount = {{ count($bill->billDetails) }};
         let billtype = {{ $bill->type }}
 
         // Add item row to primary table
@@ -336,10 +339,10 @@
                     <input type="number" name="gst_items[${gstRowCount}][total_price]" class="form-control" step="0.01" readonly>
                 </td>
                 <td>
-                    <input type="number" name="gst_items[${gstRowCount}][cgst]" class="form-control" step="0.01" value="9" onchange="calculateGstTotal(${gstRowCount})">
+                    <input type="number" name="gst_items[${gstRowCount}][cgst]" class="form-control" step="0.01" value="9" readonly>
                 </td>
                 <td>
-                    <input type="number" name="gst_items[${gstRowCount}][sgst]" class="form-control" step="0.01" value="9" onchange="calculateGstTotal(${gstRowCount})">
+                    <input type="number" name="gst_items[${gstRowCount}][sgst]" class="form-control" step="0.01" value="9" readonly>
                 </td>
                 <td>
                     <input type="number" name="gst_items[${gstRowCount}][total]" class="form-control" step="0.01" readonly>

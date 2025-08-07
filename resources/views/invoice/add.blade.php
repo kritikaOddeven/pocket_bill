@@ -251,10 +251,10 @@
                     <input type="number" name="gst_items[${gstRowCount}][total_price]" class="form-control" step="0.01" readonly>
                 </td>
                 <td>
-                    <input type="number" name="gst_items[${gstRowCount}][cgst]" class="form-control" step="0.01" value="9" onchange="calculateGstTotal(${gstRowCount})">
+                    <input type="number" name="gst_items[${gstRowCount}][cgst]" class="form-control" step="0.01" value="9" readonly>
                 </td>
                 <td>
-                    <input type="number" name="gst_items[${gstRowCount}][sgst]" class="form-control" step="0.01" value="9" onchange="calculateGstTotal(${gstRowCount})">
+                    <input type="number" name="gst_items[${gstRowCount}][sgst]" class="form-control" step="0.01" value="9" readonly>
                 </td>
                 <td>
                     <input type="number" name="gst_items[${gstRowCount}][total]" class="form-control" step="0.01" readonly>
