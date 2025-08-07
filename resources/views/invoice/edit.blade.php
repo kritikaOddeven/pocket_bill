@@ -104,8 +104,9 @@
                                                                 @foreach ($subcategories as $subcategory)
                                                                     <option value="{{ $subcategory->id }}" {{ $subcategory->id == $item->subcat_id ? 'selected' : '' }}>
                                                                         {{ $subcategory->name }}
-                                                                @endif
-                                                            @endforeach
+                                                                    </option>
+                                                                @endforeach
+                                                            </select>
                                                         </td>
                                                         <td>
                                                             <input type="text" name="items[{{ $index }}][hsn_code]" class="form-control" value="{{ $item->hsncode }}" required>
@@ -195,6 +196,15 @@
                                                         </td>
                                                         <td>
                                                             <input type="number" name="items[{{ $index }}][total_price]" class="form-control" step="0.01" value="{{ $item->total_price }}" readonly>
+                                                        </td>
+                                                        <td>
+                                                            <input type="number" name="items[{{ $index }}][cgst]" class="form-control" step="0.01" value="{{ $item->cgst }}" onchange="calculateItemTotal({{ $index }})">
+                                                        </td>
+                                                        <td>
+                                                            <input type="number" name="items[{{ $index }}][sgst]" class="form-control" step="0.01" value="{{ $item->sgst }}" onchange="calculateItemTotal({{ $index }})">
+                                                        </td>
+                                                        <td>
+                                                            <input type="number" name="items[{{ $index }}][total]" class="form-control" step="0.01" value="{{ $item->bill->total }}" readonly>
                                                         </td>
                                                         <td>
                                                             <button type="button" class="btn btn-danger btn-sm" onclick="removeRow(this)">

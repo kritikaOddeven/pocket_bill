@@ -161,7 +161,7 @@
             <div class="col-xl-3 col-md-4 col-12 invoice-actions">
                 <div class="card">
                     <div class="card-body">
-                        <button class="btn btn-success d-grid w-100 mb-4">{{ $bill['download'] }}</button>
+                        <button class="btn btn-success d-grid w-100 mb-4">Download</button>
                         <div class="d-flex mb-4">
                             <a class="btn btn-secondary d-grid w-100 me-4"  href="{{ route('invoice.show', $bill->id) }}"> Print </a>
                             <a href="{{ route('invoice.edit', $bill->id) }}" class="btn btn-info d-grid w-100"> Edit </a>

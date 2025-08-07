@@ -81,8 +81,9 @@ class InvoiceController extends Controller
             'estimated_total' => $subtotal,
             'cgst' => $cgstTotal,
             'sgst' => $sgstTotal,
-            'total' => $subtotal + $cgstTotal + $sgstTotal,
+            'total' => $subtotal + $cgstTotal + $sgstTotal, // Total amount including GST
         ]);
+
 
         // Create regular items
         foreach ($request->items as $item) {
