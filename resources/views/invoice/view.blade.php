@@ -158,7 +158,7 @@
                         </table>
                     </div>
 
-                    <hr class="mt-0 mb-6">
+                    <hr class="mt-0 mb-4">
 
                     <div class="card-body">
                         <div class="row">
@@ -168,13 +168,24 @@
                                 <p class="mb-1">IFSC No.: {{ $bill->user->bank_ifsc }}</p>
                             </div>
 
-                            <div class="col-xl-6 col-md-12 col-sm-5 col-12 mb-xl-0 mb-md-6 mb-sm-0 mb-6 text-end">
+                        </div>
+                    </div>
+                    <hr class="mt-0 mb-4">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-xl-6 col-md-12 col-sm-5 col-12 mb-xl-0 mb-md-6 mb-sm-0 ">
+                                <p class="mb-1">Payment: {{ ucfirst($bill->payment_status) }}</p>
+                                
+                            </div>
+
+                            <div class="col-xl-6 col-md-12 col-sm-5 col-12 mb-xl-0 mb-md-6 mb-sm-0  text-end">
                                 <h6>हस्ताक्षर (Signature)</h6>
                                 <p>................................</p>
 
                             </div>
                         </div>
                     </div>
+
                     <div class="card-body p-2">
                         <div class="row">
                             <div class="col-12">
