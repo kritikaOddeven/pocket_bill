@@ -66,7 +66,7 @@
                         <div class="row">
                             
                             <div class="col-xl-6 col-md-12 col-sm-5 col-12 mb-xl-0 mb-md-6 mb-sm-0 mb-6">
-                                <h6>Invoice To:</h6>
+                                <h5><strong>Invoice To:</strong></h5>
                                 @if ($bill->customerDetails)
                                     <p class="mb-1"><strong>Name :</strong> {{ $bill->customerDetails->name }}</p>
                                     <p class="mb-1"><strong>Address :</strong> {{ $bill->customerDetails->address }}</p>
@@ -81,7 +81,7 @@
                             </div>
 
                             <div class="col-xl-6 col-md-12 col-sm-5 col-12 mb-xl-0 mb-md-6 mb-sm-0 mb-6 ">
-                                <h6>Invoice From:</h6>
+                                <h5><strong>Invoice From:</strong></h5>
                                 <p class="mb-1"><strong>Company Name :</strong> {{ $bill->user->comp_name }}</p>
                                 <p class="mb-1"><strong>Address :</strong> {{ $bill->user->address }}</p>
                                 <p class="mb-1"><strong>Mobile No :</strong> {{ $bill->user->mobile }}</p>
