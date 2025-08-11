@@ -267,7 +267,8 @@ class InvoiceController extends Controller
                     'bill_id'      => $bill->id,
                     'cat_id'       => $category->id,                              // Default category
                     'subcat_id'    => $subcategory->id,                           // Default subcategory
-                    'name'         => $category->name . ' ' . $subcategory->name, // Default name
+                    'name'         => $subcategory->name, // Default name
+                    // 'name'         => $category->name . ' ' . $subcategory->name, // Default name
                     'hsncode'      => $gstItem['hsn_code'],
                     'number'       => $gstItem['number'] ?? '',
                     'feet'         => $gstItem['feet'] ?? '',
