@@ -85,7 +85,7 @@ class InvoiceController extends Controller
                     'bill_id'      => $bill->id,
                     'cat_id'       => $category->id,    // Default category
                     'subcat_id'    => $subcategory->id, // Default subcategory
-                    'name'         => $category->name . ' ' . $subcategory->name,
+                    'name'         =>  $subcategory->name,
                     'hsncode'      => $item['hsn_code'],
                     'number'       => $item['number'] ?? '',
                     'feet'         => $item['feet'] ?? '',
@@ -232,7 +232,8 @@ class InvoiceController extends Controller
                     'bill_id'      => $bill->id,
                     'cat_id'       => $category->id,                              // Default category
                     'subcat_id'    => $subcategory->id,                           // Default subcategory
-                    'name'         => $category->name . ' ' . $subcategory->name, // Default name
+                    'name'         => $subcategory->name, // Default name
+                    // 'name'         => $category->name . ' ' . $subcategory->name, // Default name
                     'hsncode'      => $item['hsn_code'],
                     'number'       => $item['number'] ?? '',
                     'feet'         => $item['feet'] ?? '',
@@ -268,7 +269,7 @@ class InvoiceController extends Controller
                     'cat_id'       => $category->id,                              // Default category
                     'subcat_id'    => $subcategory->id,                           // Default subcategory
                     'name'         => $subcategory->name, // Default name
-                    // 'name'         => $category->name . ' ' . $subcategory->name, // Default name
+                    'name'         => $category->name . ' ' . $subcategory->name, // Default name
                     'hsncode'      => $gstItem['hsn_code'],
                     'number'       => $gstItem['number'] ?? '',
                     'feet'         => $gstItem['feet'] ?? '',
