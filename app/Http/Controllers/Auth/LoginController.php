@@ -25,7 +25,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/dashboard';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -57,7 +57,7 @@ class LoginController extends Controller
             $user = Auth::user();
             
             if ($user->is_admin) {
-                return redirect('dashboard')->with('success', 'Login successful');
+                return redirect('/')->with('success', 'Login successful');
             } else {
                 Auth::logout();
                 return redirect()->back()
