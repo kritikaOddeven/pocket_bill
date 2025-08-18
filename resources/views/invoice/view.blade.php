@@ -1,6 +1,38 @@
 @extends('app')
 @section('admin-content')
     <style>
+        /* Simple non-responsive approach */
+        .invoice-preview-card {
+            min-width: 900px !important;
+        }
+        
+        /* Prevent responsive breakpoints from affecting layout */
+        @media (max-width: 1200px) {
+            .invoice-preview-card {
+                min-width: 900px !important;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .invoice-preview-card {
+                min-width: 900px !important;
+                transform: scale(0.8);
+                transform-origin: top left;
+            }
+            
+            .container-xxl {
+                overflow-x: auto;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .invoice-preview-card {
+                min-width: 900px !important;
+                transform: scale(0.7);
+                transform-origin: top left;
+            }
+        }
+        
         @media print {
             body * {
                 visibility: hidden;
@@ -18,6 +50,7 @@
                 width: 100%;
                 padding: 0;
                 margin: 0;
+                transform: none !important;
             }
 
             .invoice-actions {
@@ -34,7 +67,7 @@
 
         <div class="row invoice-preview">
             <!-- Invoice -->
-            <div class="col-xl-9 col-md-8 col-12 mb-md-0 mb-6">
+            <div class="col-xl-9 col-md-8 col-12 mb-md-0 mb-6" style="height: 115vh;">
                 <div class="card invoice-preview-card p-sm-12 p-6">
                     <div class="card-body invoice-preview-header rounded">
                         <div class="d-flex justify-content-between flex-xl-row flex-md-column flex-sm-row flex-column align-items-xl-center align-items-md-start align-items-sm-center align-items-start">
