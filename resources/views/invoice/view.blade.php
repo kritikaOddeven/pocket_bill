@@ -1,5 +1,5 @@
 @extends('app')
-@section('admin-content')
+@section('content')
     <style>
         @media print {
             body * {

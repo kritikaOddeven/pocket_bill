@@ -8,7 +8,7 @@
             <div class="modal-body px-4 pb-4">
                 <div class="text-center mb-4">
                     <h4 class="modal-title fw-bold" id="registerModalLabel">Create Your Account</h4>
-                    <p class="text-muted">Join thousands of businesses using Pocket Bill</p>
+                    <p class="text-muted">Join thousands of businesses using BillBot</p>
                 </div>
 
                 <form method="POST" action="{{ route('submit') }}">

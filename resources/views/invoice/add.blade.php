@@ -1,15 +1,12 @@
 @extends('app')
-@section('admin-content')
-    <div class="container-xxl flex-grow-1 container-p-y">
+
+@section('content')
+    <div class="container-fluid py-4">
         <!-- Basic Layout -->
         <div class="row">
             <div class="col-md-12">
                 <div class="card mb-4">
-                    <div class="card-header d-flex flex-wrap justify-content-between gap-4">
-                        <div class="card-title mb-0 me-1">
-                            <h5 class="mb-0">Create Invoice</h5>
-                        </div>
-                    </div>
+
                     <div class="card-body">
                         @if (session('success'))
                             <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -18,7 +15,7 @@
                             </div>
                         @endif
 
-                        @include('partials._alert')
+                        {{-- @include('partials._alert') --}}
 
                         <form action="{{ route('invoice.store') }}" method="POST" id="invoiceForm">
                             @csrf
@@ -47,13 +44,12 @@
                                         <i class="bx bx-calendar calendar-icon"></i>
 
                                     </div>
-                                    
+
                                 </div>
                             </div>
 
                             <!-- Invoice Type -->
-                            <div class="row mb-4
-                            ">
+                            <div class="row mb-4">
                                 <div class="col-md-6">
                                     <label class="form-label">Invoice Type</label>
                                     <div class="form-check form-check-inline">
@@ -125,7 +121,7 @@
                                                     <th>Total Price</th>
                                                     <th>CGST %</th>
                                                     <th>SGST %</th>
-                                                    <th class="d-flex align-items-center">IGST% 
+                                                    <th class="d-flex align-items-center">IGST%
                                                         <button type="button" class="btn btn-sm btn-default" data-bs-toggle="tooltip" data-bs-placement="top" title="if igst is selected then cgst and sgst will be 0">
                                                             <i class="bx bx-info-circle"></i>
                                                         </button>
@@ -188,6 +184,7 @@
         </div>
     </div>
 
+    
     <script>
         let itemRowCount = 0;
         let gstRowCount = 0;
@@ -200,7 +197,7 @@
                 <td>
                     <select class="form-select" name="items[${itemRowCount}][subcategory_id]" required>
                         <option value="">Select Category</option>
-                        @foreach ($subcategories as $subcategory)
+                         @foreach ($subcategories as $subcategory)
                             <option value="{{ $subcategory->id }}">{{ $subcategory->name }}</option>
                         @endforeach
                     </select>

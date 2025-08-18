@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pocket Bill - Streamline Invoicing, Get Paid Faster</title>
-    <meta name="description" content="Create, manage, and send professional invoices with ease. Pocket Bill helps you get paid faster with professional invoicing tools.">
+    <title>BillBot - Streamline Invoicing, Get Paid Faster</title>
+    <meta name="description" content="Create, manage, and send professional invoices with ease. BillBot helps you get paid faster with professional invoicing tools.">
     
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -595,8 +595,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pocket Bill - Streamline Invoicing, Get Paid Faster</title>
-    <meta name="description" content="Create, manage, and send professional invoices with ease. Pocket Bill helps you get paid faster with professional invoicing tools.">
+    <title>BillBot - Streamline Invoicing, Get Paid Faster</title>
+    <meta name="description" content="Create, manage, and send professional invoices with ease. BillBot helps you get paid faster with professional invoicing tools.">
     
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -1189,7 +1189,7 @@
     <nav class="navbar navbar-expand-lg">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <i class="fas fa-check-square"></i>Pocket Bill
+                <i class="fas fa-check-square"></i>BillBot
             </a>
             
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -1212,7 +1212,7 @@
                     </li> --}}
                     @auth
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/home') }}">Dashboard</a>
+                            <a class="nav-link" href="{{ url('/dashboard') }}">Dashboard</a>
                         </li>
                          <li class="nav-item">
                             <a class="nav-link" href="{{ url('/logout') }}">Logout</a>
@@ -1236,10 +1236,10 @@
             <div class="row align-items-center">
                 <div class="col-lg-6 hero-content">
                     <h1 class="hero-title">Streamline Invoicing, Get Paid Faster, & Grow Sales</h1>
-                    <p class="hero-subtitle">Create professional invoices in seconds, track payments, and manage your business finances with ease. Pocket Bill helps you get paid faster with our intuitive invoicing platform.</p>
+                    <p class="hero-subtitle">Create professional invoices in seconds, track payments, and manage your business finances with ease. BillBot helps you get paid faster with our intuitive invoicing platform.</p>
                     <div class="hero-buttons">
                         @auth
-                            <a href="{{ url('/home') }}" class="btn btn-primary btn-lg">Create an Invoice Now</a>
+                            <a href="{{ url('/invoice/create') }}" class="btn btn-primary btn-lg">Create an Invoice Now</a>
                         @else
                             <a href="#" data-bs-toggle="modal" data-bs-target="#registerModal" class="btn btn-primary btn-lg">Create an Invoice Now</a>
                         @endauth
@@ -1298,7 +1298,7 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="testimonial-card">
-                                <div class="testimonial-text">"Pocket Bill has completely transformed how I handle invoicing. It's so easy to use and my clients love the professional look."</div>
+                                <div class="testimonial-text">"BillBot has completely transformed how I handle invoicing. It's so easy to use and my clients love the professional look."</div>
                                 <div class="testimonial-author">
                                     <div class="author-avatar">S</div>
                                     <div>
@@ -1481,7 +1481,7 @@
     {{-- <section class="cta-green">
         <div class="container">
             <div class="cta-green-content">
-                <h2 class="cta-green-title">See Why 500,000+ Small Business Owners Love Pocket Bill's App</h2>
+                <h2 class="cta-green-title">See Why 500,000+ Small Business Owners Love BillBot's App</h2>
                 <a href="#" class="btn btn-white btn-lg">Download the App</a>
             </div>
         </div>
@@ -1490,7 +1490,7 @@
     <!-- Mobile Section -->
     {{-- <section class="mobile-section">
         <div class="container">
-            <h2 class="mobile-title">Pocket Bill On The Go</h2>
+            <h2 class="mobile-title">BillBot On The Go</h2>
             <div class="app-store-badges justify-content-center">
                 <a href="#" class="app-badge">
                     <i class="fab fa-apple"></i>
@@ -1519,7 +1519,7 @@
                     </div>
                 </div>
                 <div class="col-lg-10">
-                    <div class="testimonial-quote">"Pocket Bill has been a game-changer for my business. I can create professional invoices in minutes, track payments, and manage my cash flow like never before. The mobile app is incredible - I can handle everything from my phone."</div>
+                    <div class="testimonial-quote">"BillBot has been a game-changer for my business. I can create professional invoices in minutes, track payments, and manage my cash flow like never before. The mobile app is incredible - I can handle everything from my phone."</div>
                     <div class="star-rating">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -1554,8 +1554,8 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="footer-brand">
-                        <h4><i class="fas fa-check-square"></i>Pocket Bill</h4>
-                        <p class="footer-copyright">&copy; 2024 Pocket Bill. All rights reserved.</p>
+                        <h4><i class="fas fa-check-square"></i>BillBot</h4>
+                        <p class="footer-copyright">&copy; 2024 BillBot. All rights reserved.</p>
                         {{-- <div class="social-links">
                             <a href="#"><i class="fab fa-facebook-f"></i></a>
                             <a href="#"><i class="fab fa-twitter"></i></a>

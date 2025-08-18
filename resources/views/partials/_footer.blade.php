@@ -3,8 +3,8 @@
         <div class="row">
             <div class="col-lg-4">
                 <div class="footer-brand">
-                    <h4><i class="fas fa-check-square"></i>Pocket Bill</h4>
-                    <p class="footer-copyright">&copy; 2024 Pocket Bill. All rights reserved.</p>
+                    <h4><i class="fas fa-check-square"></i>BillBot</h4>
+                    <p class="footer-copyright">&copy; 2024 BillBot. All rights reserved.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
