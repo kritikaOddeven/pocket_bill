@@ -13,7 +13,8 @@ class InvoiceController extends Controller
 {
     public function index()
     {
-        $bills = Bills::where('user_id', Auth::user()->id)->with('billDetails', 'customerDetails', 'user')->get();
+        $bills = Bills::where('user_id', Auth::user()->id)->with('billDetails', 'customerDetails', 'user')
+        ->orderBy('id', 'desc')->paginate(10);
 
         return view('invoice.index', compact('bills'));
     }

@@ -47,13 +47,12 @@
                                         <i class="bx bx-calendar calendar-icon"></i>
 
                                     </div>
-                                    
+
                                 </div>
                             </div>
 
                             <!-- Invoice Type -->
-                            <div class="row mb-4
-                            ">
+                            <div class="row mb-4">
                                 <div class="col-md-6">
                                     <label class="form-label">Invoice Type</label>
                                     <div class="form-check form-check-inline">
@@ -66,11 +65,17 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <label class="form-label">Payment</label>
-                                    <select class="form-select" name="payment_status" required>
-                                        <option value="paid">Paid</option>
-                                        <option value="unpaid">Unpaid</option>
-                                    </select>
+                                    <div class="row">
+                                        <div class="col-md-4 text-end">
+                                            <label class="form-label">Payment</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <select class="form-select" name="payment_status" required>
+                                                <option value="paid">Paid</option>
+                                                <option value="unpaid">Unpaid</option>
+                                            </select>
+                                        </div>
+                                    </div>
                                 </div>
 
                             </div>
@@ -125,7 +130,7 @@
                                                     <th>Total Price</th>
                                                     <th>CGST %</th>
                                                     <th>SGST %</th>
-                                                    <th class="d-flex align-items-center">IGST% 
+                                                    <th class="d-flex align-items-center">IGST%
                                                         <button type="button" class="btn btn-sm btn-default" data-bs-toggle="tooltip" data-bs-placement="top" title="if igst is selected then cgst and sgst will be 0">
                                                             <i class="bx bx-info-circle"></i>
                                                         </button>

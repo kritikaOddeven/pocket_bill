@@ -49,7 +49,7 @@
                                                             <span class="badge bg-success">With GST</span>
                                                         @endif
                                                     </td>
-                                                    <td>₹{{ number_format(($bill->total), 2) }}</td>
+                                                    <td>₹{{ number_format($bill->total, 2) }}</td>
                                                     <td>
                                                         @if ($bill->payment_status == 'unpaid')
                                                             <span class="badge bg-secondary">Unpaid</span>
@@ -59,19 +59,19 @@
                                                     </td>
                                                     <td>
                                                         {{-- <div class="btn-group" role="group"> --}}
-                                                            <a href="{{ route('invoice.show', $bill->id) }}" class="btn btn-sm btn-success">
-                                                                <i class="bx bx-show"></i> 
-                                                            </a>
-                                                            <a href="{{ route('invoice.edit', $bill->id) }}" class="btn btn-sm btn-info">
-                                                                <i class="bx bx-edit-alt me-1"></i> 
-                                                            </a>
-                                                            <form action="{{ route('invoice.destroy', $bill->id) }}" method="POST" style="display: inline;">
-                                                                @csrf
-                                                                @method('DELETE')
-                                                                <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this invoice?')">
-                                                                    <i class="bx bx-trash"></i> 
-                                                                </button>
-                                                            </form>
+                                                        <a href="{{ route('invoice.show', $bill->id) }}" class="btn btn-sm btn-success">
+                                                            <i class="bx bx-show"></i>
+                                                        </a>
+                                                        <a href="{{ route('invoice.edit', $bill->id) }}" class="btn btn-sm btn-info">
+                                                            <i class="bx bx-edit-alt me-1"></i>
+                                                        </a>
+                                                        <form action="{{ route('invoice.destroy', $bill->id) }}" method="POST" style="display: inline;">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this invoice?')">
+                                                                <i class="bx bx-trash"></i>
+                                                            </button>
+                                                        </form>
                                                         {{-- </div> --}}
                                                     </td>
                                                 </tr>
@@ -82,6 +82,9 @@
                                             @endforelse
                                         </tbody>
                                     </table>
+                                    <div class="mt-3">
+                                        {{ $bills->links() }}
+                                    </div>
                                 </div>
                             </div>
                         </div>

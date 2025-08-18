@@ -13,7 +13,7 @@ class SubcategoriesController extends Controller
     {
         $subcategories = Subcategories::with('category')
             ->where('user_id', Auth::id())
-            ->get();
+            ->paginate(10);
         return view('subcategories.index', compact('subcategories'));
     }
 

@@ -63,32 +63,42 @@
                         </div>
                     </div>
                     <div class="card-body ">
-                        <div class="row">
-                            
-                            <div class="col-xl-6 col-md-12 col-sm-5 col-12 mb-xl-0 mb-md-6 mb-sm-0 mb-6">
-                                <h5><strong>Invoice To:</strong></h5>
-                                @if ($bill->customerDetails)
-                                    <p class="mb-1"><strong>Name :</strong> {{ $bill->customerDetails->name }}</p>
-                                    <p class="mb-1"><strong>Address :</strong> {{ $bill->customerDetails->address }}</p>
-                                    <p class="mb-1"><strong>City :</strong> {{ $bill->customerDetails->city }}</p>
-                                    <p class="mb-1"><strong>Mobile No :</strong> {{ $bill->customerDetails->mobile_no }}</p>
-                                    @if ($bill->customerDetails->gst_no)
-                                        <p class="mb-0"><strong>GST :</strong> {{ $bill->customerDetails->gst_no }}</p>
-                                    @endif
-                                @else
-                                    <p class="mb-0">Customer information not available</p>
-                                @endif
-                            </div>
+                        <div class="table-responsive">
+                            <table class="table m-0">
+                                <div class="row">
+                                    <tbody>
 
-                            <div class="col-xl-6 col-md-12 col-sm-5 col-12 mb-xl-0 mb-md-6 mb-sm-0 mb-6 ">
-                                <h5><strong>Invoice From:</strong></h5>
-                                <p class="mb-1"><strong>Company Name :</strong> {{ $bill->user->comp_name }}</p>
-                                <p class="mb-1"><strong>Address :</strong> {{ $bill->user->address }}</p>
-                                <p class="mb-1"><strong>Mobile No :</strong> {{ $bill->user->mobile }}</p>
-                                @if ($bill->user->gst)
-                                    <p class="mb-0"><strong>GST :</strong> {{ $bill->user->gst }}</p>
-                                @endif
-                            </div>
+                                        <div class="col-xl-6 col-md-12 col-sm-5 col-12 mb-xl-0 mb-md-6 mb-sm-0 mb-6">
+                                            <td>
+                                                <h5><strong>Invoice To:</strong></h5>
+                                                @if ($bill->customerDetails)
+                                                    <p class="mb-1"><strong>Name :</strong> {{ $bill->customerDetails->name }}</p>
+                                                    <p class="mb-1"><strong>Address :</strong> {{ $bill->customerDetails->address }}</p>
+                                                    <p class="mb-1"><strong>City :</strong> {{ $bill->customerDetails->city }}</p>
+                                                    <p class="mb-1"><strong>Mobile No :</strong> {{ $bill->customerDetails->mobile_no }}</p>
+                                                    @if ($bill->customerDetails->gst_no)
+                                                        <p class="mb-0"><strong>GST :</strong> {{ $bill->customerDetails->gst_no }}</p>
+                                                    @endif
+                                                @else
+                                                    <p class="mb-0">Customer information not available</p>
+                                                @endif
+                                            </td>
+                                        </div>
+
+                                        <div class="col-xl-6 col-md-12 col-sm-5 col-12 mb-xl-0 mb-md-6 mb-sm-0 mb-6 ">
+                                            <td>
+                                                <h5><strong>Invoice From:</strong></h5>
+                                                <p class="mb-1"><strong>Company Name :</strong> {{ $bill->user->comp_name }}</p>
+                                                <p class="mb-1"><strong>Address :</strong> {{ $bill->user->address }}</p>
+                                                <p class="mb-1"><strong>Mobile No :</strong> {{ $bill->user->mobile }}</p>
+                                                @if ($bill->user->gst)
+                                                    <p class="mb-0"><strong>GST :</strong> {{ $bill->user->gst }}</p>
+                                                @endif
+                                            </td>
+                                        </div>
+                                    </tbody>
+                                </div>
+                            </table>
                         </div>
                     </div>
 
@@ -150,18 +160,18 @@
                                             <p class="fw-medium mb-2">₹{{ number_format($bill->cgst, 2) }}</p>
                                             <p class="fw-medium mb-2">₹{{ number_format($bill->sgst, 2) }}</p>
                                         @endif
-                                        
+
                                         <p class="fw-medium mb-0 border-bottom pb-2">₹<strong>{{ number_format($bill->total, 2) }}</strong></p>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
 
-                        @php
+                        {{-- @php
                             $f = new \NumberFormatter( locale_get_default(), \NumberFormatter::SPELLOUT );
                             $word = $f->format($bill->total);
                         @endphp
-                        <p><strong>In word:</strong> {{ ucfirst($word) }} only</p>
+                        <p><strong>In word:</strong> {{ ucfirst($word) }} only</p> --}}
                     </div>
 
                     <hr class="mt-0 mb-1">
@@ -194,7 +204,7 @@
                                 <p></p>
                                 <br>
                                 <br>
-                                <p ><strong>ફોર:</strong> જય બજરંગ સિમેન્ટ પ્રોડક્ટ્સ</p>
+                                <p><strong>ફોર:</strong> જય બજરંગ સિમેન્ટ પ્રોડક્ટ્સ</p>
 
                             </div>
                         </div>
@@ -223,7 +233,7 @@
                         <button class="btn btn-warning d-grid w-100 mb-4" onclick="downloadAsPNG()">Download as PNG</button>
                         <div class="d-flex mb-4">
                             {{-- <a class="btn btn-secondary d-grid w-100 me-4 text-light" onclick="window.print()"> Print </a> --}}
-                           <a class="btn btn-secondary d-grid w-100 me-4" style="color: white;" onclick="window.print()"> Print </a>
+                            <a class="btn btn-secondary d-grid w-100 me-4" style="color: white;" onclick="window.print()"> Print </a>
                             <a href="{{ route('invoice.edit', $bill->id) }}" class="btn btn-info d-grid w-100"> Edit </a>
                         </div>
                         <a href="{{ route('invoice.index') }}" class="btn btn-primary d-grid w-100 mb-4">Back to List</a>
@@ -239,7 +249,7 @@
         // Function to download invoice as PNG
         function downloadAsPNG() {
             const element = document.querySelector('.invoice-preview-card');
-            
+
             // Show loading indicator
             const loadingBtn = event.target;
             const originalText = loadingBtn.innerHTML;
@@ -259,7 +269,7 @@
                 link.download = 'invoice-{{ $bill->bill_no }}.png';
                 link.href = canvas.toDataURL('image/png');
                 link.click();
-                
+
                 // Reset button
                 loadingBtn.innerHTML = originalText;
                 loadingBtn.disabled = false;
@@ -274,7 +284,7 @@
         // Function to download invoice as PDF
         function downloadAsPDF() {
             const element = document.querySelector('.invoice-preview-card');
-            
+
             // Show loading indicator
             const loadingBtn = event.target;
             const originalText = loadingBtn.innerHTML;
@@ -290,15 +300,17 @@
                 height: element.offsetHeight
             }).then(function(canvas) {
                 // Convert canvas to PDF
-                const { jsPDF } = window.jspdf;
+                const {
+                    jsPDF
+                } = window.jspdf;
                 const pdf = new jsPDF('p', 'mm', 'a4');
-                
+
                 const imgData = canvas.toDataURL('image/png');
                 const pdfWidth = pdf.internal.pageSize.getWidth();
                 const pdfHeight = pdf.internal.pageSize.getHeight();
                 const imgWidth = pdfWidth;
                 const imgHeight = (canvas.height * imgWidth) / canvas.width;
-                
+
                 let heightLeft = imgHeight;
                 let position = 0;
 
@@ -316,7 +328,7 @@
 
                 // Download PDF
                 pdf.save('invoice-{{ $bill->bill_no }}.pdf');
-                
+
                 // Reset button
                 loadingBtn.innerHTML = originalText;
                 loadingBtn.disabled = false;

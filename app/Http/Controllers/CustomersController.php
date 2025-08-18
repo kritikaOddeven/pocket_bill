@@ -13,7 +13,7 @@ class CustomersController extends Controller
      */
     public function index()
     {
-        $customers = Customers::where('user_id', Auth::id())->orderBy('name')->get();
+        $customers = Customers::where('user_id', Auth::id())->orderBy('name')->orderBy('id', 'desc')->paginate(10);
         return view('customers.index', compact('customers'));
     }
 

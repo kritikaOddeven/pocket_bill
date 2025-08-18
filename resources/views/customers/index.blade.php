@@ -7,7 +7,7 @@
         <div class="card">
             <div class="card-header d-flex justify-content-between align-items-center">
                 <h5 class="p-0 m-0">Customer Lists</h5>
-                <a href="{{route('customers.create')}}" class="btn create-new btn-primary" type="button"><span class="d-flex align-items-center gap-2"><i class="icon-base bx bx-plus icon-sm"></i> <span class="d-none d-sm-inline-block">Add Customer</span></span></a>
+                <a href="{{ route('customers.create') }}" class="btn create-new btn-primary" type="button"><span class="d-flex align-items-center gap-2"><i class="icon-base bx bx-plus icon-sm"></i> <span class="d-none d-sm-inline-block">Add Customer</span></span></a>
             </div>
             <div class="table-responsive text-nowrap">
                 <table class="table">
@@ -23,28 +23,31 @@
                     </thead>
                     <tbody class="table-border-bottom-0">
                         @forelse($customers as $customer)
-                        <tr>
-                            <td>{{ $customer->name }}</td>
-                            <td>{{ $customer->mobile_no }}</td>
-                            <td>{{ $customer->gst_no ?: 'N/A' }}</td>
-                            <td>{{ $customer->city }}</td>
-                            <td>{{ $customer->address }}</td>
-                            <td>
-                                <a href="{{ route('customers.edit', $customer->id) }}" class="btn btn-sm btn-info"><i class="bx bx-edit-alt me-1"></i></a>
-                                <form action="{{ route('customers.destroy', $customer->id) }}" method="POST" style="display: inline;">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this customer?')"><i class="bx bx-trash me-1"></i></button>
-                                </form>
-                            </td>
-                        </tr>
+                            <tr>
+                                <td>{{ $customer->name }}</td>
+                                <td>{{ $customer->mobile_no }}</td>
+                                <td>{{ $customer->gst_no ?: 'N/A' }}</td>
+                                <td>{{ $customer->city }}</td>
+                                <td>{{ $customer->address }}</td>
+                                <td>
+                                    <a href="{{ route('customers.edit', $customer->id) }}" class="btn btn-sm btn-info"><i class="bx bx-edit-alt me-1"></i></a>
+                                    <form action="{{ route('customers.destroy', $customer->id) }}" method="POST" style="display: inline;">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this customer?')"><i class="bx bx-trash me-1"></i></button>
+                                    </form>
+                                </td>
+                            </tr>
                         @empty
-                        <tr>
-                            <td colspan="6" class="text-center">No customers found.</td>
-                        </tr>
+                            <tr>
+                                <td colspan="6" class="text-center">No customers found.</td>
+                            </tr>
                         @endforelse
                     </tbody>
                 </table>
+                <div class="mt-3">
+                    {{ $customers->links() }}
+                </div>
             </div>
         </div>
 
