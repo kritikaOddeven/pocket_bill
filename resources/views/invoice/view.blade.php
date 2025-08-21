@@ -79,33 +79,24 @@
             <!-- Invoice -->
             <div class="col-lg-9 col-md-12 col-12 mb-md-0 mb-6">
                 <div class="card invoice-preview-card p-sm-12 p-6">
-                    <div class="card-body invoice-preview-header rounded">
+                    <div class="card-body invoice-preview-header rounded mb-0 pb-0">
                         <div class="d-flex justify-content-between flex-xl-row flex-md-column flex-sm-row align-items-xl-center align-items-md-start align-items-sm-center align-items-start">
                             <div>
-                                <h5 class="mb-6">Invoice #{{ $bill->bill_no }}</h5>
-                            </div>
-                            <div class="mb-xl-0 mb-6 text-heading">
-                                <div class="d-flex svg-illustration mb-6 gap-2 align-items-center">
-                                    <span class="app-brand-logo demo">
+                                <span class="app-brand-logo demo">
                                         <span class="text-dark">
                                             <span class="app-brand-text demo fw-bold ms-50 lh-1">INVOICE</span>
                                         </span>
                                     </span>
-                                </div>
                             </div>
                             <div>
-                                {{-- <h5 class="mb-6">Type:
-                                    @if ($bill->type == 0)
-                                        <span class="badge bg-secondary">Without GST</span>
-                                    @else
-                                        <span class="badge bg-success">With GST</span>
-                                    @endif
-                                </h5> --}}
+                                
                                 <p class="mb-1"><strong>Date:</strong> {{ date('d/m/Y', strtotime($bill->date)) }}</p>
+                                <h5 class="mb-6">Invoice #{{ $bill->bill_no }}</h5>
+
                             </div>
                         </div>
                     </div>
-                    <div class="card-body ">
+                    <div class="card-body mt-0 pt-0">
                         <div class="table-responsive">
                             <table class="table m-0">
                                 <div class="row">
@@ -145,7 +136,7 @@
                         </div>
                     </div>
 
-                    <div class="table-responsive border border-bottom-0 border-top-0 rounded p-4">
+                    <div class="table-responsive border border-bottom-0 border-top-0 rounded p-4 pt-0">
                         <table class="table m-0">
                             <thead>
                                 <tr>
