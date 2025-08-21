@@ -128,8 +128,8 @@
                                             </td>
                                         </div>
 
-                                        <div class="col-xl-6 col-md-12 col-sm-5 col-12 mb-xl-0 mb-md-6 mb-sm-0 mb-6 ">
-                                            <td>
+                                        <div class="col-xl-6 col-md-12 col-sm-5 col-12 mb-xl-0 mb-md-6 mb-sm-0 mb-6">
+                                            <td class="text-end">
                                                 <h5><strong>Invoice From:</strong></h5>
                                                 <p class="mb-1"><strong>Company Name :</strong> {{ $bill->user->comp_name }}</p>
                                                 <p class="mb-1"><strong>Address :</strong> {{ $bill->user->address }}</p>
