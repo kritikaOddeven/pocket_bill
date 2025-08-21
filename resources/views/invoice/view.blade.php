@@ -2,34 +2,44 @@
 @section('admin-content')
     <style>
         /* Simple non-responsive approach */
-        .invoice-preview-card {
+        /* .invoice-preview-card {
             min-width: 900px !important;
-        }
+        } */
         
         /* Prevent responsive breakpoints from affecting layout */
-        @media (max-width: 1200px) {
+        /* @media (max-width: 1200px) {
             .invoice-preview-card {
-                min-width: 900px !important;
+                max-width: 600px !important;
             }
+        } */
+
+        .card-body {
+            padding: 1rem;
         }
         
         @media (max-width: 768px) {
             .invoice-preview-card {
-                min-width: 900px !important;
-                transform: scale(0.8);
-                transform-origin: top left;
+                max-width: 600px !important;
+                min-width: 600px !important;
             }
             
             .container-xxl {
                 overflow-x: auto;
             }
+
+            .invoice-actions{
+                margin-top:20px;
+            }
+
+            .card{
+                margin: auto;
+            }
         }
         
         @media (max-width: 576px) {
             .invoice-preview-card {
-                min-width: 900px !important;
-                transform: scale(0.7);
-                transform-origin: top left;
+                max-width: 600px !important;
+                min-width: 600px !important;
             }
         }
         
@@ -67,10 +77,10 @@
 
         <div class="row invoice-preview">
             <!-- Invoice -->
-            <div class="col-xl-9 col-md-8 col-12 mb-md-0 mb-6" style="height: 115vh;">
+            <div class="col-lg-9 col-md-12 col-12 mb-md-0 mb-6">
                 <div class="card invoice-preview-card p-sm-12 p-6">
                     <div class="card-body invoice-preview-header rounded">
-                        <div class="d-flex justify-content-between flex-xl-row flex-md-column flex-sm-row flex-column align-items-xl-center align-items-md-start align-items-sm-center align-items-start">
+                        <div class="d-flex justify-content-between flex-xl-row flex-md-column flex-sm-row align-items-xl-center align-items-md-start align-items-sm-center align-items-start">
                             <div>
                                 <h5 class="mb-6">Invoice #{{ $bill->bill_no }}</h5>
                             </div>
@@ -259,7 +269,7 @@
             <!-- /Invoice -->
 
             <!-- Invoice Actions -->
-            <div class="col-xl-3 col-md-4 col-12 invoice-actions">
+            <div class="col-lg-3 col-md-12 col-12 invoice-actions">
                 <div class="card">
                     <div class="card-body">
                         <button class="btn btn-success d-grid w-100 mb-4" onclick="downloadAsPDF()">Download as PDF</button>
