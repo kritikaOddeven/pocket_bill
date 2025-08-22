@@ -27,14 +27,15 @@
                                     <table class="table table-bordered">
                                         <thead class="table-secondary">
                                             <tr>
-                                                <th>Bill No.</th>
-                                                <th>Customer</th>
-                                                <th>Date</th>
-                                                <th>Type</th>
-                                                <th>Total</th>
-                                                <th>Payment Status</th>
-                                                <th>Actions</th>
+                                                <th><span class="d-inline-block px-3 py-1">Bill No.</span></th>
+                                                <th><span class="d-inline-block px-3 py-1">Customer</span></th>
+                                                <th><span class="d-inline-block px-3 py-1">Date</span></th>
+                                                <th><span class="d-inline-block px-3 py-1">Type</span></th>
+                                                <th><span class="d-inline-block px-3 py-1">Total</span></th>
+                                                <th><span class="d-inline-block px-3 py-1">Payment Status</span></th>
+                                                <th><span class="d-inline-block px-3 py-1">Actions</span></th>
                                             </tr>
+
                                         </thead>
                                         <tbody>
                                             @forelse($bills as $bill)

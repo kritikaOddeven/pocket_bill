@@ -13,22 +13,24 @@
                 <table class="table">
                     <thead class="table-secondary">
                         <tr>
-                            <th>Name</th>
-                            <th>Mobile No.</th>
-                            <th>GSt No.</th>
-                            <th>City</th>
-                            <th>Address</th>
-                            <th>Actions</th>
+                            <th><span class="d-inline-block px-3 py-1">Name</span></th>
+                            <th><span class="d-inline-block px-3 py-1">Mobile No.</span></th>
+                            <th><span class="d-inline-block px-3 py-1">GST No.</span></th>
+                            <th><span class="d-inline-block px-3 py-1">City</span></th>
+                            <th><span class="d-inline-block px-3 py-1">Address</span></th>
+                            <th><span class="d-inline-block px-3 py-1">Actions</span></th>
                         </tr>
+
                     </thead>
                     <tbody class="table-border-bottom-0">
                         @forelse($customers as $customer)
                             <tr>
-                                <td>{{ $customer->name }}</td>
-                                <td>{{ $customer->mobile_no }}</td>
-                                <td>{{ $customer->gst_no ?: 'N/A' }}</td>
-                                <td>{{ $customer->city }}</td>
-                                <td>{{ $customer->address }}</td>
+                                <td><span class="d-inline-block px-3 py-1">{{ $customer->name }}</span></td>
+                                <td><span class="d-inline-block px-3 py-1">{{ $customer->mobile_no }}</span></td>
+                                <td><span class="d-inline-block px-3 py-1">{{ $customer->gst_no ?: 'N/A' }}</span></td>
+                                <td><span class="d-inline-block px-3 py-1">{{ $customer->city }}</span></td>
+                                <td><span class="d-inline-block px-3 py-1">{{ $customer->address }}</span></td>
+
                                 <td>
                                     <a href="{{ route('customers.edit', $customer->id) }}" class="btn btn-sm btn-info"><i class="bx bx-edit-alt me-1"></i></a>
                                     <form action="{{ route('customers.destroy', $customer->id) }}" method="POST" style="display: inline;">

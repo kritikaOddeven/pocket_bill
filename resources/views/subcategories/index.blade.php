@@ -24,10 +24,10 @@
                     <table class="table table-bordered">
                         <thead class="table-secondary">
                             <tr>
-                                <th>#</th>
-                                <th>Name</th>
-                                <th>Category</th>
-                                <th>Actions</th>
+                                <th><span class="d-inline-block px-3 py-2">#</span></th>
+                                <th><span class="d-inline-block px-3 py-2">Name</span></th>
+                                <th><span class="d-inline-block px-3 py-2">Category</span></th>
+                                <th><span class="d-inline-block px-3 py-2">Actions</span></th>
                             </tr>
                         </thead>
                         <tbody>
